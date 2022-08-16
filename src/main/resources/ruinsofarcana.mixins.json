@@ -6,6 +6,7 @@
   "mixins": [
   ],
   "client": [
+    "GogglesMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "ruinsofarcana:block/myrtle_sapling"
+  }
+}

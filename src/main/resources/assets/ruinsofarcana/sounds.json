@@ -1,0 +1,20 @@
+{
+  "light_bow_shot": {
+    "subtitle": "ruinsofarcana.light_bow_shot",
+    "sounds": [
+      "ruinsofarcana:light_bow_shot"
+    ]
+  },
+  "thunder_mace": {
+    "subtitle": "ruinsofarcana.thunder_mace",
+    "sounds": [
+      "ruinsofarcana:thunder_mace"
+    ]
+  },
+  "thunder_mace2": {
+    "subtitle": "ruinsofarcana.thunder_mace2",
+    "sounds": [
+      "ruinsofarcana:thunder_mace2"
+    ]
+  }
+}

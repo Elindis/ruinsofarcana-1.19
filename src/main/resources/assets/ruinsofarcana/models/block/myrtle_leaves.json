@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "ruinsofarcana:block/myrtle_leaves"
+  }
+}

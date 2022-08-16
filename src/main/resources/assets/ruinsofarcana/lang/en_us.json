@@ -1,0 +1,42 @@
+{
+  "item.ruinsofarcana.auric_ingot": "Auric Ingot",
+  "item.ruinsofarcana.auric_nugget": "Auric Nugget",
+  "item.ruinsofarcana.luxite": "Luxite",
+  "item.ruinsofarcana.iridite": "Iridite",
+  "item.ruinsofarcana.prismite": "Prismite",
+
+  "item.ruinsofarcana.arkenite_multitool": "Arkenite Mattock",
+  "item.ruinsofarcana.wand_of_frost_bolt": "Wand of Frost Bolt",
+  "item.ruinsofarcana.wand_of_fireball": "Wand of Fireball",
+  "item.ruinsofarcana.light_bow": "Light Bow",
+  "item.ruinsofarcana.thunder_mace": "Thunder Mace",
+  "item.ruinsofarcana.sealing_parchment": "Sealing Parchment",
+
+  "item.ruinsofarcana.truesight_goggles": "Truesight Goggles",
+  "item.ruinsofarcana.diving_necklace": "Diving Necklace",
+  "item.ruinsofarcana.gravity_belt": "Gravity Belt",
+  "item.ruinsofarcana.travelers_boots": "Traveler's Boots",
+
+  "item.ruinsofarcana.raw_rice": "Raw Rice",
+  "item.ruinsofarcana.cooked_rice": "Cooked Rice",
+  "item.ruinsofarcana.rice_ball": "Rice Ball",
+  "item.ruinsofarcana.fish_roll": "Fish Roll",
+  "block.ruinsofarcana.rice_crop": "Rice Crop",
+
+  "block.ruinsofarcana.myrtle_log": "Myrtle Log",
+  "block.ruinsofarcana.myrtle_wood": "Myrtle Wood",
+  "block.ruinsofarcana.stripped_myrtle_log": "Stripped Myrtle Log",
+  "block.ruinsofarcana.stripped_myrtle_wood": "Stripped Myrtle Wood",
+  "block.ruinsofarcana.myrtle_planks": "Myrtle Planks",
+
+  "block.ruinsofarcana.arkenite_block": "Block of Arkenite",
+  "block.ruinsofarcana.ancient_inscribed_stone": "Ancient Inscribed Stone",
+  "block.ruinsofarcana.auric_pipe": "Auric Pipe",
+  "block.ruinsofarcana.pedestal": "Enchanted Pedestal",
+  "block.ruinsofarcana.transmutation_table": "Transmutation Table",
+
+  "item.ruinsofarcana.ancient_note_sealed": "Sealed Ancient Note",
+  "item.ruinsofarcana.ancient_note_sealed.tooltip": "The scroll has yet to be opened.",
+
+  "itemGroup.ruinsofarcana.ruinsofarcana": "Ruins of Arcana"
+}

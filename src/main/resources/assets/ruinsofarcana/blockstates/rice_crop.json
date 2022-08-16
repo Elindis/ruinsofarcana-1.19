@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "age=0": { "model": "ruinsofarcana:block/rice_stage0" },
+    "age=1": { "model": "ruinsofarcana:block/rice_stage1" },
+    "age=2": { "model": "ruinsofarcana:block/rice_stage2" },
+    "age=3": { "model": "ruinsofarcana:block/rice_stage3" },
+    "age=4": { "model": "ruinsofarcana:block/rice_stage4" },
+    "age=5": { "model": "ruinsofarcana:block/rice_stage5" }
+  }
+}

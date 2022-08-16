@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "ruinsofarcana",
+  "version": "${version}",
+
+  "name": "Ruins of Arcana",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "Elindis"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/ruinsofarcana/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.elindis.ruinsofarcana.RuinsOfArcana"
+    ],
+    "client": [
+      "net.elindis.ruinsofarcana.RuinsOfArcanaClient"
+    ]
+  },
+  "mixins": [
+    "ruinsofarcana.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "fabric": "*",
+    "minecraft": "~1.19",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

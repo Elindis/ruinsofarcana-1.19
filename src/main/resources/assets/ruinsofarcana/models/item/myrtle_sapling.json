@@ -1,0 +1,6 @@
+{
+  "parent": "ruinsofarcana:block/myrtle_sapling",
+  "textures": {
+    "layer0": "ruinsofarcana:block/myrtle_sapling"
+  }
+}

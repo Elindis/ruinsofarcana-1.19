@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "ruinsofarcana:item/ancient_note_sealed"
+  }
+}
