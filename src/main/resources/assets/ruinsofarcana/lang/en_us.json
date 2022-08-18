@@ -10,7 +10,7 @@
   "item.ruinsofarcana.wand_of_fireball": "Wand of Fireball",
   "item.ruinsofarcana.light_bow": "Light Bow",
   "item.ruinsofarcana.thunder_mace": "Thunder Mace",
-  "item.ruinsofarcana.sealing_parchment": "Sealing Parchment",
+  "item.ruinsofarcana.scribes_pen": "Scribe's Pen",
 
   "item.ruinsofarcana.truesight_goggles": "Truesight Goggles",
   "item.ruinsofarcana.diving_necklace": "Diving Necklace",
@@ -29,7 +29,11 @@
   "block.ruinsofarcana.stripped_myrtle_wood": "Stripped Myrtle Wood",
   "block.ruinsofarcana.myrtle_planks": "Myrtle Planks",
 
-  "block.ruinsofarcana.arkenite_block": "Block of Arkenite",
+  "block.ruinsofarcana.research_parchment": "Research Parchment",
+  "block.ruinsofarcana.research_parchment_1": "Research Parchment",
+  "block.ruinsofarcana.research_parchment_2": "Research Parchment",
+  "block.ruinsofarcana.research_parchment_3": "Research Parchment",
+  "block.ruinsofarcana.research_parchment_4": "Research Parchment",
   "block.ruinsofarcana.ancient_inscribed_stone": "Ancient Inscribed Stone",
   "block.ruinsofarcana.auric_pipe": "Auric Pipe",
   "block.ruinsofarcana.pedestal": "Enchanted Pedestal",

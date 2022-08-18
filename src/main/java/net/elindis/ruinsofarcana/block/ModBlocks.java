@@ -1,6 +1,7 @@
 package net.elindis.ruinsofarcana.block;
 
 import net.elindis.ruinsofarcana.RuinsOfArcana;
+import net.elindis.ruinsofarcana.block.research.*;
 import net.elindis.ruinsofarcana.item.ModItemGroup;
 import net.elindis.ruinsofarcana.world.feature.tree.MyrtleSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -36,8 +37,7 @@ public class ModBlocks {
             new Block(FabricBlockSettings.of(Material.METAL).strength(4f).requiresTool().luminance(3).sounds(BlockSoundGroup.METAL)),
             ModItemGroup.RUINSOFARCANA);
 
-    public static final Block RICE_CROP = registerBlockWithoutItem("rice_crop",
-            new RiceCropBlock(FabricBlockSettings.copy(Blocks.WHEAT)), ModItemGroup.RUINSOFARCANA);
+
 
 
     // Blocks with entities
@@ -54,8 +54,29 @@ public class ModBlocks {
     public static final Block MANUFACTORY = registerBlock("manufactory",
             new ManufactoryBlock(FabricBlockSettings.of(Material.METAL).nonOpaque()), ModItemGroup.RUINSOFARCANA);
 
+    // Research blocks and artifacts
+    public static final Block RESEARCH_PARCHMENT_0 = registerBlock("research_parchment",
+            new ResearchParchmentBlock_0(FabricBlockSettings.of(Material.DECORATION).nonOpaque()
+                    .sounds(BlockSoundGroup.AZALEA_LEAVES).noCollision().breakInstantly()), ModItemGroup.RUINSOFARCANA);
+    public static final Block RESEARCH_PARCHMENT_1 = registerBlock("research_parchment_1",
+            new ResearchParchmentBlock_1(FabricBlockSettings.of(Material.DECORATION).nonOpaque()
+                    .sounds(BlockSoundGroup.AZALEA_LEAVES).noCollision().breakInstantly()), ModItemGroup.RUINSOFARCANA);
+    public static final Block RESEARCH_PARCHMENT_2 = registerBlock("research_parchment_2",
+            new ResearchParchmentBlock_2(FabricBlockSettings.of(Material.DECORATION).nonOpaque()
+                    .sounds(BlockSoundGroup.AZALEA_LEAVES).noCollision().breakInstantly()), ModItemGroup.RUINSOFARCANA);
+    public static final Block RESEARCH_PARCHMENT_3 = registerBlock("research_parchment_3",
+            new ResearchParchmentBlock_3(FabricBlockSettings.of(Material.DECORATION).nonOpaque()
+                    .sounds(BlockSoundGroup.AZALEA_LEAVES).noCollision().breakInstantly()), ModItemGroup.RUINSOFARCANA);
+    public static final Block RESEARCH_PARCHMENT_4 = registerBlock("research_parchment_4",
+            new ResearchParchmentBlock_4(FabricBlockSettings.of(Material.DECORATION).nonOpaque()
+                    .sounds(BlockSoundGroup.AZALEA_LEAVES).noCollision().breakInstantly()), ModItemGroup.RUINSOFARCANA);
 
+    // Blocks without items
+    public static final Block RICE_CROP = registerBlockWithoutItem("rice_crop",
+            new RiceCropBlock(FabricBlockSettings.copy(Blocks.WHEAT)), ModItemGroup.RUINSOFARCANA);
 
+    public static final Block CRACKED_OBSIDIAN = registerBlockWithoutItem("cracked_obsidian",
+            new CrackedObsidianBlock(FabricBlockSettings.copy(Blocks.OBSIDIAN)), ModItemGroup.RUINSOFARCANA);
 
     public static void registerModBlocks() {
         RuinsOfArcana.LOGGER.info("Registering ModBlocks for "+ RuinsOfArcana.MOD_ID);

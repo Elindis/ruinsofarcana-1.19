@@ -2,10 +2,15 @@ package net.elindis.ruinsofarcana.util;
 
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class ModParticles {
 
@@ -32,6 +37,20 @@ public class ModParticles {
             double deltaZ = (entity.getWorld().random.nextDouble()) * movementFactor;
             PlayerLookup.tracking(entity).forEach(player -> ((ServerWorld) entity.getWorld())
                     .spawnParticles(player, (ParticleEffect) particleType, true, x, y, z, 1, deltaX, deltaY, deltaZ, speed));
+        }
+    }
+    public static void doBlockParticles(World world, BlockPos pos, PlayerEntity player, ParticleType particleType, int intensity, float speed) {
+        for (int i = 0; i < intensity; i++) {
+            double x = pos.getX() + 0.5f;
+            double y = pos.getY() + 0.5f;
+            double z = pos.getZ() + 0.5f;
+            double deltaX = (world.random.nextDouble());
+            double deltaY = (world.random.nextDouble());
+            double deltaZ = (world.random.nextDouble());
+            if (world instanceof ServerWorld) {
+                ((ServerWorld) world).spawnParticles((ServerPlayerEntity) player, (ParticleEffect) particleType,
+                        true, x, y, z, 1, deltaX, deltaY, deltaZ, speed);
+            }
         }
     }
 

@@ -22,6 +22,8 @@ public class SealingParchmentItem extends Item {
         super(settings);
     }
 
+
+
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         // First, set up the objects we're accessing from "context" for ease of reading.
@@ -36,7 +38,7 @@ public class SealingParchmentItem extends Item {
         // Check to see if the block is eligible
         if (blockState.equals(ModBlocks.ANCIENT_INSCRIBED_STONE.getDefaultState()) ) {
 
-            // I'm not exactly sure what this does. It's probably not important.
+            // Tells the server we used this on a block.
             if (playerEntity instanceof ServerPlayerEntity) {
                 Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity)playerEntity, blockPos, itemStack);
             }

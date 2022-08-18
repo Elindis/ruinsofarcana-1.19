@@ -12,6 +12,7 @@ public class ModTags {
     public static class Blocks {
 
         public static final TagKey<Block> MULTITOOL_MINEABLE = createTag("mineable/multitool");
+        public static final TagKey<Block> RESEARCH_PARCHMENTS = createTag("research_parchments");
 
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(Registry.BLOCK_KEY, new Identifier(RuinsOfArcana.MOD_ID, name));

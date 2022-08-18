@@ -56,8 +56,8 @@ public class ModItems {
     public static final Item LIGHT_BOW = registerItem(
             "light_bow", new LightBowItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(750)));
 
-    public static final Item SEALING_PARCHMENT = registerItem(
-            "sealing_parchment", new SealingParchmentItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA)));
+    public static final Item SCRIBES_PEN = registerItem(
+            "scribes_pen", new ScribesPenItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(15)));
 
     // Armor
     public static final Item TRUESIGHT_GOGGLES = registerItem(
@@ -96,6 +96,7 @@ public class ModItems {
             "rice_ball", new Item(new FabricItemSettings().food(ModFoodComponents.RICE_BALL).group(ModItemGroup.RUINSOFARCANA)));
     public static final Item FISH_ROLL = registerItem(
             "fish_roll", new Item(new FabricItemSettings().food(ModFoodComponents.FISH_ROLL).group(ModItemGroup.RUINSOFARCANA)));
+
 
     // Vials
     public static final Item VIAL_OF_SPEED = registerItem(
