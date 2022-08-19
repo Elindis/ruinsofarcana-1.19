@@ -1,5 +1,6 @@
 package net.elindis.ruinsofarcana.entity;
 
+import net.elindis.ruinsofarcana.item.ModItems;
 import net.elindis.ruinsofarcana.util.ModParticles;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -28,7 +29,17 @@ public class LightArrowEntity extends ArrowEntity {
     public LightArrowEntity(World world, LivingEntity owner) {
         super(ModEntities.LIGHT_ARROW_ENTITY_TYPE, world);
         setNoGravity(true);
-        this.updatePosition(owner.getX(), owner.getEyeY() - 0.10000000149011612D, owner.getZ());
+        float initialOffsetX = 0;
+        float initialOffsetZ = 0;
+        if (owner.getMainHandStack().isOf(ModItems.LIGHT_BOW)) {
+            initialOffsetX += (-MathHelper.cos(MathHelper.RADIANS_PER_DEGREE * owner.getHeadYaw())/4);
+            initialOffsetZ += (-MathHelper.sin(MathHelper.RADIANS_PER_DEGREE * owner.getHeadYaw())/4);
+        }
+        if (owner.getOffHandStack().isOf(ModItems.LIGHT_BOW)) {
+            initialOffsetX += (MathHelper.cos(MathHelper.RADIANS_PER_DEGREE * owner.getHeadYaw())/4);
+            initialOffsetZ += (MathHelper.sin(MathHelper.RADIANS_PER_DEGREE * owner.getHeadYaw())/4);
+        }
+        this.updatePosition(owner.getX()+initialOffsetX, owner.getEyeY() - 0.11f, owner.getZ()+initialOffsetZ);
         setOwner(owner);
 
         if (owner instanceof PlayerEntity) {
@@ -138,9 +149,9 @@ public class LightArrowEntity extends ArrowEntity {
 
             }
         } else {
-            this.setVelocity(this.getVelocity().multiply(-0.1));
-            this.setYaw(this.getYaw() + 180.0f);
-            this.prevYaw += 180.0f;
+            //this.setVelocity(this.getVelocity().multiply(-0.1));
+            //this.setYaw(this.getYaw() + 180.0f);
+            //this.prevYaw += 180.0f;
             if (!this.world.isClient && this.getVelocity().lengthSquared() < 1.0E-7) {
 //                if (this.pickupType == PickupPermission.ALLOWED) {
 //                    this.dropStack(this.asItemStack(), 0.1f);

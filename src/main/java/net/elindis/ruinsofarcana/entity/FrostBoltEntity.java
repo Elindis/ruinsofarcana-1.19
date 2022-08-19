@@ -1,11 +1,14 @@
 package net.elindis.ruinsofarcana.entity;
 
 import net.elindis.ruinsofarcana.block.ModBlocks;
+import net.elindis.ruinsofarcana.enchantment.ModEnchantments;
+import net.elindis.ruinsofarcana.item.ModItems;
 import net.elindis.ruinsofarcana.util.ModParticles;
 import net.minecraft.block.*;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -16,6 +19,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.packet.s2c.play.GameStateChangeS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -35,12 +39,20 @@ public class FrostBoltEntity extends PersistentProjectileEntity {
     }
     public FrostBoltEntity(World world, LivingEntity owner) {
         super(ModEntities.FROST_BOLT_ENTITY_ENTITY_TYPE,owner, world);
-        this.updatePosition(owner.getX(), owner.getEyeY() - 0.10000000149011612D, owner.getZ());
+        float initialOffsetX = 0;
+        float initialOffsetZ = 0;
+        if (owner.getMainHandStack().isOf(ModItems.WAND_OF_FROST_BOLT)) {
+            initialOffsetX += (-MathHelper.cos(MathHelper.RADIANS_PER_DEGREE * owner.getHeadYaw())/4);
+            initialOffsetZ += (-MathHelper.sin(MathHelper.RADIANS_PER_DEGREE * owner.getHeadYaw())/4);
+        }
+        if (owner.getOffHandStack().isOf(ModItems.WAND_OF_FROST_BOLT)) {
+            initialOffsetX += (MathHelper.cos(MathHelper.RADIANS_PER_DEGREE * owner.getHeadYaw())/4);
+            initialOffsetZ += (MathHelper.sin(MathHelper.RADIANS_PER_DEGREE * owner.getHeadYaw())/4);
+        }
+        this.updatePosition(owner.getX()+initialOffsetX, owner.getEyeY() , owner.getZ()+initialOffsetZ);
         setOwner(owner);
 
-        if (owner instanceof PlayerEntity) {
-            this.pickupType = PickupPermission.DISALLOWED;
-        }
+        this.pickupType = PickupPermission.DISALLOWED;
     }
 
     public FrostBoltEntity(World world, double x, double y, double z) {
@@ -131,7 +143,21 @@ public class FrostBoltEntity extends PersistentProjectileEntity {
     protected void onHit(LivingEntity target) {
         super.onHit(target);
         if (!world.isClient) {
+            target.extinguish();
             target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 200, 3));
+            target.setFrozenTicks(600);
+            target.damage(DamageSource.magic(this, target.getAttacker()), 10.0f);
+
+            // ===== WISDOM ENCHANTMENT INTEGRATION ===== //
+            // For some reason it didn't work out of the box like the light bow did.
+
+            if (target.getAttacker() == null) return;
+            if (target.isDead() && (target.getAttacker().getMainHandStack().isOf(ModItems.WAND_OF_FROST_BOLT) ||
+                    target.getAttacker().getOffHandStack().isOf(ModItems.WAND_OF_FROST_BOLT))) {
+                int orbsToDropMH = EnchantmentHelper.getLevel(ModEnchantments.WISDOM, target.getAttacker().getMainHandStack());
+                int orbsToDropOH = EnchantmentHelper.getLevel(ModEnchantments.WISDOM, target.getAttacker().getOffHandStack());
+                ExperienceOrbEntity.spawn((ServerWorld) world, target.getPos(), Math.max(orbsToDropMH, orbsToDropOH));
+            }
         }
     }
 //    @Override
@@ -150,16 +176,21 @@ public class FrostBoltEntity extends PersistentProjectileEntity {
 
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult) {
-        //this.inBlockState = this.world.getBlockState(blockHitResult.getBlockPos());
         super.onBlockHit(blockHitResult);
-        Vec3d vec3d = blockHitResult.getPos().subtract(this.getX(), this.getY(), this.getZ());
-        this.setVelocity(vec3d);
-        Vec3d vec3d2 = vec3d.normalize().multiply(0.05f);
-        this.setPos(this.getX() - vec3d2.x, this.getY() - vec3d2.y, this.getZ() - vec3d2.z);
-        this.setSound(SoundEvents.BLOCK_AMETHYST_BLOCK_BREAK);
+        if (!world.isClient) {
+            Vec3d vec3d = blockHitResult.getPos().subtract(this.getX(), this.getY(), this.getZ());
+            this.setVelocity(vec3d);
+            Vec3d vec3d2 = vec3d.normalize().multiply(0.05f);
+            this.setPos(this.getX() - vec3d2.x, this.getY() - vec3d2.y, this.getZ() - vec3d2.z);
+            this.setSound(SoundEvents.BLOCK_AMETHYST_BLOCK_BREAK);
+            this.inGround = true;
+            this.shake = 7;
+            ModParticles.doProjectileParticles(this, ParticleTypes.SNOWFLAKE, 50, 0.1f, 0.1d);
+        }
+        //this.inBlockState = this.world.getBlockState(blockHitResult.getBlockPos());
         this.playSound(this.getSound(), 1.0f, 1.2f / (this.random.nextFloat() * 0.2f + 0.9f));
-        this.inGround = true;
-        this.shake = 7;
+
+
     }
 
     @Override
@@ -190,7 +221,7 @@ public class FrostBoltEntity extends PersistentProjectileEntity {
                 LivingEntity livingEntity = (LivingEntity)entity;
 
                 if (!this.world.isClient && entity2 instanceof LivingEntity) {
-                    livingEntity.setStuckArrowCount(0);
+                    ModParticles.doProjectileParticles(this, ParticleTypes.SNOWFLAKE, 50, 0.1f, 0.1d);
                     EnchantmentHelper.onUserDamaged(livingEntity, entity2);
                     EnchantmentHelper.onTargetDamaged((LivingEntity)entity2, livingEntity);
                 }

@@ -65,15 +65,17 @@ public class LightBowItem extends RangedWeaponItem implements Vanishable {
         }
         if (!world.isClient) {
             PersistentProjectileEntity lightArrowEntity = new LightArrowEntity(world, user);
-            lightArrowEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 3f, 0.5f);
+            lightArrowEntity.setShotFromCrossbow(true);
+            lightArrowEntity.setPierceLevel((byte) 3);
+            lightArrowEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 2.5f, 0.5f);
             if (f == 1.0f) {
                 lightArrowEntity.setCritical(true);
             }
 
-                /*===============    Change this when you implement the Intensity enchantment.    ===================>*/
-                lightArrowEntity.setDamage(lightArrowEntity.getDamage() + (double)5 * 0.5 + 0.5);
-
-                lightArrowEntity.setPunch(1);
+            /*===============    Change this when you implement the Intensity enchantment.    ===================>*/
+            int intensity = 2;
+            lightArrowEntity.setDamage(lightArrowEntity.getDamage() + intensity * 0.5 + 0.5);
+            lightArrowEntity.setPunch(1);
 
             stack.damage(1, playerEntity, p -> p.sendToolBreakStatus(playerEntity.getActiveHand()));
             world.spawnEntity(lightArrowEntity);

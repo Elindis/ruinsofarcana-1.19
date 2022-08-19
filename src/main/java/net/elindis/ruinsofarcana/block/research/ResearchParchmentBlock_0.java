@@ -1,6 +1,5 @@
 package net.elindis.ruinsofarcana.block.research;
 
-import com.mojang.authlib.properties.Property;
 import net.elindis.ruinsofarcana.block.ModBlocks;
 import net.elindis.ruinsofarcana.item.ModItems;
 import net.elindis.ruinsofarcana.sound.ModSounds;
@@ -18,7 +17,6 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
-import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.text.Text;
@@ -51,7 +49,7 @@ public class ResearchParchmentBlock_0 extends Block {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     protected static final VoxelShape SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
     public static final BooleanProperty HAS_THEORY = BooleanProperty.of("has_transmutation");
-    public static final BooleanProperty HAS_RECIPE = BooleanProperty.of("has_recipe");
+    public static final BooleanProperty HAS_FORMULA = BooleanProperty.of("has_formula");
     public static final BooleanProperty HAS_SCHEMATIC = BooleanProperty.of("has_schematic");
     // TODO: Add IntProperty RESEARCH_PROGRESS and simplify to one blockstate!
 
@@ -59,7 +57,7 @@ public class ResearchParchmentBlock_0 extends Block {
         super(settings);
         this.setDefaultState((this.stateManager.getDefaultState())
                 .with(FACING, Direction.NORTH)
-                .with(HAS_RECIPE, false).with(HAS_THEORY, false).with(HAS_SCHEMATIC, false));
+                .with(HAS_FORMULA, false).with(HAS_THEORY, false).with(HAS_SCHEMATIC, false));
     }
 
     @Override
@@ -125,17 +123,17 @@ public class ResearchParchmentBlock_0 extends Block {
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         if (world.isClient) return;
-        boolean hasRecipe = false;
+        boolean hasFormula = false;
         boolean hasSchematic = false;
         boolean hasTheory = false;
         if (itemStack.hasNbt()) {
             assert itemStack.getNbt() != null;
             world.getServer().sendMessage(Text.literal("itemstack HAS nbt"));
-            if (itemStack.getNbt().getBoolean("has_recipe")) hasRecipe = true;
+            if (itemStack.getNbt().getBoolean("has_formula")) hasFormula = true;
             if (itemStack.getNbt().getBoolean("has_schematic")) hasSchematic = true;
             if (itemStack.getNbt().getBoolean("has_theory")) hasTheory = true; world.getServer().sendMessage(Text.literal("HAS_THEORY is true. congrats"));
         }
-        world.setBlockState(pos, state.with(HAS_SCHEMATIC, hasSchematic).with(HAS_RECIPE, hasRecipe).with(HAS_THEORY, hasTheory));
+        world.setBlockState(pos, state.with(HAS_SCHEMATIC, hasSchematic).with(HAS_FORMULA, hasFormula).with(HAS_THEORY, hasTheory));
     }
 
     @Override
@@ -146,11 +144,11 @@ public class ResearchParchmentBlock_0 extends Block {
         }
         if (!world.isClient) {
             ItemStack itemStack = new ItemStack(ModBlocks.RESEARCH_PARCHMENT_0.asItem());
-            boolean hasRecipe = getStateWithProperties(world.getBlockState(pos)).get(HAS_RECIPE);
+            boolean hasFormula = getStateWithProperties(world.getBlockState(pos)).get(HAS_FORMULA);
             boolean hasSchematic = getStateWithProperties(world.getBlockState(pos)).get(HAS_SCHEMATIC);
             boolean hasTheory = getStateWithProperties(world.getBlockState(pos)).get(HAS_THEORY);
             NbtCompound nbt = new NbtCompound();
-            nbt.putBoolean("has_recipe", hasRecipe);
+            nbt.putBoolean("has_formula", hasFormula);
             nbt.putBoolean("has_schematic", hasSchematic);
             nbt.putBoolean("has_theory", hasTheory);
             world.getServer().sendMessage(Text.literal("Writing NBT"));
@@ -201,6 +199,6 @@ public class ResearchParchmentBlock_0 extends Block {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING).add(HAS_THEORY).add(HAS_RECIPE).add(HAS_SCHEMATIC);
+        builder.add(FACING).add(HAS_THEORY).add(HAS_FORMULA).add(HAS_SCHEMATIC);
     }
 }

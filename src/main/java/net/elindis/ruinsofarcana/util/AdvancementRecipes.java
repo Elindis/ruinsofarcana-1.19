@@ -43,7 +43,7 @@ public class AdvancementRecipes {
         return false;
     }
 
-    private static AdvancementProgress getAdvancement (ServerPlayerEntity playerEntity, Identifier id) {
+    public static AdvancementProgress getAdvancement (ServerPlayerEntity playerEntity, Identifier id) {
             return (playerEntity.getAdvancementTracker().getProgress(
                     Objects.requireNonNull(playerEntity.getServer()).getAdvancementLoader().get(id)));
     }

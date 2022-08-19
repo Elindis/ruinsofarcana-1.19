@@ -53,6 +53,9 @@ public class ModItems {
     public static final Item WAND_OF_FIREBALL = registerItem(
             "wand_of_fireball", new WandOfFireballItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(1)));
 
+    public static final Item WAND_OF_CYCLONE = registerItem(
+            "wand_of_cyclone", new WandOfCycloneItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(1)));
+
     public static final Item LIGHT_BOW = registerItem(
             "light_bow", new LightBowItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(750)));
 

@@ -3,6 +3,7 @@ package net.elindis.ruinsofarcana;
 import net.elindis.ruinsofarcana.block.ModBlocks;
 import net.elindis.ruinsofarcana.block.entity.ModBlockEntities;
 import net.elindis.ruinsofarcana.effect.ModEffects;
+import net.elindis.ruinsofarcana.enchantment.ModEnchantments;
 import net.elindis.ruinsofarcana.entity.ModEntities;
 import net.elindis.ruinsofarcana.item.ModItems;
 import net.elindis.ruinsofarcana.potion.ModPotions;
@@ -34,6 +35,7 @@ public class RuinsOfArcana implements ModInitializer {
 		ModConfiguredFeatures.registerConfiguredFeatures();
 		ModItems.registerItems();
 //		registerModFuel();
+		ModEnchantments.registerModEnchantments();
 
 		ModBlocks.registerModBlocks();
 

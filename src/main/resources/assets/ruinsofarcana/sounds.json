@@ -17,6 +17,12 @@
       "ruinsofarcana:thunder_mace2"
     ]
   },
+  "cyclone": {
+    "subtitle": "ruinsofarcana.cyclone",
+    "sounds": [
+      "ruinsofarcana:cyclone"
+    ]
+  },
   "research_progress": {
     "subtitle": "ruinsofarcana.research_progress",
     "sounds": [

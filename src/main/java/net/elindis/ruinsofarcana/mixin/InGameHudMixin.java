@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(InGameHud.class)
-public abstract class GogglesMixin {
+public abstract class InGameHudMixin {
 
     private static final Identifier GOGGLES = new Identifier(RuinsOfArcana.MOD_ID, "textures/hud/goggle_overlay.png");
 

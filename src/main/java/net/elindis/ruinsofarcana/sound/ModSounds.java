@@ -18,11 +18,15 @@ public class ModSounds {
     public static final Identifier RESEARCH_PROGRESS_ID = new Identifier("ruinsofarcana:research_progress");
     public static SoundEvent RESEARCH_PROGRESS = new SoundEvent(RESEARCH_PROGRESS_ID);
 
+    public static final Identifier CYCLONE_ID = new Identifier("ruinsofarcana:cyclone");
+    public static SoundEvent CYCLONE = new SoundEvent(CYCLONE_ID);
+
     public static void registerSounds() {
         Registry.register(Registry.SOUND_EVENT, ModSounds.LIGHT_BOW_SHOT_ID, LIGHT_BOW_SHOT);
         Registry.register(Registry.SOUND_EVENT, ModSounds.THUNDER_MACE_ID, THUNDER_MACE);
         Registry.register(Registry.SOUND_EVENT, ModSounds.THUNDER_MACE_ID2, THUNDER_MACE2);
         Registry.register(Registry.SOUND_EVENT, ModSounds.RESEARCH_PROGRESS_ID, RESEARCH_PROGRESS);
+        Registry.register(Registry.SOUND_EVENT, ModSounds.CYCLONE_ID, CYCLONE);
     }
 
 }

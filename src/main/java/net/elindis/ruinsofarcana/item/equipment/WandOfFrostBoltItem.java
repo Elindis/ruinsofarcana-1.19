@@ -50,31 +50,31 @@ public class WandOfFrostBoltItem extends RangedWeaponItem implements Vanishable 
                 if (!((double)f < 0.75)) {
 
                         // The conditions for the spell to be castable. On spell success:
-                        if (playerEntity.experienceLevel > 0 || playerEntity.getAbilities().creativeMode) {
+                        if (playerEntity.totalExperience > 5 || playerEntity.getAbilities().creativeMode) {
 
                             // Server-side effects.
                             if (!world.isClient) {
 
-                                // Apply costs. The spell requires 1 level to cast.
-                                playerEntity.applyEnchantmentCosts(null, 1);
+                                // Apply costs. The spell requires 5 xp to cast by default.
+                                // TODO: make this a variable, make an enchantment or rite that modifies it
+                                playerEntity.addExperience(-5);
 
                                 // Creates the item with the appropriate properties
 
                                 //FrostBoltItem frostBoltItem = (FrostBoltItem)(ModItems.MAGIC_ARROW);
-                                PersistentProjectileEntity frostBoltEntity = createArrow(world, user);
+                                FrostBoltEntity frostBoltEntity = new FrostBoltEntity(world, user);
                                 frostBoltEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(),
                                         0.0F, f * 2.5F, 0.5F);
                                 world.spawnEntity(frostBoltEntity);
-
                                 playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
                             }
 
                             // We play a shooting sounds because the spell went off!
                             world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
-                                SoundEvents.BLOCK_NOTE_BLOCK_CHIME, SoundCategory.PLAYERS, 0.4F, 1F /
+                                SoundEvents.BLOCK_NOTE_BLOCK_CHIME, SoundCategory.PLAYERS, 0.8F, 1F /
                                     (world.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                             world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
-                                    SoundEvents.BLOCK_SMALL_AMETHYST_BUD_BREAK, SoundCategory.PLAYERS, 0.4F, 1F /
+                                    SoundEvents.BLOCK_SMALL_AMETHYST_BUD_BREAK, SoundCategory.PLAYERS, 0.8F, 1F /
                                             (world.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                         }
 
@@ -82,16 +82,13 @@ public class WandOfFrostBoltItem extends RangedWeaponItem implements Vanishable 
                         else {
                             // We play a sad magic sounds.
                             world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
-                                SoundEvents.BLOCK_BEACON_DEACTIVATE, SoundCategory.PLAYERS, 0.5F, 1.5F);
+                                SoundEvents.BLOCK_BEACON_DEACTIVATE, SoundCategory.PLAYERS, 0.7F, 1.5F);
                         }
                 }
         }
     }
-    public PersistentProjectileEntity createArrow(World world, LivingEntity shooter) {
-        return new FrostBoltEntity(world, shooter);
-    }
     public static float getPullProgress(int useTicks) {
-        float f = (float)useTicks / 20.0f;
+        float f = (float)useTicks / 5.0f;
         if ((f = (f * f + f * 2.0f) / 3.0f) > 1.0f) {
             f = 1.0f;
         }
