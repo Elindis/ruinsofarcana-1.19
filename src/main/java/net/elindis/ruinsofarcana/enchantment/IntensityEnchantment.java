@@ -5,15 +5,10 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.brain.Activity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.mob.PhantomEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.server.world.ServerWorld;
 
 public class IntensityEnchantment extends Enchantment {
 	protected IntensityEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot... slotTypes) {

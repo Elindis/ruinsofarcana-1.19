@@ -12,8 +12,11 @@ public class SpeedEffect extends StatusEffect {
 
     @Override
     public void applyUpdateEffect(LivingEntity pLivingEntity, int pAmplifier) {
-        if (!pLivingEntity.world.isClient()) {
-        }
+        // Not necessary. This it taken care of in registration.
+//        if (!pLivingEntity.world.isClient()) {
+//            float newSpeed = (float)((float)pLivingEntity.getAttributeBaseValue(EntityAttributes.GENERIC_MOVEMENT_SPEED)*2d);
+//            pLivingEntity.setMovementSpeed(newSpeed);
+//        }
         super.applyUpdateEffect(pLivingEntity, pAmplifier);
     }
 

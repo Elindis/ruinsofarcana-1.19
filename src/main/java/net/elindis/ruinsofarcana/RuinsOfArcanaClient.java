@@ -1,15 +1,5 @@
 package net.elindis.ruinsofarcana;
 
-//import net.elindis.ruinsofarcana.block.ModBlocks;
-//import net.elindis.ruinsofarcana.block.entity.ModBlockEntities;
-//import net.elindis.ruinsofarcana.block.entity.renderer.PedestalBlockEntityRenderer;
-//import net.elindis.ruinsofarcana.block.entity.renderer.TransmutationTableBlockEntityRenderer;
-//import net.elindis.ruinsofarcana.entity.EntitySpawnPacket;
-//import net.elindis.ruinsofarcana.entity.ModEntities;
-//import net.elindis.ruinsofarcana.entity.renderer.FrostBoltEntityRenderer;
-//import net.elindis.ruinsofarcana.entity.renderer.LightArrowEntityRenderer;
-//import net.elindis.ruinsofarcana.screen.*;
-//import net.elindis.ruinsofarcana.util.ModModelPredicateProvider;
 import net.elindis.ruinsofarcana.block.ModBlocks;
 import net.elindis.ruinsofarcana.block.entity.ModBlockEntities;
 import net.elindis.ruinsofarcana.block.entity.renderer.PedestalBlockEntityRenderer;
@@ -18,11 +8,16 @@ import net.elindis.ruinsofarcana.entity.EntitySpawnPacket;
 import net.elindis.ruinsofarcana.entity.ModEntities;
 import net.elindis.ruinsofarcana.entity.renderer.FrostBoltEntityRenderer;
 import net.elindis.ruinsofarcana.entity.renderer.LightArrowEntityRenderer;
+import net.elindis.ruinsofarcana.particle.JetParticle;
+import net.elindis.ruinsofarcana.particle.ModParticles;
+import net.elindis.ruinsofarcana.particle.SingularityParticle;
+import net.elindis.ruinsofarcana.particle.SpiralParticle;
 import net.elindis.ruinsofarcana.screen.ManufactoryScreen;
 import net.elindis.ruinsofarcana.screen.ModScreenHandlers;
 import net.elindis.ruinsofarcana.util.ModModelPredicateProvider;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
@@ -65,6 +60,10 @@ public class RuinsOfArcanaClient implements ClientModInitializer {
         // Misc
         EntitySpawnPacket.receiveEntityPacket();
         ModModelPredicateProvider.registerModModels();
+        ParticleFactoryRegistry.getInstance().register(ModParticles.SINGULARITY_PARTICLE, SingularityParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.SPIRAL_PARTICLE, SpiralParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.JET_PARTICLE, JetParticle.Factory::new);
+
 
     }
 }

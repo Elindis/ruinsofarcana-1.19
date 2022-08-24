@@ -16,6 +16,8 @@ import net.minecraft.util.Identifier;
             super(context);
         }
 
+
+
         @Override
         public Identifier getTexture(FrostBoltEntity entity) {
             return TEXTURE;

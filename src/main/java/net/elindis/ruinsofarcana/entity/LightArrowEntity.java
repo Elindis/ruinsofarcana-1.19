@@ -1,7 +1,7 @@
 package net.elindis.ruinsofarcana.entity;
 
 import net.elindis.ruinsofarcana.item.ModItems;
-import net.elindis.ruinsofarcana.util.ModParticles;
+import net.elindis.ruinsofarcana.util.ModParticleUtil;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -57,7 +57,7 @@ public class LightArrowEntity extends ArrowEntity {
         this.world.addParticle(ParticleTypes.END_ROD, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
         if (!world.isClient) {
             if (!this.inGround) {
-                ModParticles.doProjectileParticles(this, ParticleTypes.END_ROD,2, 0.02f, 0);
+                ModParticleUtil.doProjectileParticles(this, ParticleTypes.END_ROD,2, 0.02f, 0);
             }
             if (this.age > 40) {
                 discard();

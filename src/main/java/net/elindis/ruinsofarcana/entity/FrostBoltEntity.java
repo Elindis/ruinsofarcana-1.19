@@ -3,7 +3,7 @@ package net.elindis.ruinsofarcana.entity;
 import net.elindis.ruinsofarcana.block.ModBlocks;
 import net.elindis.ruinsofarcana.enchantment.ModEnchantments;
 import net.elindis.ruinsofarcana.item.ModItems;
-import net.elindis.ruinsofarcana.util.ModParticles;
+import net.elindis.ruinsofarcana.util.ModParticleUtil;
 import net.minecraft.block.*;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -124,7 +124,7 @@ public class FrostBoltEntity extends PersistentProjectileEntity {
     public void tick() {
         super.tick();
         if (!this.inGround && !this.world.isClient) {
-            ModParticles.doProjectileParticles(this, ParticleTypes.SNOWFLAKE, 20, 0.1f, 0.1d);
+            ModParticleUtil.doProjectileParticles(this, ParticleTypes.SNOWFLAKE, 20, 0.1f, 0.1d);
         }
         if (!this.world.isClient) {
             freezeWater(this, world, new BlockPos(this.getX(), this.getY(), this.getZ()), 1);
@@ -185,7 +185,7 @@ public class FrostBoltEntity extends PersistentProjectileEntity {
             this.setSound(SoundEvents.BLOCK_AMETHYST_BLOCK_BREAK);
             this.inGround = true;
             this.shake = 7;
-            ModParticles.doProjectileParticles(this, ParticleTypes.SNOWFLAKE, 50, 0.1f, 0.1d);
+            ModParticleUtil.doProjectileParticles(this, ParticleTypes.SNOWFLAKE, 50, 0.1f, 0.1d);
         }
         //this.inBlockState = this.world.getBlockState(blockHitResult.getBlockPos());
         this.playSound(this.getSound(), 1.0f, 1.2f / (this.random.nextFloat() * 0.2f + 0.9f));
@@ -221,7 +221,7 @@ public class FrostBoltEntity extends PersistentProjectileEntity {
                 LivingEntity livingEntity = (LivingEntity)entity;
 
                 if (!this.world.isClient && entity2 instanceof LivingEntity) {
-                    ModParticles.doProjectileParticles(this, ParticleTypes.SNOWFLAKE, 50, 0.1f, 0.1d);
+                    ModParticleUtil.doProjectileParticles(this, ParticleTypes.SNOWFLAKE, 50, 0.1f, 0.1d);
                     EnchantmentHelper.onUserDamaged(livingEntity, entity2);
                     EnchantmentHelper.onTargetDamaged((LivingEntity)entity2, livingEntity);
                 }

@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "ruinsofarcana:wand_of_frost_bolt"
+    },
+    "title": "You did it",
+    "description": "This is an advancement",
+    "background": "ruinsofarcana:textures/block/pedestal_bricks.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "player": {},
+        "item": {
+          "items": [
+            "ruinsofarcana:wand_of_frost_bolt"
+          ]
+        }
+      }
+    }
+  },
+  "rewards": {
+    "experience": 20
+  }
+}

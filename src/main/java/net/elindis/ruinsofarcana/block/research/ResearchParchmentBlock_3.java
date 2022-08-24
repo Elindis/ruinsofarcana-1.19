@@ -3,7 +3,7 @@ package net.elindis.ruinsofarcana.block.research;
 import net.elindis.ruinsofarcana.block.ModBlocks;
 import net.elindis.ruinsofarcana.item.ModItems;
 import net.elindis.ruinsofarcana.sound.ModSounds;
-import net.elindis.ruinsofarcana.util.ModParticles;
+import net.elindis.ruinsofarcana.util.ModParticleUtil;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
@@ -88,8 +88,8 @@ public class ResearchParchmentBlock_3 extends Block {
         world.playSound(null, pos, ModSounds.RESEARCH_PROGRESS, SoundCategory.NEUTRAL, 1,
                 0.8f + (player.getRandom().nextFloat())/3);
         BlockPos particlePos = new BlockPos(pos.getX()+0.5f, pos.getY()+0.5f, pos.getZ()+0.5f);
-        ModParticles.doBlockParticles(world, particlePos, player, ParticleTypes.ENCHANT, 8, 0.01f);
-        ModParticles.doBlockParticles(world, particlePos, player, ParticleTypes.GLOW, 3, 0.01f);
+        ModParticleUtil.doBlockParticles(world, particlePos, player, ParticleTypes.ENCHANT, 8, 0.01f);
+        ModParticleUtil.doBlockParticles(world, particlePos, player, ParticleTypes.GLOW, 3, 0.01f);
     }
 
     // onplaced and onmined: play paper sounds from librarian

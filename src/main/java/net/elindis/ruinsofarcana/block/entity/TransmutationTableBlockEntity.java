@@ -3,7 +3,7 @@ import net.elindis.ruinsofarcana.item.ModItems;
 import net.elindis.ruinsofarcana.item.inventory.ImplementedInventory;
 import net.elindis.ruinsofarcana.recipe.TransmutationTableRecipe;
 import net.elindis.ruinsofarcana.util.AdvancementRecipes;
-import net.elindis.ruinsofarcana.util.ModParticles;
+import net.elindis.ruinsofarcana.util.ModParticleUtil;
 import net.minecraft.advancement.AdvancementProgress;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -158,9 +158,9 @@ public class TransmutationTableBlockEntity extends BlockEntity implements Implem
             world.playSound(null, entity.getPos(), SoundEvents.ENTITY_ZOMBIE_VILLAGER_CONVERTED, SoundCategory.BLOCKS, 0.6f, 2f);
             world.playSound(null, entity.getPos(), SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.BLOCKS, .8f, 1);
 
-            ModParticles.doTransmutationTableParticles(entity, ParticleTypes.GLOW, 40);
+            ModParticleUtil.doTransmutationTableParticles(entity, ParticleTypes.GLOW, 40);
             for (PedestalBlockEntity allPedestal : allPedestals) {
-                ModParticles.doTransmutationTableParticles(allPedestal, ParticleTypes.LARGE_SMOKE, 10);
+                ModParticleUtil.doTransmutationTableParticles(allPedestal, ParticleTypes.LARGE_SMOKE, 10);
             }
 
         }

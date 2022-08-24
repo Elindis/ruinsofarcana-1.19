@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "ruinsofarcana:block/cracked_obsidian_3"
+  }
+}

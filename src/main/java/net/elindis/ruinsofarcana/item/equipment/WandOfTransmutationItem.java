@@ -1,5 +1,6 @@
 package net.elindis.ruinsofarcana.item.equipment;
 
+import net.elindis.ruinsofarcana.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -33,6 +34,7 @@ public class WandOfTransmutationItem extends Item {
 
         //  Let's do server things!
         if (!context.getWorld().isClient) {
+            if (blockState.isOf(ModBlocks.ALCHEMISTS_AMPHORA)) return ActionResult.PASS;
 
             // Stone, granite, diorite, andesite
             if (blockState.isIn(BlockTags.STONE_ORE_REPLACEABLES)) {}

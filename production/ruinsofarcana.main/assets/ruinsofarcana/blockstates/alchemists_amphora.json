@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "liquid_type=0": { "model": "minecraft:block/light_blue_terracotta"},
+    "liquid_type=1": { "model": "minecraft:block/white_terracotta"},
+    "liquid_type=2": { "model": "minecraft:block/red_terracotta"}
+  }
+}

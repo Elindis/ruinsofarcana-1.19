@@ -33,10 +33,23 @@ public class ModBlocks {
             new ModSaplingBlock(new MyrtleSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)), ModItemGroup.RUINSOFARCANA);
 
 
+    // Blocks that do cool things
     public static final Block ANCIENT_INSCRIBED_STONE = registerBlock("ancient_inscribed_stone",
             new Block(FabricBlockSettings.of(Material.METAL).strength(4f).requiresTool().luminance(3).sounds(BlockSoundGroup.METAL)),
             ModItemGroup.RUINSOFARCANA);
 
+    public static final Block ENCHANTED_WAYSTONE = registerBlock("enchanted_waystone",
+            new TravelStoneBlock(FabricBlockSettings.of(Material.STONE).strength(4).requiresTool().sounds(BlockSoundGroup.STONE)),
+            ModItemGroup.RUINSOFARCANA);
+
+    // rename to alchemist's jug
+    public static final Block ALCHEMISTS_AMPHORA = registerBlock("alchemists_amphora",
+            new AmphoraBlock(FabricBlockSettings.of(Material.GLASS).strength(4).requiresTool().sounds(BlockSoundGroup.GLASS)),
+            ModItemGroup.RUINSOFARCANA);
+
+    public static final Block SINGULARITY = registerBlock("singularity",
+            new SingularityBlock(FabricBlockSettings.of(Material.GLASS).strength(4).requiresTool().sounds(BlockSoundGroup.GLASS)),
+            ModItemGroup.RUINSOFARCANA);
 
 
 

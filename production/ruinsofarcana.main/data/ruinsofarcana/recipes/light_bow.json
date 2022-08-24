@@ -1,0 +1,23 @@
+{
+  "type": "ruinsofarcana:transmutation_table",
+  "ingredients": [
+    {
+      "item": "ruinsofarcana:luxite"
+    },
+    {
+      "item": "ruinsofarcana:luxite"
+    },
+    {
+      "item": "ruinsofarcana:luxite"
+    },
+    {
+      "item": "ruinsofarcana:luxite"
+    },
+    {
+      "item": "ruinsofarcana:auric_ingot"
+    }
+  ],
+  "output": {
+    "item": "ruinsofarcana:light_bow"
+  }
+}

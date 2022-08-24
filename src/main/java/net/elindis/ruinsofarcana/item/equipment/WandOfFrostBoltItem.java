@@ -3,7 +3,6 @@ package net.elindis.ruinsofarcana.item.equipment;
 import net.elindis.ruinsofarcana.entity.FrostBoltEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.RangedWeaponItem;
 import net.minecraft.item.Vanishable;

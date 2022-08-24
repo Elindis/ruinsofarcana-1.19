@@ -2,6 +2,7 @@ package net.elindis.ruinsofarcana.block.entity;
 
 import net.elindis.ruinsofarcana.RuinsOfArcana;
 import net.elindis.ruinsofarcana.block.ModBlocks;
+import net.elindis.ruinsofarcana.block.SingularityBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.Identifier;
@@ -12,6 +13,7 @@ public class ModBlockEntities {
     public static BlockEntityType<PedestalBlockEntity> PEDESTAL;
     public static BlockEntityType<TransmutationTableBlockEntity> TRANSMUTATION_TABLE;
     public static BlockEntityType<ModHopperBlockEntity> AURIC_PIPE;
+    public static BlockEntityType<SingularityBlockEntity> SINGULARITY;
 
     public static void registerAllBlockEntities() {
 
@@ -34,5 +36,10 @@ public class ModBlockEntities {
                 new Identifier(RuinsOfArcana.MOD_ID, "auric_pipe"),
                 FabricBlockEntityTypeBuilder.create(ModHopperBlockEntity::new,
                         ModBlocks.AURIC_PIPE).build(null));
+
+        SINGULARITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                new Identifier(RuinsOfArcana.MOD_ID, "singularity"),
+                FabricBlockEntityTypeBuilder.create(SingularityBlockEntity::new,
+                        ModBlocks.SINGULARITY).build(null));
     }
 }

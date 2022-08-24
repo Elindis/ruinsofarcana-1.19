@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "ruinsofarcana:block/research_parchment_1" },
+    "facing=east": { "model": "ruinsofarcana:block/research_parchment_1", "y": 90 },
+    "facing=south": { "model": "ruinsofarcana:block/research_parchment_1", "y": 180 },
+    "facing=west": { "model": "ruinsofarcana:block/research_parchment_1", "y": 270 }
+  }
+}

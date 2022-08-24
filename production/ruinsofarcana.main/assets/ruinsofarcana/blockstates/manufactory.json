@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "ruinsofarcana:block/manufactory" },
+    "facing=east": { "model": "ruinsofarcana:block/manufactory", "y": 90 },
+    "facing=south": { "model": "ruinsofarcana:block/manufactory", "y": 180 },
+    "facing=west": { "model": "ruinsofarcana:block/manufactory", "y": 270 }
+  }
+}

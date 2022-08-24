@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "ruinsofarcana:block/myrtle_top",
+    "side": "ruinsofarcana:block/myrtle_log"
+  }
+}

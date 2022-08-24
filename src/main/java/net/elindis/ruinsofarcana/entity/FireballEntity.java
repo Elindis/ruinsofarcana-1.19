@@ -1,8 +1,6 @@
 package net.elindis.ruinsofarcana.entity;
 
 
-import net.elindis.ruinsofarcana.item.ModItems;
-import net.elindis.ruinsofarcana.util.ModTags;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.EntityType;

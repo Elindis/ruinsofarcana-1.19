@@ -1,0 +1,39 @@
+{
+  "multipart": [
+
+
+    {   "apply": { "model": "ruinsofarcana:block/auric_pipe_core" }},
+
+    {   "when": { "facing": "up" },
+      "apply": { "model": "ruinsofarcana:block/auric_pipe_core_facing", "x": 270}
+    },
+    {   "when": { "facing": "down" },
+      "apply": { "model": "ruinsofarcana:block/auric_pipe_core_facing", "x": 90}
+    },
+
+
+    {   "when": { "down": "true" },
+      "apply": { "model": "ruinsofarcana:block/auric_pipe_bit", "x": 90, "uvlock": true }
+    },
+
+    {   "when": { "up": "true" },
+      "apply": { "model": "ruinsofarcana:block/auric_pipe_bit", "x": 270, "uvlock": true }
+    },
+
+    {   "when": { "north": "true" },
+      "apply": { "model": "ruinsofarcana:block/auric_pipe_bit", "uvlock": true }
+    },
+
+    {   "when": { "east": "true" },
+      "apply": { "model": "ruinsofarcana:block/auric_pipe_bit", "y": 90, "uvlock": true }
+    },
+
+    {   "when": { "south": "true" },
+      "apply": { "model": "ruinsofarcana:block/auric_pipe_bit", "y": 180, "uvlock": true }
+    },
+
+    {   "when": { "west": "true" },
+      "apply": { "model": "ruinsofarcana:block/auric_pipe_bit", "y": 270, "uvlock": true }
+    }
+  ]
+}
