@@ -30,7 +30,7 @@ public class SpiralParticle extends SpriteBillboardParticle {
 		this.velocityY = dy;
 		this.velocityZ = dz;
 		this.scale *= 0.75F;
-		this.maxAge = 80;
+		this.maxAge = 60;
 		this.setSpriteForAge(spriteSet);
 		this.randomOf4 = Random.create().nextBetween(0, 3);
 		this.size = 3f;
@@ -78,8 +78,12 @@ public class SpiralParticle extends SpriteBillboardParticle {
 	}
 
 	private void fadeIn() {
-		this.alpha = MathHelper.clamp((age-5f) * 2, 0, maxAge)/(float) maxAge;
+		if (age < 10) {
+			this.alpha = MathHelper.clamp((age-5f) * 2, 0, maxAge)/(float) maxAge;
+		}
+		else this.alpha = 1;
 	}
+
 
 	@Override
 	public ParticleTextureSheet getType() {

@@ -1,17 +1,6 @@
 package net.elindis.ruinsofarcana.item.equipment;
 
-import net.minecraft.advancement.Advancement;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.advancement.AdvancementsScreen;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
-import net.minecraft.world.World;
-
-import java.util.Objects;
 
 public class ScribesPenItem extends Item {
 	public ScribesPenItem(Settings settings) {

@@ -15,5 +15,10 @@ public class ModRecipes {
                 TransmutationTableRecipe.Serializer.INSTANCE);
         Registry.register(Registry.RECIPE_TYPE, new Identifier(RuinsOfArcana.MOD_ID, TransmutationTableRecipe.Type.ID),
                 TransmutationTableRecipe.Type.INSTANCE);
+
+        Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(RuinsOfArcana.MOD_ID, SingularityRecipe.Serializer.ID),
+                SingularityRecipe.Serializer.INSTANCE);
+        Registry.register(Registry.RECIPE_TYPE, new Identifier(RuinsOfArcana.MOD_ID, SingularityRecipe.Type.ID),
+                SingularityRecipe.Type.INSTANCE);
     }
 }

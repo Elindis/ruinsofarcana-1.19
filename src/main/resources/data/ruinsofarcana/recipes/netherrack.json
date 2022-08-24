@@ -1,0 +1,11 @@
+{
+  "type": "ruinsofarcana:singularity",
+  "ingredients": [
+    {
+      "item": "minecraft:netherrack"
+    }
+  ],
+  "output": {
+    "item": "minecraft:blaze_powder"
+  }
+}

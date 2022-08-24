@@ -2,7 +2,6 @@ package net.elindis.ruinsofarcana.block.entity;
 
 import net.elindis.ruinsofarcana.RuinsOfArcana;
 import net.elindis.ruinsofarcana.block.ModBlocks;
-import net.elindis.ruinsofarcana.block.SingularityBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.Identifier;

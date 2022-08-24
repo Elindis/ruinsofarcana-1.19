@@ -28,5 +28,11 @@
     "sounds": [
       "ruinsofarcana:research_progress"
     ]
+  },
+  "singularity": {
+    "subtitle": "ruinsofarcana.singularity",
+    "sounds": [
+      "ruinsofarcana:singularity"
+    ]
   }
 }

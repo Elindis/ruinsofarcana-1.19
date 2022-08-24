@@ -50,5 +50,6 @@ public class RuinsOfArcana implements ModInitializer {
 		ModSounds.registerSounds();
 		ModEntities.register();
 		ModParticles.registerParticles();
+
 	}
 }

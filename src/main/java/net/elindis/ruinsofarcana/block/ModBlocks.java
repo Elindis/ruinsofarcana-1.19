@@ -48,7 +48,7 @@ public class ModBlocks {
             ModItemGroup.RUINSOFARCANA);
 
     public static final Block SINGULARITY = registerBlock("singularity",
-            new SingularityBlock(FabricBlockSettings.of(Material.GLASS).strength(4).requiresTool().sounds(BlockSoundGroup.GLASS)),
+            new SingularityBlock(FabricBlockSettings.of(Material.GLASS).strength(4).requiresTool().sounds(BlockSoundGroup.GLASS).collidable(false)),
             ModItemGroup.RUINSOFARCANA);
 
 
