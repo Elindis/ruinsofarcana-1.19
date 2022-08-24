@@ -36,9 +36,7 @@ public class PedestalBlockEntity extends BlockEntity implements ImplementedInven
     public static void tick(World world, BlockPos pos, BlockState state, PedestalBlockEntity blockEntity) {
 
     }
-//    public boolean shouldDrawSide(Direction direction) {
-//        return Block.shouldDrawSide(this.getCachedState(), this.world, this.getPos(), direction, this.getPos().offset(direction));
-//    }
+
 
     public static void serverTick(@NotNull World world, BlockPos blockPos, BlockState blockState, PedestalBlockEntity pedestalBlockEntity) {
 

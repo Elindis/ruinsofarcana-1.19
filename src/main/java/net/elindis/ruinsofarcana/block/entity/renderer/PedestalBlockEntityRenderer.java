@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3f;
 
-public class PedestalBlockEntityRenderer<T extends EndPortalBlockEntity> implements BlockEntityRenderer<PedestalBlockEntity> {
+public class PedestalBlockEntityRenderer<T extends PedestalBlockEntity> implements BlockEntityRenderer<PedestalBlockEntity> {
     public PedestalBlockEntityRenderer(BlockEntityRendererFactory.Context ctx) {}
     @Override
     public void render(PedestalBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {

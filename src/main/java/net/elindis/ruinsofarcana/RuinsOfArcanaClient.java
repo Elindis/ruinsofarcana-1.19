@@ -3,6 +3,7 @@ package net.elindis.ruinsofarcana;
 import net.elindis.ruinsofarcana.block.ModBlocks;
 import net.elindis.ruinsofarcana.block.entity.ModBlockEntities;
 import net.elindis.ruinsofarcana.block.entity.renderer.PedestalBlockEntityRenderer;
+import net.elindis.ruinsofarcana.block.entity.renderer.SingularityEntityRenderer;
 import net.elindis.ruinsofarcana.block.entity.renderer.TransmutationTableBlockEntityRenderer;
 import net.elindis.ruinsofarcana.entity.EntitySpawnPacket;
 import net.elindis.ruinsofarcana.entity.ModEntities;
@@ -48,6 +49,7 @@ public class RuinsOfArcanaClient implements ClientModInitializer {
         // Block entity renderers
         BlockEntityRendererRegistry.register(ModBlockEntities.PEDESTAL, PedestalBlockEntityRenderer::new);
         BlockEntityRendererRegistry.register(ModBlockEntities.TRANSMUTATION_TABLE, TransmutationTableBlockEntityRenderer::new);
+//        BlockEntityRendererRegistry.register(ModBlockEntities.SINGULARITY, SingularityEntityRenderer::new);
 
         // Projectile entities and thrown entities
         EntityRendererRegistry.register(ModEntities.FIREBALL_ENTITY_TYPE, FlyingItemEntityRenderer::new);

@@ -1,9 +1,11 @@
 package net.elindis.ruinsofarcana.block.entity;
 
+import net.elindis.ruinsofarcana.block.ModBlocks;
 import net.elindis.ruinsofarcana.item.ModItems;
 import net.elindis.ruinsofarcana.item.inventory.ImplementedInventory;
 import net.elindis.ruinsofarcana.particle.ModParticles;
 import net.elindis.ruinsofarcana.recipe.SingularityRecipe;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
@@ -22,6 +24,7 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -33,6 +36,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -69,7 +73,7 @@ public class SingularityBlockEntity extends BlockEntity implements ImplementedIn
     }
 
     // Maybe you should make a Stable and an Unstable version. The stable one is the one that crafts blocks, and the unstable one turns everything into exp.
-    public static void serverTick(@NotNull World world, BlockPos blockPos, BlockState blockState, SingularityBlockEntity ignoredBlockEntity) {
+    public static void serverTick(@NotNull World world, BlockPos blockPos, BlockState blockState, SingularityBlockEntity blockEntity) {
         if (world.isClient) return;
 
         // Position of this entity's block.
@@ -79,6 +83,24 @@ public class SingularityBlockEntity extends BlockEntity implements ImplementedIn
         // Size and strength of the black hole's gravity field.
         Box singularityGravityBox = new Box(blockPos).expand(5);
         double gravity = 0.125d;
+
+        // Is a stream better than this? I am not sure. This breaks blocks in the wild in a 11x11x11 radius,
+        // and the shape ends up as a cube. I would prefer a sphere, but performance is a consideration.
+        if (world.getRandom().nextInt(100) == 0) {
+            BlockPos.iterateOutwards(fixedBlockPos, 5, 5, 5).forEach(blockPos1 -> {
+                if (world.getRandom().nextInt(100) == 0 && !world.getBlockState(blockPos1).isIn(BlockTags.WITHER_IMMUNE)
+                        && !world.getBlockState(blockPos1).isOf(ModBlocks.SINGULARITY)) {
+                    world.breakBlock(blockPos1, true);
+                }
+            });
+        }
+//        if (world.getRandom().nextInt(100) == 0) {
+//            BlockPos.stream(singularityGravityBox).forEach(blockPos1 -> {
+//                if (world.getRandom().nextInt(100) == 0 && !world.getBlockState(blockPos1).isIn(BlockTags.WITHER_IMMUNE)) {
+//                    world.breakBlock(blockPos1, true);
+//                }
+//            });
+//        }
 
         // Gathers a list of all the entities in the 11x11x11 area of the black hole.
         List<Entity> entityList = world.getOtherEntities(null, singularityGravityBox);
@@ -182,6 +204,9 @@ public class SingularityBlockEntity extends BlockEntity implements ImplementedIn
     @Override
     public DefaultedList<ItemStack> getItems() {
         return null;
+    }
+    public boolean shouldDrawSide(Direction direction) {
+        return Block.shouldDrawSide(this.getCachedState(), this.world, this.getPos(), direction, this.getPos().offset(direction));
     }
 
     @Override
