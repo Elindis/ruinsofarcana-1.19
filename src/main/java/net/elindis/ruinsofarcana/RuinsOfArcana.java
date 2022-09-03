@@ -14,6 +14,7 @@ import net.elindis.ruinsofarcana.sound.ModSounds;
 import net.elindis.ruinsofarcana.util.ModLootTableModifiers;
 import net.elindis.ruinsofarcana.util.ModRegistries;
 import net.elindis.ruinsofarcana.world.feature.ModConfiguredFeatures;
+import net.elindis.ruinsofarcana.world.feature.structure.ModStructures;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -26,7 +27,12 @@ public class RuinsOfArcana implements ModInitializer {
 	public static final Identifier PacketID = new Identifier(MOD_ID, "spawn_packet");
 
 	// The crusher/separator can have a default case that returns a loot table based on the material of the unknown item
-	// if block is of material, do loot for that material!
+	// if block is of material, do loot for that material! e.g. wood, stone
+	// add relics: stone tablet, jug, enchanted crystal, ancient carving (generic, formula, theory, schematic)
+	// add relics: inscribed pillar, jar, ancient orb, ciphered scroll
+
+	// new potions called Serums, which are highly concentrated, offer interesting effect combos, and are stackable
+	// but they don't last as long
 
 	@Override
 	public void onInitialize() {
@@ -34,6 +40,7 @@ public class RuinsOfArcana implements ModInitializer {
 		// returns to nothing, will a new world be born? Does this fact imply the existence of a cycle of rebirth?"
 
 		ModConfiguredFeatures.registerConfiguredFeatures();
+		ModStructures.registerStructureFeatures();
 		ModItems.registerItems();
 		ModEnchantments.registerModEnchantments();
 
@@ -50,6 +57,7 @@ public class RuinsOfArcana implements ModInitializer {
 		ModSounds.registerSounds();
 		ModEntities.register();
 		ModParticles.registerParticles();
+
 
 	}
 }

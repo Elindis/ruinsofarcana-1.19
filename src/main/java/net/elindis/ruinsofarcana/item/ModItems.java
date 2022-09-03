@@ -34,15 +34,23 @@ public class ModItems {
     public static final Item IRIDITE = registerItem(
             "iridite", new Item(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA)));
 
+    // Research items
+
+    public static final Item CHARCOAL_RUBBING = registerItem(
+            "charcoal_rubbing", new Item(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA)));
 
     // Weapons and Tools
     public static final Item ARKENITE_MULTITOOL = registerItem(
             "arkenite_multitool", new MultitoolItem(ModToolMaterials.AURIC, 1, -2.2f,
-                    new FabricItemSettings().rarity(Rarity.RARE).group(ModItemGroup.RUINSOFARCANA)));
+                    new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
 
     public static final Item THUNDER_MACE = registerItem(
             "thunder_mace", new ThunderMaceItem(ModToolMaterials.AURIC, 2, -3.2f,
-                    new FabricItemSettings().rarity(Rarity.RARE).group(ModItemGroup.RUINSOFARCANA)));
+                    new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
+
+    public static final Item FROZEN_LANCE = registerItem(
+            "frozen_lance", new FrozenLanceItem(ModToolMaterials.AURIC, 1, -2.4f,
+                    new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
 
     public static final Item WAND_OF_TRANSMUTATION = registerItem(
             "wand_of_transmutation", new WandOfTransmutationItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(1)));
@@ -53,8 +61,14 @@ public class ModItems {
     public static final Item WAND_OF_FIREBALL = registerItem(
             "wand_of_fireball", new WandOfFireballItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(1)));
 
+    public static final Item WAND_OF_DISINTEGRATION = registerItem(
+            "wand_of_disintegration", new WandOfDisintegrationItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(1)));
+
     public static final Item WAND_OF_CYCLONE = registerItem(
             "wand_of_cyclone", new WandOfCycloneItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(1)));
+
+    public static final Item WAND_OF_WHIRLWIND = registerItem(
+            "wand_of_whirlwind", new WandOfWhirlwindItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(1)));
 
     public static final Item LIGHT_BOW = registerItem(
             "light_bow", new LightBowItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(750)));

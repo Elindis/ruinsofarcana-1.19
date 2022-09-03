@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "ruinsofarcana:auric_pipe"
+    "ruinsofarcana:auric_pipe",
+    "ruinsofarcana:stone_tablet",
+    "ruinsofarcana:ancient_pot",
+    "ruinsofarcana:enchanted_crystal"
   ]
 }

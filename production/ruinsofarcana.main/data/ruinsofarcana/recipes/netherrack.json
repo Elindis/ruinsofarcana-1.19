@@ -6,6 +6,8 @@
     }
   ],
   "output": {
+    "count": 1,
+    "chance": 50,
     "item": "minecraft:blaze_powder"
   }
 }

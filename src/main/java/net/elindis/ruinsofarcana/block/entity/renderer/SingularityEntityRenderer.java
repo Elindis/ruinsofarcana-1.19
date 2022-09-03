@@ -3,7 +3,6 @@ package net.elindis.ruinsofarcana.block.entity.renderer;
 import net.elindis.ruinsofarcana.block.entity.SingularityBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.entity.EndPortalBlockEntity;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;

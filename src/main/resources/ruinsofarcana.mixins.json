@@ -4,6 +4,7 @@
   "package": "net.elindis.ruinsofarcana.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "PersistentProjectileEntityAccessor"
   ],
   "client": [
     "HeldItemRendererMixin",

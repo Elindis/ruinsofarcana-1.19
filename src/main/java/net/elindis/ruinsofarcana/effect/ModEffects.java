@@ -14,11 +14,17 @@ public class ModEffects {
     public static StatusEffect SPEED;
     public static StatusEffect PURITY;
     public static StatusEffect NIGHTVISION;
+    public static StatusEffect REPEL;
 
     public static StatusEffect registerStatusEffectExplode(String name) {
         return Registry.register(Registry.STATUS_EFFECT, new Identifier(RuinsOfArcana.MOD_ID, name),
                 new ExplosionEffect(StatusEffectCategory.HARMFUL, 00000000));
     }
+    public static StatusEffect registerStatusEffectRepel(String name) {
+        return Registry.register(Registry.STATUS_EFFECT, new Identifier(RuinsOfArcana.MOD_ID, name),
+                new RepelEffect(StatusEffectCategory.HARMFUL, 00000000));
+    }
+
     public static StatusEffect registerStatusEffectNightvision(String name) {
         return Registry.register(Registry.STATUS_EFFECT, new Identifier(RuinsOfArcana.MOD_ID, name),
                 new NightvisionEffect(StatusEffectCategory.BENEFICIAL, 00000000));
@@ -27,6 +33,7 @@ public class ModEffects {
         return Registry.register(Registry.STATUS_EFFECT, new Identifier(RuinsOfArcana.MOD_ID, name),
                 new PurityEffect(StatusEffectCategory.BENEFICIAL, 16777205));
     }
+
     public static StatusEffect registerStatusEffectSpeed(String name) {
         return Registry.register(Registry.STATUS_EFFECT, new Identifier(RuinsOfArcana.MOD_ID, name),
                 // Color of 00000000 makes the particles invisible.
@@ -43,6 +50,7 @@ public class ModEffects {
         SPEED = registerStatusEffectSpeed("speed");
         PURITY = registerStatusEffectPurity("purity");
         NIGHTVISION = registerStatusEffectNightvision("nightvision");
+        REPEL = registerStatusEffectRepel("repel");
     }
 
 }

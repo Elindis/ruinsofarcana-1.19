@@ -145,8 +145,20 @@ public class FrostBoltEntity extends PersistentProjectileEntity {
         if (!world.isClient) {
             target.extinguish();
             target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 200, 3));
+//            target.addStatusEffect(new StatusEffectInstance(ModEffects.CONFUSION, 200, 3));
+            target.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 200, 3));
+            target.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 200, 3));
             target.setFrozenTicks(600);
             target.damage(DamageSource.magic(this, target.getAttacker()), 10.0f);
+//            ((MobEntity) target).setAiDisabled(true);
+//            ((MobEntity) target).setTarget(null);
+//            ((MobEntity) target).clearPositionTarget();
+//            ((MobEntity) target).setAttacking(false);
+//            ((MobEntity) target).setAttacking(null);
+//            ((MobEntity) target).setAttacker(null);
+//            ((MobEntity) target).clearGoalsAndTasks();
+
+
 
             // ===== WISDOM ENCHANTMENT INTEGRATION ===== //
             // For some reason it didn't work out of the box like the light bow did.

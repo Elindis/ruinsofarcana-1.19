@@ -3,16 +3,12 @@ package net.elindis.ruinsofarcana;
 import net.elindis.ruinsofarcana.block.ModBlocks;
 import net.elindis.ruinsofarcana.block.entity.ModBlockEntities;
 import net.elindis.ruinsofarcana.block.entity.renderer.PedestalBlockEntityRenderer;
-import net.elindis.ruinsofarcana.block.entity.renderer.SingularityEntityRenderer;
 import net.elindis.ruinsofarcana.block.entity.renderer.TransmutationTableBlockEntityRenderer;
 import net.elindis.ruinsofarcana.entity.EntitySpawnPacket;
 import net.elindis.ruinsofarcana.entity.ModEntities;
 import net.elindis.ruinsofarcana.entity.renderer.FrostBoltEntityRenderer;
 import net.elindis.ruinsofarcana.entity.renderer.LightArrowEntityRenderer;
-import net.elindis.ruinsofarcana.particle.JetParticle;
-import net.elindis.ruinsofarcana.particle.ModParticles;
-import net.elindis.ruinsofarcana.particle.SingularityParticle;
-import net.elindis.ruinsofarcana.particle.SpiralParticle;
+import net.elindis.ruinsofarcana.particle.*;
 import net.elindis.ruinsofarcana.screen.ManufactoryScreen;
 import net.elindis.ruinsofarcana.screen.ModScreenHandlers;
 import net.elindis.ruinsofarcana.util.ModModelPredicateProvider;
@@ -33,6 +29,7 @@ public class RuinsOfArcanaClient implements ClientModInitializer {
 
         // Blocks
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RICE_CROP, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ENCHANTED_CRYSTAL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MYRTLE_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MYRTLE_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RESEARCH_PARCHMENT_0, RenderLayer.getCutout());
@@ -65,6 +62,7 @@ public class RuinsOfArcanaClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticles.SINGULARITY_PARTICLE, SingularityParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.SPIRAL_PARTICLE, SpiralParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.JET_PARTICLE, JetParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.TORNADO_PARTICLE, TornadoParticle.Factory::new);
 
 
     }

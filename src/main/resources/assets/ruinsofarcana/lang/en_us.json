@@ -4,13 +4,16 @@
   "item.ruinsofarcana.luxite": "Luxite",
   "item.ruinsofarcana.iridite": "Iridite",
   "item.ruinsofarcana.prismite": "Prismite",
+  "item.ruinsofarcana.charcoal_rubbing": "Charcoal Rubbing",
 
   "item.ruinsofarcana.arkenite_multitool": "Arkenite Mattock",
   "item.ruinsofarcana.wand_of_frost_bolt": "Wand of Frost Bolt",
   "item.ruinsofarcana.wand_of_fireball": "Wand of Fireball",
   "item.ruinsofarcana.wand_of_cyclone": "Wand of Cyclone",
+  "item.ruinsofarcana.wand_of_whirlwind": "Wand of Whirlwind",
   "item.ruinsofarcana.light_bow": "Light Bow",
   "item.ruinsofarcana.thunder_mace": "Thunder Mace",
+  "item.ruinsofarcana.frozen_lance": "Frozen Lance",
   "item.ruinsofarcana.scribes_pen": "Scribe's Pen",
 
   "item.ruinsofarcana.truesight_goggles": "Truesight Goggles",
@@ -35,6 +38,14 @@
   "block.ruinsofarcana.research_parchment_2": "Research Parchment",
   "block.ruinsofarcana.research_parchment_3": "Research Parchment",
   "block.ruinsofarcana.research_parchment_4": "Research Parchment",
+  "block.ruinsofarcana.stone_tablet": "Ancient Stone Tablet",
+  "block.ruinsofarcana.ancient_pot": "Ancient Pot",
+  "block.ruinsofarcana.enchanted_crystal": "Ancient Enchanted Crystal",
+  "block.ruinsofarcana.ancient_carving": "Ancient Carving",
+  "block.ruinsofarcana.ciphered_scroll": "Ciphered Scroll",
+  "block.ruinsofarcana.ancient_orb": "Ancient Orb",
+
+
   "block.ruinsofarcana.alchemists_amphora": "Alchemist's Amphora",
   "block.ruinsofarcana.ancient_inscribed_stone": "Ancient Inscribed Stone",
   "block.ruinsofarcana.auric_pipe": "Auric Pipe",

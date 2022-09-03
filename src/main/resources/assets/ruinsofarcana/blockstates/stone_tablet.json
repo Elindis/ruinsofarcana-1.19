@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "ruinsofarcana:block/stone_tablet" },
+    "facing=east": { "model": "ruinsofarcana:block/stone_tablet", "y": 90 },
+    "facing=south": { "model": "ruinsofarcana:block/stone_tablet", "y": 180 },
+    "facing=west": { "model": "ruinsofarcana:block/stone_tablet", "y": 270 }
+  }
+}

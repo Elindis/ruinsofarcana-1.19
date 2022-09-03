@@ -1,17 +1,21 @@
 package net.elindis.ruinsofarcana.item.equipment;
 
 import net.elindis.ruinsofarcana.entity.FrostBoltEntity;
+import net.elindis.ruinsofarcana.item.ModItems;
+import net.elindis.ruinsofarcana.util.ModParticleUtil;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.RangedWeaponItem;
 import net.minecraft.item.Vanishable;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 import java.util.function.Predicate;
@@ -39,6 +43,28 @@ public class WandOfFrostBoltItem extends RangedWeaponItem implements Vanishable 
     }
 
     @Override
+    public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
+        int random2 = world.getRandom().nextInt(9);
+        if (random2 > 6) {
+            float random = user.getRandom().nextFloat()/10;
+            float initialOffsetX = 0;
+            float initialOffsetZ = 0;
+            if (user.getMainHandStack().isOf(ModItems.WAND_OF_FROST_BOLT)) {
+                initialOffsetX += (-MathHelper.cos(MathHelper.RADIANS_PER_DEGREE * (user.getHeadYaw()-60))/3);
+                initialOffsetZ += (-MathHelper.sin(MathHelper.RADIANS_PER_DEGREE * (user.getHeadYaw()-60))/3);
+            }
+            if (user.getOffHandStack().isOf(ModItems.WAND_OF_FROST_BOLT)) {
+                initialOffsetX += (MathHelper.cos(MathHelper.RADIANS_PER_DEGREE * (user.getHeadYaw()+60))/3);
+                initialOffsetZ += (MathHelper.sin(MathHelper.RADIANS_PER_DEGREE * (user.getHeadYaw()+60))/3);
+            }
+            double xPos = user.getX() + initialOffsetX;
+            double yPos = user.getEyeY()-(MathHelper.sin((MathHelper.RADIANS_PER_DEGREE*user.getPitch(1)))/2);
+            double zPos = user.getZ() + initialOffsetZ;
+            world.addParticle(ParticleTypes.SNOWFLAKE, xPos, yPos+0.2, zPos, random, random, random);
+        }
+    }
+
+    @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
         // Check if the LivingEntity is a PlayerEntity.
         if (user instanceof PlayerEntity playerEntity) {
@@ -46,7 +72,7 @@ public class WandOfFrostBoltItem extends RangedWeaponItem implements Vanishable 
             // You can only cast if the spell is at least 75% charged.
             int i = this.getMaxUseTime(stack) - remainingUseTicks;
             float f = getPullProgress(i);
-                if (!((double)f < 0.75)) {
+                if (((double)f > 0.50)) {
 
                         // The conditions for the spell to be castable. On spell success:
                         if (playerEntity.totalExperience > 5 || playerEntity.getAbilities().creativeMode) {
@@ -87,7 +113,7 @@ public class WandOfFrostBoltItem extends RangedWeaponItem implements Vanishable 
         }
     }
     public static float getPullProgress(int useTicks) {
-        float f = (float)useTicks / 5.0f;
+        float f = (float)useTicks / 20.0f;
         if ((f = (f * f + f * 2.0f) / 3.0f) > 1.0f) {
             f = 1.0f;
         }

@@ -1,7 +1,6 @@
 package net.elindis.ruinsofarcana.block.entity.renderer;
 
 import net.elindis.ruinsofarcana.block.entity.PedestalBlockEntity;
-import net.minecraft.block.entity.EndPortalBlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;

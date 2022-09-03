@@ -7,6 +7,7 @@ import net.elindis.ruinsofarcana.particle.ModParticles;
 import net.elindis.ruinsofarcana.recipe.SingularityRecipe;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ExperienceOrbEntity;
@@ -36,12 +37,14 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
 
+// TODO: recipes have can output an arbitrary number of items and organic matter is good for composting
+// output has 9 inventory slots; the output is duplicated into n slots based on the output count!
+// for each slot while i < outputslotnumber, setslotequalto outputitem!
 public class SingularityBlockEntity extends BlockEntity implements ImplementedInventory {
 
     // TODO: REFACTOR FOR CLEANLINESS
@@ -84,13 +87,17 @@ public class SingularityBlockEntity extends BlockEntity implements ImplementedIn
         Box singularityGravityBox = new Box(blockPos).expand(5);
         double gravity = 0.125d;
 
-        // Is a stream better than this? I am not sure. This breaks blocks in the wild in a 11x11x11 radius,
+        // Is this the same as a stream? I think it's faster. This breaks blocks in the wild in a 11x11x11 radius,
         // and the shape ends up as a cube. I would prefer a sphere, but performance is a consideration.
+        // Now removes fluids.
         if (world.getRandom().nextInt(100) == 0) {
             BlockPos.iterateOutwards(fixedBlockPos, 5, 5, 5).forEach(blockPos1 -> {
                 if (world.getRandom().nextInt(100) == 0 && !world.getBlockState(blockPos1).isIn(BlockTags.WITHER_IMMUNE)
                         && !world.getBlockState(blockPos1).isOf(ModBlocks.SINGULARITY)) {
                     world.breakBlock(blockPos1, true);
+                }
+                if (!world.getFluidState(blockPos1).isEmpty() && world.getRandom().nextInt(100) < 20) {
+                    world.setBlockState(blockPos1, Blocks.AIR.getDefaultState());
                 }
             });
         }
@@ -160,14 +167,20 @@ public class SingularityBlockEntity extends BlockEntity implements ImplementedIn
 
                             // Create a result inventory, and set its stack to the crafting result with the same count
                             // as the input inventory, then spawn it and empty the input
-                            SimpleInventory resultInventory = new SimpleInventory(1);
-                            resultInventory.setStack(0, match.get().craft(inventory));
-                            resultInventory.getStack(0).setCount(inventory.getStack(0).getCount());
-                            inventory.setStack(0, ItemStack.EMPTY);
+                            // The size of this inventory is actually the max count of outputs in the recipe
+                            SimpleInventory resultInventory = new SimpleInventory(9);
+                            ItemStack outputItemStack = new ItemStack(match.get().craft(inventory).getItem(), match.get().getOutput().getCount());
+
+//                             So, we just duplicate the output into the result inventory based on the count
+//                            // 1 iron block = 9 iron ingots, 1 in each slot. I think!
+                            for (int i = 0; i < outputItemStack.getCount(); i++) {
+                                resultInventory.setStack(i, outputItemStack.getItem().getDefaultStack());
+                                resultInventory.getStack(i).setCount(inventory.getStack(0).getCount());
+                            }
+                            inventory.clear();
                             ItemScatterer.spawn(world, blockPos, resultInventory);
                         }
                     }
-
                 }
             }
         }
@@ -177,6 +190,7 @@ public class SingularityBlockEntity extends BlockEntity implements ImplementedIn
         // Items should only be sucked if they're blockitems.
         if (entity instanceof ItemEntity) {
             Item item = ((ItemEntity) entity).getStack().getItem();
+            // TODO: Make this a tag instead... of items that shouldn't be sucked in, since they are few.
             if (!(item instanceof BlockItem)) {
                 return false;
             }

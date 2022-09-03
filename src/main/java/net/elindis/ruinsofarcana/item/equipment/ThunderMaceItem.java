@@ -20,8 +20,6 @@ import java.util.List;
 
 public class ThunderMaceItem extends SwordItem {
 
-    // TODO: EnderDragonEntity launchLivingentities(); -> adapt to thunder mace launch code
-
     public ThunderMaceItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
@@ -54,7 +52,7 @@ public class ThunderMaceItem extends SwordItem {
         Vec3d vec3d2 = new Vec3d(x, 0.0, z).normalize().multiply(strength);
 
         target.setVelocity(vec3d.x / 2.0 - vec3d2.x, target.isOnGround() ? Math.min(0.4, vec3d.y / 2.0 + strength) : vec3d.y, vec3d.z / 2.0 - vec3d2.z);
-        target.addVelocity(0, 0.5, 0);
+        target.addVelocity(0, 0.6, 0);
     }
 
     // This sweep is an enhanced version of the sword's sweep. It has a double-size hitbox, and the targets also
@@ -86,8 +84,8 @@ public class ThunderMaceItem extends SwordItem {
                 ModSounds.THUNDER_MACE, playerEntity.getSoundCategory(), 0.6f,
                 (playerEntity.getRandom().nextFloat()) + 0.5f / 2*waterModifier);
         playerEntity.world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
-                SoundEvents.ENTITY_PLAYER_BIG_FALL, playerEntity.getSoundCategory(), 1.6f,
-                 0.6f / ((playerEntity.getRandom().nextFloat() * 0.8f + 0.6f) * 0.5f)/waterModifier);
+                SoundEvents.ITEM_TRIDENT_RETURN, playerEntity.getSoundCategory(), 1.6f,
+                0.6f / ((playerEntity.getRandom().nextFloat() * 0.8f + 0.6f) * 0.5f)/waterModifier);
     }
 }
 

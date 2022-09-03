@@ -29,6 +29,12 @@
       "ruinsofarcana:research_progress"
     ]
   },
+  "whirlwind": {
+    "subtitle": "ruinsofarcana.whirlwind",
+    "sounds": [
+      "ruinsofarcana:whirlwind"
+    ]
+  },
   "singularity": {
     "subtitle": "ruinsofarcana.singularity",
     "sounds": [

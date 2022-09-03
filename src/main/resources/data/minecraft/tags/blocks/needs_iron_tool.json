@@ -2,7 +2,10 @@
   "replace": false,
   "values": [
     "ruinsofarcana:ancient_inscribed_stone",
-    "ruinsofarcana:auric_pipe"
+    "ruinsofarcana:auric_pipe",
+    "ruinsofarcana:stone_tablet",
+    "ruinsofarcana:ancient_pot",
+    "ruinsofarcana:enchanted_crystal"
 
 
   ]

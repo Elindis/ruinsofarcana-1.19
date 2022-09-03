@@ -1,0 +1,127 @@
+{
+  // Processor lists will run a processor for every block placed by the nbt file.
+  // The resultant block of the processor list is the block that actually gets placed in the world.
+  "processors": [
+    // A single Rule processor for this list.
+    {
+      "processor_type": "minecraft:rule",
+
+      // The rules for this Rule processor to use
+      "rules": [
+        {
+          // The block to look for from the nbt file
+          // This has a 50% chance of allowing the found stone bricks block to be replaced
+          "input_predicate": {
+            "block": "minecraft:deepslate_bricks",
+            "probability": 0.40,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          // This is always true
+          // Village roads have this part look for water so roads can be replaced with oak planks instead
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          // The actual block to place if the above conditions return true
+          "output_state": {
+            "Name": "minecraft:air"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:deepslate_bricks",
+            "probability": 0.50,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:cracked_deepslate_bricks"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:deepslate_brick_stairs",
+            "probability": 0.40,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:air"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:air",
+            "probability": 0.30,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:gravel"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:sculk_sensor",
+            "probability": 1.00,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:sculk_sensor"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:deepslate_bricks",
+            "probability": 0.5,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:sculk"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:mud",
+            "probability": 0.80,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:sculk"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:deepslate_bricks",
+            "probability": 0.40,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          // If an output_state block has properties, you must define ALL properties of the block!
+          "output_state": {
+            "Name": "minecraft:smooth_basalt"
+//            "Properties": {
+//              "lit": false
+//            }
+          }
+        }
+      ]
+    }
+  ]
+}

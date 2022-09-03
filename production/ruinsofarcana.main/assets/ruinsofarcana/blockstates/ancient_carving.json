@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "facing=north": { "model": "ruinsofarcana:block/ancient_carving", "x": 90, "z": 180},
+    "facing=east": { "model": "ruinsofarcana:block/ancient_carving", "y": 90, "x": 90, "z": 180 },
+    "facing=south": { "model": "ruinsofarcana:block/ancient_carving", "y": 180, "x": 90, "z": 180 },
+    "facing=west": { "model": "ruinsofarcana:block/ancient_carving", "y": 270, "x": 90, "z": 180 },
+    "facing=up,rotation=north": {"model": "ruinsofarcana:block/ancient_carving", "y": 0, "z": 180 },
+    "facing=up,rotation=east": {"model": "ruinsofarcana:block/ancient_carving", "y": 90, "z": 180 },
+    "facing=up,rotation=south": {"model": "ruinsofarcana:block/ancient_carving", "y": 180, "z": 180 },
+    "facing=up,rotation=west": {"model": "ruinsofarcana:block/ancient_carving", "y": 270, "z": 180 },
+    "facing=up,rotation=up,pristine=true": {"model": "ruinsofarcana:block/ancient_carving", "z": 180 },
+    "facing=up,rotation=down,pristine=true": {"model": "ruinsofarcana:block/ancient_carving", "z": 180 },
+    "facing=up,rotation=up,pristine=false": {"model": "ruinsofarcana:block/ancient_carving", "z": 180 },
+    "facing=up,rotation=down,pristine=false": {"model": "ruinsofarcana:block/ancient_carving", "z": 180 },
+    "facing=down,rotation=north": {"model": "ruinsofarcana:block/ancient_carving", "x": 180, "z": 180 },
+    "facing=down,rotation=east": {"model": "ruinsofarcana:block/ancient_carving", "y": 90, "x": 180, "z": 180 },
+    "facing=down,rotation=south": {"model": "ruinsofarcana:block/ancient_carving", "y": 180, "x": 180, "z": 180 },
+    "facing=down,rotation=west": {"model": "ruinsofarcana:block/ancient_carving", "y": 270, "x": 180, "z": 180 },
+    "facing=down,rotation=up,pristine=true": {"model": "ruinsofarcana:block/ancient_carving", "x": 180, "z": 180 },
+    "facing=down,rotation=up,pristine=false": {"model": "ruinsofarcana:block/ancient_carving", "x": 180, "z": 180 },
+    "facing=down,rotation=down,pristine=true": {"model": "ruinsofarcana:block/ancient_carving", "x": 180, "z": 180 },
+    "facing=down,rotation=down,pristine=false": {"model": "ruinsofarcana:block/ancient_carving", "x": 180, "z": 180 }
+  }
+}

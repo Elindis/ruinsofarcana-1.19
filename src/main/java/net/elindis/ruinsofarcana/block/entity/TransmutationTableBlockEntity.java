@@ -39,6 +39,7 @@ import java.util.function.Predicate;
 
 public class TransmutationTableBlockEntity extends BlockEntity implements ImplementedInventory {
 
+    // TODO: an incorrect recipe/not having the advancement causes BAD THINGS to happen
     // Data
     private DefaultedList<ItemStack> itemInTransmutationTable = DefaultedList.ofSize(1, ItemStack.EMPTY);
     private boolean shouldDoParticles;

@@ -84,6 +84,25 @@ public class ModBlocks {
             new ResearchParchmentBlock_4(FabricBlockSettings.of(Material.DECORATION).nonOpaque()
                     .sounds(BlockSoundGroup.AZALEA_LEAVES).noCollision().breakInstantly()), ModItemGroup.RUINSOFARCANA);
 
+    public static final Block STONE_TABLET = registerBlock("stone_tablet",
+            new StoneTabletBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().sounds(BlockSoundGroup.STONE).strength(2)
+                    .requiresTool()), ModItemGroup.RUINSOFARCANA);
+    public static final Block ANCIENT_POT = registerBlock("ancient_pot",
+            new AncientPotBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().sounds(BlockSoundGroup.DEEPSLATE).strength(2)
+                    .requiresTool()), ModItemGroup.RUINSOFARCANA);
+    public static final Block ENCHANTED_CRYSTAL = registerBlock("enchanted_crystal",
+            new EnchantedCrystalBlock(FabricBlockSettings.of(Material.AMETHYST).nonOpaque().sounds(BlockSoundGroup.AMETHYST_CLUSTER).strength(2)
+                    .requiresTool().luminance(7)), ModItemGroup.RUINSOFARCANA);
+    public static final Block ANCIENT_CARVING = registerBlock("ancient_carving",
+            new AncientCarvingBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().sounds(BlockSoundGroup.DEEPSLATE).strength(2)
+                    .requiresTool()), ModItemGroup.RUINSOFARCANA);
+    public static final Block CIPHERED_SRCOLL = registerBlock("ciphered_scroll",
+            new CipheredScrollBlock(FabricBlockSettings.of(Material.WOOD).nonOpaque().sounds(BlockSoundGroup.AZALEA_LEAVES).strength(2)
+                    .requiresTool()), ModItemGroup.RUINSOFARCANA);
+    public static final Block ANCIENT_ORB = registerBlock("ancient_orb",
+            new AncientOrbBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().sounds(BlockSoundGroup.DEEPSLATE).strength(2)
+                    .requiresTool().luminance(15)), ModItemGroup.RUINSOFARCANA);
+
     // Blocks without items
     public static final Block RICE_CROP = registerBlockWithoutItem("rice_crop",
             new RiceCropBlock(FabricBlockSettings.copy(Blocks.WHEAT)), ModItemGroup.RUINSOFARCANA);
