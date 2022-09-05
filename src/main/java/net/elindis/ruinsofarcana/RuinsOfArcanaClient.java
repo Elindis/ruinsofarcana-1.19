@@ -8,9 +8,12 @@ import net.elindis.ruinsofarcana.entity.EntitySpawnPacket;
 import net.elindis.ruinsofarcana.entity.ModEntities;
 import net.elindis.ruinsofarcana.entity.renderer.FrostBoltEntityRenderer;
 import net.elindis.ruinsofarcana.entity.renderer.LightArrowEntityRenderer;
+import net.elindis.ruinsofarcana.networking.ModPackets;
 import net.elindis.ruinsofarcana.particle.*;
 import net.elindis.ruinsofarcana.screen.ManufactoryScreen;
 import net.elindis.ruinsofarcana.screen.ModScreenHandlers;
+import net.elindis.ruinsofarcana.sound.ModSounds;
+import net.elindis.ruinsofarcana.sound.WhirlwindSound;
 import net.elindis.ruinsofarcana.util.ModModelPredicateProvider;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -20,6 +23,9 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
+import net.minecraft.client.sound.SoundInstance;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.util.math.random.Random;
 
 public class RuinsOfArcanaClient implements ClientModInitializer {
 
@@ -63,6 +69,7 @@ public class RuinsOfArcanaClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticles.SPIRAL_PARTICLE, SpiralParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.JET_PARTICLE, JetParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.TORNADO_PARTICLE, TornadoParticle.Factory::new);
+        ModPackets.registerS2CPackets();
 
 
     }

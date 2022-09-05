@@ -6,17 +6,21 @@ import net.elindis.ruinsofarcana.effect.ModEffects;
 import net.elindis.ruinsofarcana.enchantment.ModEnchantments;
 import net.elindis.ruinsofarcana.entity.ModEntities;
 import net.elindis.ruinsofarcana.item.ModItems;
+import net.elindis.ruinsofarcana.networking.ModPackets;
 import net.elindis.ruinsofarcana.particle.ModParticles;
 import net.elindis.ruinsofarcana.potion.ModPotions;
 import net.elindis.ruinsofarcana.recipe.ModRecipes;
 import net.elindis.ruinsofarcana.screen.ModScreenHandlers;
 import net.elindis.ruinsofarcana.sound.ModSounds;
+import net.elindis.ruinsofarcana.sound.WhirlwindSound;
 import net.elindis.ruinsofarcana.util.ModLootTableModifiers;
 import net.elindis.ruinsofarcana.util.ModRegistries;
 import net.elindis.ruinsofarcana.world.feature.ModConfiguredFeatures;
 import net.elindis.ruinsofarcana.world.feature.structure.ModStructures;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.random.Random;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -57,7 +61,8 @@ public class RuinsOfArcana implements ModInitializer {
 		ModSounds.registerSounds();
 		ModEntities.register();
 		ModParticles.registerParticles();
-
+		ModPackets.registerC2SPackets();
 
 	}
+
 }

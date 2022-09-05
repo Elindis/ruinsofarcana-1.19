@@ -1,4 +1,5 @@
 package net.elindis.ruinsofarcana.sound;
+import net.minecraft.client.sound.MovingSoundInstance;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;

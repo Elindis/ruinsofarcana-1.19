@@ -1,11 +1,18 @@
 package net.elindis.ruinsofarcana.effect;
 
 import net.elindis.ruinsofarcana.mixin.PersistentProjectileEntityAccessor;
+import net.elindis.ruinsofarcana.networking.ModPackets;
 import net.elindis.ruinsofarcana.particle.ModParticles;
 import net.elindis.ruinsofarcana.sound.ModSounds;
 import net.elindis.ruinsofarcana.sound.WhirlwindSound;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.sound.SoundInstance;
+import net.minecraft.client.sound.SoundSystem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
@@ -14,6 +21,8 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 
 import java.util.List;
@@ -21,48 +30,65 @@ import java.util.List;
 
 public class RepelEffect extends StatusEffect {
 
-    protected RepelEffect(StatusEffectCategory statusEffectCategory, int color) {
+    int counter = 0;
+    public RepelEffect(StatusEffectCategory statusEffectCategory, int color) {
         super(statusEffectCategory, color);
+//        this.sound = sound;
     }
-    WhirlwindSound whirlwindSound = new WhirlwindSound(ModSounds.WHIRLWIND, SoundCategory.PLAYERS, SoundInstance.createRandom(), null);
+    public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
 
-        public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        whirlwindSound.setPlayer((PlayerEntity) entity);
         super.onRemoved(entity, attributes, amplifier);
-        // start the sound effect
-        MinecraftClient.getInstance().getSoundManager().play(whirlwindSound);
-        whirlwindSound.setVolume(0.00f);
-    }
+//        entity.playSound(ModSounds.WHIRLWIND, 1f, 1f);
+//            entity.world.playSoundFromEntity(null, entity, ModSounds.WHIRLWIND, SoundCategory.PLAYERS, 1f, 1f);
+        if (!entity.world.isClient) {
+            PacketByteBuf buffer = PacketByteBufs.create();
+            ServerPlayNetworking.send((ServerPlayerEntity) entity, ModPackets.WHIRLWIND_ID, buffer);
+        }
 
+    }
     public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
         super.onRemoved(entity, attributes, amplifier);
         // stop the sound effect
-        MinecraftClient.getInstance().getSoundManager().stop(whirlwindSound);
+//        MinecraftClient.getInstance().getSoundManager().stopSounds(ModSounds.WHIRLWIND_ID, SoundCategory.PLAYERS);
+
     }
 
 
     // Repels enemy projectiles!
     @Override
     public void applyUpdateEffect(LivingEntity pLivingEntity, int pAmplifier) {
-        doParticles(pLivingEntity);
-        if (!MinecraftClient.getInstance().getSoundManager().isPlaying(whirlwindSound)) {
-            MinecraftClient.getInstance().getSoundManager().play(whirlwindSound);
-        } else {
-            whirlwindSound.setPlayer((PlayerEntity) pLivingEntity);
+//        if (this.counter == 0) {
+//            System.out.println("playing a sound");
+//            pLivingEntity.world.playSoundFromEntity(null, pLivingEntity, ModSounds.WHIRLWIND, SoundCategory.PLAYERS, 1f, 1f);
+//        }
+//        this.counter++;
+//        if (this.counter > 660) {
+//            System.out.println("resetting the timer");
+//            this.counter = 0;
+//        }
+        if (pLivingEntity.world.isClient) {
+            doParticles(pLivingEntity);
+
+//        if (!MinecraftClient.getInstance().getSoundManager().isPlaying(sound)) {
+//            MinecraftClient.getInstance().getSoundManager().play(sound);
+//        } else {
+//            sound.setPlayer((PlayerEntity) pLivingEntity);
+//        }
+//        if (sound.getVolume() < 0.7f) {
+//            sound.setVolume(sound.getVolume()+0.02f);
+//        }
+//        if (pLivingEntity.hasStatusEffect(ModEffects.REPEL)) {
+//            System.out.println("we have it");
+//            if ((pLivingEntity.getStatusEffect(ModEffects.REPEL).getDuration() < 20)) {
+//                System.out.println("duration is low");
+//                if (sound.getVolume() > 0) {
+//                    sound.setVolume(sound.getVolume()-0.04f);
+//                    System.out.println("doing the thing");
+//                }
+//            }
+//        }
         }
-        if (whirlwindSound.getVolume() < 0.7f) {
-            whirlwindSound.setVolume(whirlwindSound.getVolume()+0.02f);
-        }
-        if (pLivingEntity.hasStatusEffect(ModEffects.REPEL)) {
-            System.out.println("we have it");
-            if ((pLivingEntity.getStatusEffect(ModEffects.REPEL).getDuration() < 20)) {
-                System.out.println("duration is low");
-                if (whirlwindSound.getVolume() > 0) {
-                    whirlwindSound.setVolume(whirlwindSound.getVolume()-0.04f);
-                    System.out.println("doing the thing");
-                }
-            }
-        }
+
 
         if (!pLivingEntity.world.isClient()) {
 
