@@ -56,6 +56,7 @@ public class RuinsOfArcanaClient implements ClientModInitializer {
 
         // Projectile entities and thrown entities
         EntityRendererRegistry.register(ModEntities.FIREBALL_ENTITY_TYPE, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.SMOKEBOMB_ENTITY_TYPE, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.FROST_BOLT_ENTITY_ENTITY_TYPE, FrostBoltEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.LIGHT_ARROW_ENTITY_TYPE, LightArrowEntityRenderer::new);
 

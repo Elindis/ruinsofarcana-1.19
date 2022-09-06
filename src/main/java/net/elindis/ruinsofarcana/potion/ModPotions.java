@@ -10,7 +10,7 @@ import net.minecraft.util.registry.Registry;
 
 
 public class ModPotions {
-    public static Potion EXPLODE_POTION;
+    public static Potion CONFUSION_POTION;
     public static Potion FROST_POTION;
     public static Potion PURITY_POTION;
 
@@ -30,9 +30,15 @@ public class ModPotions {
                         new StatusEffectInstance(ModEffects.PURITY, 400)));
     }
 
+    public static Potion registerPotionConfusion(String name) {
+        return Registry.register(Registry.POTION, new Identifier(RuinsOfArcana.MOD_ID, name),
+                new Potion(
+                        new StatusEffectInstance(ModEffects.CONFUSION, 400, 1)));
+    }
+
     public static void registerPotions() {
 
-//        EXPLODE_POTION = registerPotionExplode("explode_potion");
+        CONFUSION_POTION = registerPotionConfusion("confusion_pution");
         FROST_POTION = registerPotionFrost("frost_potion");
         PURITY_POTION = registerPotionPurity("purity_potion");
     }

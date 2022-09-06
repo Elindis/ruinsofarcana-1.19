@@ -4,10 +4,11 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.util.math.MathHelper;
 
 
-public class ExplosionEffect extends StatusEffect {
-    protected ExplosionEffect(StatusEffectCategory statusEffectCategory, int color) {
+public class ShieldingEffect extends StatusEffect {
+    protected ShieldingEffect(StatusEffectCategory statusEffectCategory, int color) {
         super(statusEffectCategory, color);
     }
 
@@ -30,7 +31,7 @@ public class ExplosionEffect extends StatusEffect {
     }
     @Override
     public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        entity.setAbsorptionAmount(0);
+        entity.setAbsorptionAmount(MathHelper.clamp(entity.getAbsorptionAmount()-20, 0, 100));
         super.onRemoved(entity, attributes, amplifier);
     }
 }

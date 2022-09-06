@@ -93,8 +93,9 @@ public class ModItems {
             "travelers_boots", new AuricArmorItem(ModArmorMaterials.AURIC, EquipmentSlot.FEET,
                     new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).fireproof()));
 
-    public static final Item PERADITE = registerItem(
-            "peradite", new PeraditeItem(new Item.Settings().group(ModItemGroup.RUINSOFARCANA)));
+    public static final Item CIRCLET_OF_REBIRTH = registerItem(
+            "circlet_of_rebirth", new AuricArmorItem(ModArmorMaterials.AURIC, EquipmentSlot.HEAD,
+                    new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).fireproof().maxDamage(100)));
 
 
     // Ancient notes
@@ -118,6 +119,11 @@ public class ModItems {
     // Vials
     public static final Item VIAL_OF_SPEED = registerItem(
             "vial_of_speed", new VialItem(new FabricItemSettings().food(ModFoodComponents.SPEED).maxCount(16).group(ModItemGroup.RUINSOFARCANA)));
+
+    // Throwables and gadgets
+    public static final Item SMOKEBOMB_ITEM = registerItem(
+            "smokebomb", new SmokeBombItem(new FabricItemSettings().maxCount(16).group(ModItemGroup.RUINSOFARCANA)));
+
 
 
     // Methods

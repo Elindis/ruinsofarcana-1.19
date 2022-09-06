@@ -1,5 +1,6 @@
 package net.elindis.ruinsofarcana.item.equipment;
 
+import net.elindis.ruinsofarcana.effect.ModEffects;
 import net.elindis.ruinsofarcana.item.ModItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
@@ -23,6 +24,9 @@ public class AuricArmorItem extends ArmorItem {
             if (entity instanceof PlayerEntity player) {
 
                 if (isGoggles(player)) {
+                    player.removeStatusEffect(StatusEffects.BLINDNESS);
+                    player.removeStatusEffect(StatusEffects.DARKNESS);
+                    player.removeStatusEffect(StatusEffects.NAUSEA);
                     if (!player.hasStatusEffect(StatusEffects.NIGHT_VISION)) {
                         player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION,
                                 240, 0, false, false, false));
@@ -36,13 +40,13 @@ public class AuricArmorItem extends ArmorItem {
                     }
                 }
                 if (isNecklace(player)) {
-                    if (!player.hasStatusEffect(StatusEffects.WATER_BREATHING)) {
-                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING,
+                    if (!player.hasStatusEffect(StatusEffects.CONDUIT_POWER)) {
+                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.CONDUIT_POWER,
                                 100, 0, false, false, false));
                     } else {
-                        if (player.getActiveStatusEffects().containsKey(StatusEffects.WATER_BREATHING)) {
-                            if (player.getActiveStatusEffects().get(StatusEffects.WATER_BREATHING).getDuration() < 21) {
-                                player.addStatusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING,
+                        if (player.getActiveStatusEffects().containsKey(StatusEffects.CONDUIT_POWER)) {
+                            if (player.getActiveStatusEffects().get(StatusEffects.CONDUIT_POWER).getDuration() < 21) {
+                                player.addStatusEffect(new StatusEffectInstance(StatusEffects.CONDUIT_POWER,
                                         100, 0, false, false, false));
                             }
                         }
@@ -61,15 +65,26 @@ public class AuricArmorItem extends ArmorItem {
                             }
                         }
                     }
-                }
-                if (isBoots(player)) {
-                    if (!player.hasStatusEffect(StatusEffects.SPEED)) {
-                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED,
+                    if (!player.hasStatusEffect(StatusEffects.JUMP_BOOST)) {
+                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST,
                                 100, 0, false, false, false));
                     } else {
-                        if (player.getActiveStatusEffects().containsKey(StatusEffects.SPEED)) {
-                            if (player.getActiveStatusEffects().get(StatusEffects.SPEED).getDuration() < 21) {
-                                player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED,
+                        if (player.getActiveStatusEffects().containsKey(StatusEffects.JUMP_BOOST)) {
+                            if (player.getActiveStatusEffects().get(StatusEffects.JUMP_BOOST).getDuration() < 21) {
+                                player.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST,
+                                        100, 0, false, false, false));
+                            }
+                        }
+                    }
+                }
+                if (isBoots(player)) {
+                    if (!player.hasStatusEffect(ModEffects.SPEED)) {
+                        player.addStatusEffect(new StatusEffectInstance(ModEffects.SPEED,
+                                100, 0, false, false, false));
+                    } else {
+                        if (player.getActiveStatusEffects().containsKey(ModEffects.SPEED)) {
+                            if (player.getActiveStatusEffects().get(ModEffects.SPEED).getDuration() < 21) {
+                                player.addStatusEffect(new StatusEffectInstance(ModEffects.SPEED,
                                         100, 0, false, false, false));
                             }
                         }

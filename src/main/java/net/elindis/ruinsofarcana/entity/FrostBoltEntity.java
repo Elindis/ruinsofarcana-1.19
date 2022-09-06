@@ -1,6 +1,7 @@
 package net.elindis.ruinsofarcana.entity;
 
 import net.elindis.ruinsofarcana.block.ModBlocks;
+import net.elindis.ruinsofarcana.effect.ModEffects;
 import net.elindis.ruinsofarcana.enchantment.ModEnchantments;
 import net.elindis.ruinsofarcana.item.ModItems;
 import net.elindis.ruinsofarcana.util.ModParticleUtil;
@@ -10,6 +11,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.TargetPredicate;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -30,7 +32,9 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class FrostBoltEntity extends PersistentProjectileEntity {
 
@@ -145,9 +149,9 @@ public class FrostBoltEntity extends PersistentProjectileEntity {
         if (!world.isClient) {
             target.extinguish();
             target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 200, 3));
-//            target.addStatusEffect(new StatusEffectInstance(ModEffects.CONFUSION, 200, 3));
-            target.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 200, 3));
-            target.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 200, 3));
+            target.addStatusEffect(new StatusEffectInstance(ModEffects.CONFUSION, 200, 0));
+//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 200, 3));
+//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 200, 3));
             target.setFrozenTicks(600);
             target.damage(DamageSource.magic(this, target.getAttacker()), 10.0f);
 //            ((MobEntity) target).setAiDisabled(true);

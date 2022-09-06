@@ -7,6 +7,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
+import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -14,6 +15,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
@@ -47,9 +49,9 @@ public class ModParticleUtil {
 
     public static void doLivingEntityParticles(LivingEntity entity, ParticleType particleType, int intensity) {
         for (int i = 0; i < intensity; i++) {
-            double x = entity.getPos().getX() + 0.f;
-            double y = entity.getPos().getY() + 0.f;
-            double z = entity.getPos().getZ() + 0.f;
+            double x = entity.getPos().getX() + 0.0f;
+            double y = entity.getPos().getY() + 0.0f;
+            double z = entity.getPos().getZ() + 0.0f;
             double deltaX = (entity.getWorld().random.nextDouble());
             double deltaY = (entity.getWorld().random.nextDouble());
             double deltaZ = (entity.getWorld().random.nextDouble());
@@ -81,6 +83,29 @@ public class ModParticleUtil {
             if (world instanceof ServerWorld) {
                 ((ServerWorld) world).spawnParticles((ServerPlayerEntity) player, (ParticleEffect) particleType,
                         true, x, y, z, 1, deltaX, deltaY, deltaZ, speed);
+            }
+        }
+    }
+
+    public static void doSmokeBombParticles(World world, BlockPos pos, ThrownItemEntity entity, ParticleType particleType, int intensity, float speed) {
+        for (int i = 0; i < intensity; i++) {
+            float random1 = world.getRandom().nextFloat()*7;
+            float random2 = Random.create().nextFloat()*7;
+            float random3 = Random.create().nextFloat();
+            random1 -= 3.0f;
+            random2 -= 3.0f;
+
+            double x = pos.getX() + random1;
+            double y = pos.getY() + 0.5 + random3*2;
+            double z = pos.getZ() + random2;
+
+
+            double deltaX = (world.random.nextDouble()/8);
+            double deltaY = (world.random.nextDouble()/4);
+            double deltaZ = (world.random.nextDouble()/8);
+            if (world instanceof ServerWorld) {
+                PlayerLookup.tracking(entity).forEach(player -> ((ServerWorld) entity.getWorld())
+                        .spawnParticles(player, (ParticleEffect) particleType, true, x, y, z, 1, deltaX, deltaY, deltaZ, speed));
             }
         }
     }

@@ -60,6 +60,12 @@ public class ModEntities {
                     .trackRangeBlocks(64).trackedUpdateRate(8) // trackRangeBlocks is how far out it renders (in blocks), I think.
                     .build());
 
+    public static final EntityType<SmokeBombEntity> SMOKEBOMB_ENTITY_TYPE = create("smokebomb",
+            FabricEntityTypeBuilder.<SmokeBombEntity>create(SpawnGroup.MISC, SmokeBombEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.25F, 0.25F)) // dimensions in Minecraft units of the projectile
+                    .trackRangeBlocks(64).trackedUpdateRate(8) // trackRangeBlocks is how far out it renders (in blocks), I think.
+                    .build());
+
 
     //-----Registry-----//
     public static void register() {

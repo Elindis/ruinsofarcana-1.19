@@ -16,6 +16,8 @@
   "item.ruinsofarcana.frozen_lance": "Frozen Lance",
   "item.ruinsofarcana.scribes_pen": "Scribe's Pen",
 
+  "item.ruinsofarcana.smokebomb": "Smoke Bomb",
+
   "item.ruinsofarcana.truesight_goggles": "Truesight Goggles",
   "item.ruinsofarcana.diving_necklace": "Diving Necklace",
   "item.ruinsofarcana.gravity_belt": "Gravity Belt",
@@ -57,6 +59,12 @@
 
   "enchantment.ruinsofarcana.wisdom": "Wisdom",
   "enchantment.ruinsofarcana.intensity": "Intensity",
+
+  "effect.ruinsofarcana.confusion": "Confusion",
+  "effect.ruinsofarcana.purity": "Cleansing",
+  "effect.ruinsofarcana.repel": "Whirlwind",
+  "effect.ruinsofarcana.Shielding": "Shielding",
+  "effect.ruinsofarcana.speed": "Swiftness",
 
   "itemGroup.ruinsofarcana.ruinsofarcana": "Ruins of Arcana"
 }
