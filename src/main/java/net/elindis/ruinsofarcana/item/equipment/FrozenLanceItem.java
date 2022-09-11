@@ -5,6 +5,7 @@ import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -45,6 +46,7 @@ public class FrozenLanceItem extends SwordItem {
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 100, 1), attacker);
+        target.damage(DamageSource.FREEZE, 1);
         target.setFrozenTicks(600);
         playSound((PlayerEntity) attacker);
         ModParticleUtil.doLivingEntityParticles(target, ParticleTypes.SNOWFLAKE, 40);
@@ -52,11 +54,13 @@ public class FrozenLanceItem extends SwordItem {
         return true;
     }
 
+
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (entity instanceof PlayerEntity) {
             if (((PlayerEntity) entity).getMainHandStack().isOf(this.asItem()) ||
             ((PlayerEntity) entity).getOffHandStack().isOf(this.asItem())) {
                 BlockPos pos = new BlockPos(entity.getPos());
+
                 freezeWater((LivingEntity) entity, world, pos, 2);
             }
         }
@@ -83,6 +87,10 @@ public class FrozenLanceItem extends SwordItem {
             world.setBlockState(blockPos2, blockState);
             world.createAndScheduleBlockTick(blockPos2, Blocks.FROSTED_ICE, MathHelper.nextInt(entity.getRandom(), 60, 120));
         }
+    }
+    @Override
+    public boolean hasGlint(ItemStack stack) {
+        return false;
     }
 }
 

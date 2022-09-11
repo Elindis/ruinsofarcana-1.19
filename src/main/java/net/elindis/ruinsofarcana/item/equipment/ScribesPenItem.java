@@ -7,7 +7,17 @@ public class ScribesPenItem extends Item {
 		super(settings);
 	}
 
-//	private void openAdvancementScreen(World world, PlayerEntity user, Hand hand) {
+
+//	@Override
+//	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+//		super.use(world, user, hand);
+//		(ServerWorld) world.getServer().getCommandManager().getDispatcher().execute(
+//		)
+//		return TypedActionResult.pass(user.getStackInHand(hand));
+//	}
+
+
+	//	private void openAdvancementScreen(World world, PlayerEntity user, Hand hand) {
 //		assert MinecraftClient.getInstance().player != null;
 //
 //		AdvancementsScreen advancementsScreen = new AdvancementsScreen(MinecraftClient.getInstance().player.networkHandler.getAdvancementHandler());

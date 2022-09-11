@@ -25,6 +25,7 @@ public class AncientResearchNoteGenericItem extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+
         ItemStack itemStack = user.getStackInHand(hand);
         if (!world.isClient() && hand == Hand.MAIN_HAND)
         {

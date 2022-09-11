@@ -49,7 +49,11 @@ public class ModItems {
                     new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
 
     public static final Item FROZEN_LANCE = registerItem(
-            "frozen_lance", new FrozenLanceItem(ModToolMaterials.AURIC, 1, -2.4f,
+            "frozen_lance", new FrozenLanceItem(ModToolMaterials.AURIC, 3, -2.4f,
+                    new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
+
+    public static final Item SOLAR_SWORD = registerItem(
+            "solar_sword", new SolarSwordItem(ModToolMaterials.AURIC, 3, -2.4f,
                     new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
 
     public static final Item WAND_OF_TRANSMUTATION = registerItem(
@@ -116,13 +120,16 @@ public class ModItems {
             "fish_roll", new Item(new FabricItemSettings().food(ModFoodComponents.FISH_ROLL).group(ModItemGroup.RUINSOFARCANA)));
 
 
-    // Vials
-    public static final Item VIAL_OF_SPEED = registerItem(
-            "vial_of_speed", new VialItem(new FabricItemSettings().food(ModFoodComponents.SPEED).maxCount(16).group(ModItemGroup.RUINSOFARCANA)));
+    // Serums
+    public static final Item SERUM_OF_SPEED = registerItem(
+            "serum_of_speed", new SerumItem(new FabricItemSettings().food(ModFoodComponents.SPEED)
+                    .maxCount(16).group(ModItemGroup.RUINSOFARCANA)));
 
     // Throwables and gadgets
-    public static final Item SMOKEBOMB_ITEM = registerItem(
+    public static final Item SMOKEBOMB = registerItem(
             "smokebomb", new SmokeBombItem(new FabricItemSettings().maxCount(16).group(ModItemGroup.RUINSOFARCANA)));
+    public static final Item ENDER_POUCH = registerItem(
+            "ender_pouch", new EnderPouchItem(new FabricItemSettings().maxCount(1).group(ModItemGroup.RUINSOFARCANA)));
 
 
 

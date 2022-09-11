@@ -1,7 +1,7 @@
 {
   "variants": {
-    "liquid_type=0": { "model": "minecraft:block/light_blue_terracotta"},
-    "liquid_type=1": { "model": "minecraft:block/white_terracotta"},
-    "liquid_type=2": { "model": "minecraft:block/red_terracotta"}
+    "liquid_type=0": { "model": "ruinsofarcana:block/amphora"},
+    "liquid_type=1": { "model": "ruinsofarcana:block/amphora_lava"},
+    "liquid_type=2": { "model": "ruinsofarcana:block/amphora_milk"}
   }
 }

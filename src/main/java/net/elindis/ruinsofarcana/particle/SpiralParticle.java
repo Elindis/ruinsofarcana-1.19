@@ -6,6 +6,8 @@ import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.Vec3f;
 import net.minecraft.util.math.random.Random;
 
 public class SpiralParticle extends SpriteBillboardParticle {
@@ -29,11 +31,11 @@ public class SpiralParticle extends SpriteBillboardParticle {
 		this.velocityX = dx;
 		this.velocityY = dy;
 		this.velocityZ = dz;
-		this.scale *= 0.75F;
+		this.scale *= 0.7F;
 		this.maxAge = 60;
 		this.setSpriteForAge(spriteSet);
 		this.randomOf4 = Random.create().nextBetween(0, 3);
-		this.size = 3f;
+		this.size = 4f;
 
 		this.red = 1f;
 		this.green = 1f;
@@ -44,6 +46,12 @@ public class SpiralParticle extends SpriteBillboardParticle {
 	public void tick() {
 		super.tick();
 		fadeIn();
+//		Vec3d particlePos = new Vec3d(this.x, this.y, this.z);
+//		Vec3d initialPos = new Vec3d(initialX, initialY, initialZ);
+//		float factor = 1f;
+//		this.red = MathHelper.clamp(((float) particlePos.distanceTo(initialPos)*factor), 0, 1);
+//		this.blue = MathHelper.clamp(((float) particlePos.distanceTo(initialPos)*factor), 0, 1);
+//		this.green = MathHelper.clamp(((float) particlePos.distanceTo(initialPos)*factor), 0, 0.8f);
 		float time = this.age/4f;
 		if (randomOf4 == 0) {
 			this.x = initialX + -MathHelper.cos(time/2)*size/time;

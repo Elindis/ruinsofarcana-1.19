@@ -5,8 +5,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
-public class VialItem extends Item {
-    public VialItem(Settings settings) {
+public class SerumItem extends Item {
+
+    public SerumItem(Settings settings) {
         super(settings);
     }
 

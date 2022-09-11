@@ -22,9 +22,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraft.world.explosion.Explosion;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SmokeBombEntity extends ThrownItemEntity {

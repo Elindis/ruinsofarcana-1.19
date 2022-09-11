@@ -4,6 +4,7 @@ import net.elindis.ruinsofarcana.item.ModItems;
 import net.elindis.ruinsofarcana.util.ModParticleUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -20,13 +21,28 @@ import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
+import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.stream.Stream;
+
 public class AmphoraBlock extends Block {
+    private static final VoxelShape DEFAULT_SHAPE = Stream.of(
+            Block.createCuboidShape(5, 0, 5, 11, 1, 11),
+            Block.createCuboidShape(5, 2, 5, 11, 4, 11),
+            Block.createCuboidShape(6, 1, 6, 10, 2, 10),
+            Block.createCuboidShape(4, 4, 4, 12, 6, 12),
+            Block.createCuboidShape(3, 6, 3, 13, 10, 13),
+            Block.createCuboidShape(6, 10, 6, 10, 14, 10),
+            Block.createCuboidShape(5, 14, 5, 11, 16, 11)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
     public static final IntProperty LIQUID_TYPE = IntProperty.of("liquid_type", 0, 2);
 
@@ -34,6 +50,16 @@ public class AmphoraBlock extends Block {
         super(settings);
         this.setDefaultState((this.stateManager.getDefaultState())
                 .with(LIQUID_TYPE, 0));
+    }
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return DEFAULT_SHAPE;
+    }
+
+    @Override
+    public VoxelShape getRaycastShape(BlockState state, BlockView world, BlockPos pos) {
+        return DEFAULT_SHAPE;
     }
 
     @Override

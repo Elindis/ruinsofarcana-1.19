@@ -2,7 +2,6 @@ package net.elindis.ruinsofarcana.item;
 
 import net.elindis.ruinsofarcana.entity.SmokeBombEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;

@@ -2,7 +2,6 @@ package net.elindis.ruinsofarcana.item.equipment;
 
 import net.elindis.ruinsofarcana.entity.LightArrowEntity;
 import net.elindis.ruinsofarcana.sound.ModSounds;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
@@ -52,12 +51,12 @@ public class LightBowItem extends RangedWeaponItem implements Vanishable {
         ItemStack itemStack = user.getStackInHand(hand);
         user.setCurrentHand(hand);
 
-        world.playSound(null, user.getX(), user.getY(), user.getZ(), ModSounds.CYCLONE, SoundCategory.PLAYERS, 0.7f, 1.2f / (world.getRandom().nextFloat() * 0.4f + 1.2f) + 0.5f);
+//        world.playSound(null, user.getX(), user.getY(), user.getZ(), ModSounds.CYCLONE, SoundCategory.PLAYERS, 0.7f, 1.2f / (world.getRandom().nextFloat() * 0.4f + 1.2f) + 0.5f);
         return TypedActionResult.consume(itemStack);
     }
     @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
-        MinecraftClient.getInstance().getSoundManager().stopSounds(ModSounds.CYCLONE_ID, SoundCategory.PLAYERS);
+//        MinecraftClient.getInstance().getSoundManager().stopSounds(ModSounds.CYCLONE_ID, SoundCategory.PLAYERS);
         int i;
         float f;
         if (!(user instanceof PlayerEntity)) {
@@ -78,9 +77,10 @@ public class LightBowItem extends RangedWeaponItem implements Vanishable {
             }
 
             /*===============    Change this when you implement the Intensity enchantment.    ===================>*/
+            // TODO: this
             int intensity = 2;
             lightArrowEntity.setDamage(lightArrowEntity.getDamage() + intensity * 0.5 + 0.5);
-            lightArrowEntity.setPunch(1);
+//            lightArrowEntity.setPunch(1);
 
             stack.damage(1, playerEntity, p -> p.sendToolBreakStatus(playerEntity.getActiveHand()));
             world.spawnEntity(lightArrowEntity);

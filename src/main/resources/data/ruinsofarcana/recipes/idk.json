@@ -1,0 +1,17 @@
+{
+  "type": "ruinsofarcana:manufactory",
+  "ingredients": [
+    {
+      "item": "ruinsofarcana:luxite"
+    },
+    {
+      "item": "ruinsofarcana:luxite"
+    },
+    {
+      "item": "ruinsofarcana:luxite"
+    }
+  ],
+  "output": {
+    "item": "ruinsofarcana:luxite"
+  }
+}

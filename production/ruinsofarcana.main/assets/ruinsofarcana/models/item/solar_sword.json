@@ -1,0 +1,6 @@
+{
+  "parent": "ruinsofarcana:item/large_weapon",
+  "textures": {
+    "layer0": "ruinsofarcana:item/solar_sword"
+  }
+}

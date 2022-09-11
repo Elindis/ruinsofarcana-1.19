@@ -12,15 +12,12 @@ import net.elindis.ruinsofarcana.potion.ModPotions;
 import net.elindis.ruinsofarcana.recipe.ModRecipes;
 import net.elindis.ruinsofarcana.screen.ModScreenHandlers;
 import net.elindis.ruinsofarcana.sound.ModSounds;
-import net.elindis.ruinsofarcana.sound.WhirlwindSound;
 import net.elindis.ruinsofarcana.util.ModLootTableModifiers;
 import net.elindis.ruinsofarcana.util.ModRegistries;
 import net.elindis.ruinsofarcana.world.feature.ModConfiguredFeatures;
 import net.elindis.ruinsofarcana.world.feature.structure.ModStructures;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.random.Random;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

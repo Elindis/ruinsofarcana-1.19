@@ -13,6 +13,7 @@ public class ModBlockEntities {
     public static BlockEntityType<TransmutationTableBlockEntity> TRANSMUTATION_TABLE;
     public static BlockEntityType<ModHopperBlockEntity> AURIC_PIPE;
     public static BlockEntityType<SingularityBlockEntity> SINGULARITY;
+    public static BlockEntityType<GravityInverterBlockEntity> GRAVITY_INVERTER;
 
     public static void registerAllBlockEntities() {
 
@@ -40,5 +41,10 @@ public class ModBlockEntities {
                 new Identifier(RuinsOfArcana.MOD_ID, "singularity"),
                 FabricBlockEntityTypeBuilder.create(SingularityBlockEntity::new,
                         ModBlocks.SINGULARITY).build(null));
+
+        GRAVITY_INVERTER = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                new Identifier(RuinsOfArcana.MOD_ID, "gravity_inverter"),
+                FabricBlockEntityTypeBuilder.create(GravityInverterBlockEntity::new,
+                        ModBlocks.GRAVITY_INVERTER).build(null));
     }
 }

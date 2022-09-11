@@ -13,7 +13,7 @@
           // This has a 50% chance of allowing the found stone bricks block to be replaced
           "input_predicate": {
             "block": "minecraft:deepslate_bricks",
-            "probability": 0.40,
+            "probability": 0.20,
             "predicate_type": "minecraft:random_block_match"
           },
           // This is always true
@@ -28,33 +28,7 @@
         },
         {
           "input_predicate": {
-            "block": "minecraft:deepslate_bricks",
-            "probability": 0.50,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "minecraft:cracked_deepslate_bricks"
-          }
-        },
-        {
-          "input_predicate": {
-            "block": "minecraft:deepslate_brick_stairs",
-            "probability": 0.40,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
-        },
-        {
-          "input_predicate": {
-            "block": "minecraft:air",
+            "block": "minecraft:cracked_deepslate_bricks",
             "probability": 0.30,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -62,9 +36,10 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:gravel"
+            "Name": "minecraft:sculk"
           }
         },
+
         {
           "input_predicate": {
             "block": "minecraft:sculk_sensor",
@@ -78,23 +53,11 @@
             "Name": "minecraft:sculk_sensor"
           }
         },
-        {
-          "input_predicate": {
-            "block": "minecraft:deepslate_bricks",
-            "probability": 0.5,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "minecraft:sculk"
-          }
-        },
+
         {
           "input_predicate": {
             "block": "minecraft:mud",
-            "probability": 0.80,
+            "probability": 0.60,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -104,6 +67,179 @@
             "Name": "minecraft:sculk"
           }
         },
+        {
+          "input_predicate": {
+            "block": "minecraft:deepslate",
+            "probability": 0.60,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:sculk"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:tuff",
+            "probability": 0.60,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:sculk"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:air",
+            "probability": 0.20,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:tuff"
+          }
+        },
+
+        {
+          "input_predicate": {
+            "block": "minecraft:air",
+            "probability": 1.00,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:deepslate"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:yellow_concrete",
+            "probability": 1.0,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:air"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:cracked_deepslate_bricks",
+            "probability": 0.15,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:air"
+          }
+        },
+        // =========== RELICS ========
+//        {
+//          "input_predicate": {
+//            "block": "ruinsofarcana:ancient_pot",
+//            "probability": 0.15,
+//            "predicate_type": "minecraft:random_block_match"
+//          },
+//          "location_predicate": {
+//            "predicate_type": "minecraft:always_true"
+//          },
+//          "output_state": {
+//            "Name": "ruinsofarcana:air"
+//          }
+//        },
+        {
+          "input_predicate": {
+            "block": "ruinsofarcana:ancient_pot",
+            "probability": 0.15,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ruinsofarcana:chalice"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "ruinsofarcana:ancient_pot",
+            "probability": 0.17,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ruinsofarcana:stone_tablet"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "ruinsofarcana:ancient_pot",
+            "probability": 0.19,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ruinsofarcana:enchanted_crystal"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "ruinsofarcana:ancient_pot",
+            "probability": 0.21,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ruinsofarcana:ciphered_scroll"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "ruinsofarcana:ancient_pot",
+            "probability": 0.23,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ruinsofarcana:ancient_carving"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "ruinsofarcana:ancient_pot",
+            "probability": 0.25,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "ruinsofarcana:stone_tablet"
+          }
+        },
+
+
         {
           "input_predicate": {
             "block": "minecraft:deepslate_bricks",

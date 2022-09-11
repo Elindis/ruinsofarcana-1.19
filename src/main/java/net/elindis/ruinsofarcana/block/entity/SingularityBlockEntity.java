@@ -41,10 +41,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
-
-// TODO: recipes have can output an arbitrary number of items and organic matter is good for composting
-// output has 9 inventory slots; the output is duplicated into n slots based on the output count!
-// for each slot while i < outputslotnumber, setslotequalto outputitem!
 public class SingularityBlockEntity extends BlockEntity implements ImplementedInventory {
 
     // TODO: REFACTOR FOR CLEANLINESS
@@ -55,8 +51,7 @@ public class SingularityBlockEntity extends BlockEntity implements ImplementedIn
         super(ModBlockEntities.SINGULARITY, pos, state);
     }
     public static void tick(World world, BlockPos pos, BlockState state, SingularityBlockEntity blockEntity) {
-        world.addParticle(ModParticles.SPIRAL_PARTICLE, pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f, 0, 0, 0);
-        world.addParticle(ModParticles.JET_PARTICLE, pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f, 0.1, 0, .1);
+        doParticles(world, pos);
 
         // Sucking in the player. See the serverside for more detailed comments if you need them.
         Vec3d singularityVector = new Vec3d(pos.getX() + 0.5f, pos.getY(), pos.getZ() + 0.5f);
@@ -64,6 +59,7 @@ public class SingularityBlockEntity extends BlockEntity implements ImplementedIn
         Box singularityGravityBox = new Box(pos).expand(5);
         float gravity = 0.125f;
         List<Entity> entityList = world.getOtherEntities(null, singularityGravityBox);
+        if (entityList.isEmpty()) return;
         for (Entity entity : entityList) {
             if (entity instanceof PlayerEntity && shouldSuck(entity)) {
                 double distance = singularityVector.distanceTo(entity.getPos()) + 0.01;
@@ -72,6 +68,19 @@ public class SingularityBlockEntity extends BlockEntity implements ImplementedIn
                         (fixedBlockPos.getY() - (entity.getY() - 0.5)) * gravity / distance,
                         (fixedBlockPos.getZ() - (entity.getZ() - 0.5)) * gravity / distance);
             }
+        }
+    }
+
+    private static void doParticles(World world, BlockPos pos) {
+        world.addParticle(ModParticles.SPIRAL_PARTICLE, pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f, 0, 0, 0);
+        world.addParticle(ModParticles.SPIRAL_PARTICLE, pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f, 0, 0, 0);
+        world.addParticle(ModParticles.JET_PARTICLE, pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f, 0.1, 0, .1);
+        world.addParticle(ModParticles.CORE_PARTICLE, pos.getX()+ 0.5f, pos.getY()+ 0.5f, pos.getZ()+ 0.5f, pos.getX()+ 0.5f, pos.getY()+ 0.5f, pos.getZ()+ 0.5f);
+        int rand = Random.create().nextBetween(0,20);
+        if (rand == 0) {
+            world.addParticle(ModParticles.SINGULARITY_PARTICLE,
+                    pos.getX() + (Random.create().nextFloat()-0.5)*2, pos.getY() + (Random.create().nextFloat()-0.5)*2,
+                    pos.getZ() + (Random.create().nextFloat()-0.5)*2, pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f);
         }
     }
 
@@ -101,13 +110,6 @@ public class SingularityBlockEntity extends BlockEntity implements ImplementedIn
                 }
             });
         }
-//        if (world.getRandom().nextInt(100) == 0) {
-//            BlockPos.stream(singularityGravityBox).forEach(blockPos1 -> {
-//                if (world.getRandom().nextInt(100) == 0 && !world.getBlockState(blockPos1).isIn(BlockTags.WITHER_IMMUNE)) {
-//                    world.breakBlock(blockPos1, true);
-//                }
-//            });
-//        }
 
         // Gathers a list of all the entities in the 11x11x11 area of the black hole.
         List<Entity> entityList = world.getOtherEntities(null, singularityGravityBox);
@@ -140,7 +142,7 @@ public class SingularityBlockEntity extends BlockEntity implements ImplementedIn
                 if (entity instanceof ProjectileEntity && distance < 1) entity.discard();
 
                 // If the entity is a block item and nearby, we craft it:
-                if (entity instanceof ItemEntity && distance < 0.3) {
+                if (entity instanceof ItemEntity && distance < 0.35) {
                     if (((ItemEntity) entity).getStack().getItem() instanceof BlockItem) {
 
                         // The inventory is set to the complete stack of the itementity's itemstack.

@@ -2,6 +2,8 @@ package net.elindis.ruinsofarcana.item.equipment;
 
 import net.elindis.ruinsofarcana.effect.ModEffects;
 import net.elindis.ruinsofarcana.item.ModItems;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -14,13 +16,21 @@ import net.minecraft.world.World;
 
 public class AuricArmorItem extends ArmorItem {
 
+    int airTime = 0;
+    boolean doubleJumped = false;
+    boolean keyUp = false;
     public AuricArmorItem(ArmorMaterial material, EquipmentSlot equipmentSlot, Settings settings) {
         super(material, equipmentSlot, settings);
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        if (world.isClient) {
+            doubleJump(entity);
+        }
+
         if (!world.isClient) {
+
             if (entity instanceof PlayerEntity player) {
 
                 if (isGoggles(player)) {
@@ -54,6 +64,7 @@ public class AuricArmorItem extends ArmorItem {
 
                 }
                 if (isBelt(player)) {
+                    player.fallDistance = 0;
                     if (!player.hasStatusEffect(StatusEffects.SLOW_FALLING)) {
                         player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING,
                                 100, 0, false, false, false));
@@ -95,6 +106,31 @@ public class AuricArmorItem extends ArmorItem {
 
 
         super.inventoryTick(stack, world, entity, slot, selected);
+    }
+
+    private void doubleJump(Entity entity) {
+        if (entity.isOnGround()) {
+            airTime = 0;
+            doubleJumped = false;
+            keyUp = true;
+        }
+        if (!entity.isOnGround()) {
+            airTime++;
+        }
+        if (InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), 32)
+                && airTime > 2 && !doubleJumped && keyUp) {
+            entity.setVelocityClient(entity.getVelocity().x, 0.6, entity.getVelocity().z);
+            doubleJumped = true;
+            keyUp = false;
+        }
+        if (InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), 32)) {
+            keyUp = false;
+        }
+        if (!(InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), 32))) {
+            if (!keyUp) {
+                keyUp = true;
+            }
+        }
     }
 
     private boolean isGoggles(PlayerEntity player) {

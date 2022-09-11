@@ -3,6 +3,7 @@ package net.elindis.ruinsofarcana;
 import net.elindis.ruinsofarcana.block.ModBlocks;
 import net.elindis.ruinsofarcana.block.entity.ModBlockEntities;
 import net.elindis.ruinsofarcana.block.entity.renderer.PedestalBlockEntityRenderer;
+import net.elindis.ruinsofarcana.block.entity.renderer.SingularityEntityRenderer;
 import net.elindis.ruinsofarcana.block.entity.renderer.TransmutationTableBlockEntityRenderer;
 import net.elindis.ruinsofarcana.entity.EntitySpawnPacket;
 import net.elindis.ruinsofarcana.entity.ModEntities;
@@ -12,8 +13,6 @@ import net.elindis.ruinsofarcana.networking.ModPackets;
 import net.elindis.ruinsofarcana.particle.*;
 import net.elindis.ruinsofarcana.screen.ManufactoryScreen;
 import net.elindis.ruinsofarcana.screen.ModScreenHandlers;
-import net.elindis.ruinsofarcana.sound.ModSounds;
-import net.elindis.ruinsofarcana.sound.WhirlwindSound;
 import net.elindis.ruinsofarcana.util.ModModelPredicateProvider;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -23,9 +22,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
-import net.minecraft.client.sound.SoundInstance;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.util.math.random.Random;
 
 public class RuinsOfArcanaClient implements ClientModInitializer {
 
@@ -38,7 +34,7 @@ public class RuinsOfArcanaClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ENCHANTED_CRYSTAL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MYRTLE_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MYRTLE_SAPLING, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RESEARCH_PARCHMENT_0, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RESEARCH_PARCHMENT, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RESEARCH_PARCHMENT_1, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RESEARCH_PARCHMENT_2, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RESEARCH_PARCHMENT_3, RenderLayer.getCutout());
@@ -70,6 +66,8 @@ public class RuinsOfArcanaClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticles.SPIRAL_PARTICLE, SpiralParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.JET_PARTICLE, JetParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.TORNADO_PARTICLE, TornadoParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.FIRE_PARTICLE, FireParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.CORE_PARTICLE, CoreParticle.Factory::new);
         ModPackets.registerS2CPackets();
 
 

@@ -67,9 +67,12 @@ public class ModBlocks {
     public static final Block MANUFACTORY = registerBlock("manufactory",
             new ManufactoryBlock(FabricBlockSettings.of(Material.METAL).nonOpaque()), ModItemGroup.RUINSOFARCANA);
 
+    public static final Block GRAVITY_INVERTER = registerBlock("gravity_inverter",
+            new GravityInverterBlock(FabricBlockSettings.of(Material.METAL).nonOpaque()), ModItemGroup.RUINSOFARCANA);
+
     // Research blocks and artifacts
-    public static final Block RESEARCH_PARCHMENT_0 = registerBlock("research_parchment",
-            new ResearchParchmentBlock_0(FabricBlockSettings.of(Material.DECORATION).nonOpaque()
+    public static final Block RESEARCH_PARCHMENT = registerBlock("research_parchment",
+            new ResearchParchmentBlock(FabricBlockSettings.of(Material.DECORATION).nonOpaque()
                     .sounds(BlockSoundGroup.AZALEA_LEAVES).noCollision().breakInstantly()), ModItemGroup.RUINSOFARCANA);
     public static final Block RESEARCH_PARCHMENT_1 = registerBlock("research_parchment_1",
             new ResearchParchmentBlock_1(FabricBlockSettings.of(Material.DECORATION).nonOpaque()
@@ -85,23 +88,26 @@ public class ModBlocks {
                     .sounds(BlockSoundGroup.AZALEA_LEAVES).noCollision().breakInstantly()), ModItemGroup.RUINSOFARCANA);
 
     public static final Block STONE_TABLET = registerBlock("stone_tablet",
-            new StoneTabletBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().sounds(BlockSoundGroup.STONE).strength(2)
-                    .requiresTool()), ModItemGroup.RUINSOFARCANA);
+            new StoneTabletBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().sounds(BlockSoundGroup.STONE).strength(2)),
+            ModItemGroup.RUINSOFARCANA);
     public static final Block ANCIENT_POT = registerBlock("ancient_pot",
-            new AncientPotBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().sounds(BlockSoundGroup.DEEPSLATE).strength(2)
-                    .requiresTool()), ModItemGroup.RUINSOFARCANA);
+            new AncientPotBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().sounds(BlockSoundGroup.DEEPSLATE).strength(2)),
+            ModItemGroup.RUINSOFARCANA);
     public static final Block ENCHANTED_CRYSTAL = registerBlock("enchanted_crystal",
             new EnchantedCrystalBlock(FabricBlockSettings.of(Material.AMETHYST).nonOpaque().sounds(BlockSoundGroup.AMETHYST_CLUSTER).strength(2)
-                    .requiresTool().luminance(7)), ModItemGroup.RUINSOFARCANA);
+                    .luminance(7)), ModItemGroup.RUINSOFARCANA);
     public static final Block ANCIENT_CARVING = registerBlock("ancient_carving",
-            new AncientCarvingBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().sounds(BlockSoundGroup.DEEPSLATE).strength(2)
-                    .requiresTool()), ModItemGroup.RUINSOFARCANA);
+            new AncientCarvingBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().sounds(BlockSoundGroup.DEEPSLATE).strength(2)),
+            ModItemGroup.RUINSOFARCANA);
     public static final Block CIPHERED_SRCOLL = registerBlock("ciphered_scroll",
-            new CipheredScrollBlock(FabricBlockSettings.of(Material.WOOD).nonOpaque().sounds(BlockSoundGroup.AZALEA_LEAVES).strength(2)
-                    .requiresTool()), ModItemGroup.RUINSOFARCANA);
+            new CipheredScrollBlock(FabricBlockSettings.of(Material.WOOD).nonOpaque().sounds(BlockSoundGroup.AZALEA_LEAVES).strength(2)),
+            ModItemGroup.RUINSOFARCANA);
     public static final Block ANCIENT_ORB = registerBlock("ancient_orb",
             new AncientOrbBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().sounds(BlockSoundGroup.DEEPSLATE).strength(2)
-                    .requiresTool().luminance(15)), ModItemGroup.RUINSOFARCANA);
+                    .luminance(15)), ModItemGroup.RUINSOFARCANA);
+    public static final Block CHALICE = registerBlock("chalice",
+            new ChaliceBlock(FabricBlockSettings.of(Material.METAL).nonOpaque().sounds(BlockSoundGroup.METAL).strength(2)),
+            ModItemGroup.RUINSOFARCANA);
 
     // Blocks without items
     public static final Block RICE_CROP = registerBlockWithoutItem("rice_crop",

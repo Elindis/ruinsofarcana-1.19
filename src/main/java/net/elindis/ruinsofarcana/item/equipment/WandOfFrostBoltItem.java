@@ -2,7 +2,6 @@ package net.elindis.ruinsofarcana.item.equipment;
 
 import net.elindis.ruinsofarcana.entity.FrostBoltEntity;
 import net.elindis.ruinsofarcana.item.ModItems;
-import net.elindis.ruinsofarcana.util.ModParticleUtil;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;

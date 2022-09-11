@@ -1,6 +1,5 @@
 package net.elindis.ruinsofarcana.mixin;
 
-import net.elindis.ruinsofarcana.effect.ModEffects;
 import net.elindis.ruinsofarcana.item.ModItems;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -23,6 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
 
+    // Used for the Circlet of Rebirth to act like a totem.
     @Inject(at = @At("HEAD"), method = "tryUseTotem", cancellable = true)
     private void useCirclet(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity thisEntity = ((LivingEntity)(Object)this);
@@ -64,4 +64,12 @@ public abstract class LivingEntityMixin {
             cir.setReturnValue(false);
         }
     }
+
+//    @Inject(at = @At("HEAD"), method = "canWalkOnFluid", cancellable = true)
+//    private void walkOnFluid(FluidState state, CallbackInfoReturnable<Boolean> cir) {
+//        LivingEntity thisEntity = ((LivingEntity)(Object)this);
+//        if (thisEntity.getEquippedStack(EquipmentSlot.FEET).isOf(ModItems.TRAVELERS_BOOTS)) {
+//            cir.setReturnValue(true);
+//        }
+//    }
 }

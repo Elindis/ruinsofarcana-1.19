@@ -1,8 +1,6 @@
 package net.elindis.ruinsofarcana.item.equipment;
 
 import net.elindis.ruinsofarcana.effect.ModEffects;
-import net.elindis.ruinsofarcana.entity.FrostBoltEntity;
-import net.elindis.ruinsofarcana.item.ModItems;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,7 +10,6 @@ import net.minecraft.item.Vanishable;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;

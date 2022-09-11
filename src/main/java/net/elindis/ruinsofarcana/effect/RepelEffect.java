@@ -11,6 +11,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -49,10 +50,11 @@ public class RepelEffect extends StatusEffect {
 
             for (Entity entity:projectileList) {
 
-                if (entity instanceof ProjectileEntity) {
+                // TODO: Look a this when you're awake, but I think it's fixed
+                if (entity instanceof PersistentProjectileEntity) {
                     // This is a bit of witchcraft.
                     boolean inGround = ((PersistentProjectileEntityAccessor) entity).getInGround();
-                    if (!inGround) {
+                    if (inGround) {
 
                         if (((ProjectileEntity) entity).getOwner() != null) {
                             if (((ProjectileEntity) entity).getOwner().equals(pLivingEntity)) {
@@ -68,6 +70,22 @@ public class RepelEffect extends StatusEffect {
                     }
 
                 }
+                if (!(entity instanceof PersistentProjectileEntity) && entity instanceof ProjectileEntity) {
+                    // This is a bit of witchcraft.
+                        if (((ProjectileEntity) entity).getOwner() != null) {
+                            if (((ProjectileEntity) entity).getOwner().equals(pLivingEntity)) {
+                                // This might open up a weak spot when the player shoots a projectile.
+                                // But I'm okay with that!
+                                return;
+                            }
+                        }
+
+                        entity.setYaw(entity.getYaw()*-1);
+                        entity.setPitch(entity.getPitch()*-1);
+                        entity.setVelocity(entity.getVelocity().multiply(-1));
+
+
+                }
 
                 double playerX = pLivingEntity.getX();
                 double playerZ = pLivingEntity.getZ();
@@ -80,7 +98,6 @@ public class RepelEffect extends StatusEffect {
                 } else {
                     entity.addVelocity((targetX-playerX)/3, 0.2, (targetZ-playerZ)/3);
                 }
-
             }
         }
         super.applyUpdateEffect(pLivingEntity, pAmplifier);
