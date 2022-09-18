@@ -6,6 +6,7 @@ public class ScribesPenItem extends Item {
 	public ScribesPenItem(Settings settings) {
 		super(settings);
 	}
+}
 
 
 //	@Override
@@ -39,4 +40,4 @@ public class ScribesPenItem extends Item {
 //		else return null;
 //	}
 
-}
+//}

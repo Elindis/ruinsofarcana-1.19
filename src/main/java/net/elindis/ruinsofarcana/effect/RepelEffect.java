@@ -20,6 +20,8 @@ import java.util.List;
 
 
 public class RepelEffect extends StatusEffect {
+    // ModParticleUtil.doLivingEntityParticles(pLivingEntity, ModParticles.FIRE_TORNADO_PARTICLE, 3);
+    // ^ For when you create the firestorm effect
     public RepelEffect(StatusEffectCategory statusEffectCategory, int color) {
         super(statusEffectCategory, color);
     }

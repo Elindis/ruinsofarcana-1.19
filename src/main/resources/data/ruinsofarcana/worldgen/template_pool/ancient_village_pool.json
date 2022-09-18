@@ -207,6 +207,15 @@
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "ruinsofarcana:ancient_village/ancient_sculk_lab",
+        "processors": "ruinsofarcana:ancient_building",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
     }
   ]
 }

@@ -23,7 +23,7 @@
           },
           // The actual block to place if the above conditions return true
           "output_state": {
-            "Name": "minecraft:air"
+            "Name": "minecraft:deepslate_brick_slab"
           }
         },
         {
@@ -37,6 +37,19 @@
           },
           "output_state": {
             "Name": "minecraft:cracked_deepslate_bricks"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:lantern",
+            "probability": 0.40,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:air"
           }
         },
         {

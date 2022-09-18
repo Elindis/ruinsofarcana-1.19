@@ -67,6 +67,7 @@ public class RuinsOfArcanaClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticles.JET_PARTICLE, JetParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.TORNADO_PARTICLE, TornadoParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.FIRE_PARTICLE, FireParticle.Factory::new);
+//        ParticleFactoryRegistry.getInstance().register(ModParticles.FIRE_TORNADO_PARTICLE, FireTornadoParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.CORE_PARTICLE, CoreParticle.Factory::new);
         ModPackets.registerS2CPackets();
 

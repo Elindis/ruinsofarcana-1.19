@@ -75,7 +75,7 @@ public class SmokeBombEntity extends ThrownItemEntity {
             Vec3d collisionPos = hitResult.getPos();
             BlockPos blockPos = new BlockPos(collisionPos);
 
-            ModParticleUtil.doSmokeBombParticles(this.world, blockPos, this, ParticleTypes.CAMPFIRE_COSY_SMOKE, 150, 0.01f);
+            ModParticleUtil.doSmokeBombParticles(this.world, blockPos, this, ParticleTypes.LARGE_SMOKE, 150, -0.01f);
 
             Box box = Box.from(collisionPos).expand(3);
             List<Entity> entityList = this.world.getOtherEntities(this, box);

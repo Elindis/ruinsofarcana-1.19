@@ -13,6 +13,7 @@ public class ModParticles {
 	public static final DefaultParticleType SPIRAL_PARTICLE = FabricParticleTypes.simple();
 	public static final DefaultParticleType JET_PARTICLE = FabricParticleTypes.simple();
 	public static final DefaultParticleType TORNADO_PARTICLE = FabricParticleTypes.simple();
+//	public static final DefaultParticleType FIRE_TORNADO_PARTICLE = FabricParticleTypes.simple();
 	public static final DefaultParticleType FIRE_PARTICLE = FabricParticleTypes.simple();
 
 	public static void registerParticles() {
@@ -21,6 +22,7 @@ public class ModParticles {
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(RuinsOfArcana.MOD_ID, "spiral_particle"), SPIRAL_PARTICLE);
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(RuinsOfArcana.MOD_ID, "jet_particle"), JET_PARTICLE);
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(RuinsOfArcana.MOD_ID, "tornado_particle"), TORNADO_PARTICLE);
+//		Registry.register(Registry.PARTICLE_TYPE, new Identifier(RuinsOfArcana.MOD_ID, "fire_tornado_particle"), FIRE_TORNADO_PARTICLE);
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(RuinsOfArcana.MOD_ID, "fire_particle"), FIRE_PARTICLE);
 
 	}

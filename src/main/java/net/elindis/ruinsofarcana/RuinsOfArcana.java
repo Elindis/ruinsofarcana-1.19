@@ -12,6 +12,7 @@ import net.elindis.ruinsofarcana.potion.ModPotions;
 import net.elindis.ruinsofarcana.recipe.ModRecipes;
 import net.elindis.ruinsofarcana.screen.ModScreenHandlers;
 import net.elindis.ruinsofarcana.sound.ModSounds;
+import net.elindis.ruinsofarcana.util.ModDispenserBehaviors;
 import net.elindis.ruinsofarcana.util.ModLootTableModifiers;
 import net.elindis.ruinsofarcana.util.ModRegistries;
 import net.elindis.ruinsofarcana.world.feature.ModConfiguredFeatures;
@@ -60,6 +61,10 @@ public class RuinsOfArcana implements ModInitializer {
 		ModParticles.registerParticles();
 		ModPackets.registerC2SPackets();
 
+		ModDispenserBehaviors.registerDispenserBehaviours();
+
 	}
+
+
 
 }

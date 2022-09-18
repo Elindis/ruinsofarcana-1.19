@@ -1,10 +1,13 @@
 package net.elindis.ruinsofarcana.block.entity;
 
+import com.google.common.collect.Lists;
 import net.elindis.ruinsofarcana.item.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.TargetPredicate;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -28,25 +31,34 @@ public class GravityInverterBlockEntity extends BlockEntity  {
     public GravityInverterBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.GRAVITY_INVERTER, pos, state);
     }
-
     public static void tick(World world, BlockPos pos, BlockState state, GravityInverterBlockEntity blockEntity) {
-        Box box = new Box(pos).expand(1, 32, 1).withMinY(pos.getY());
-        List<PlayerEntity> entityList = world.getPlayers(TargetPredicate.DEFAULT, null, box);
-        for (Entity player: entityList) {
+        if (!world.isReceivingRedstonePower(pos)) return;
+        int power = world.getReceivedRedstonePower(pos)+1;
+
+        ArrayList<PlayerEntity> playerList = Lists.newArrayList();
+        Box box = new Box(pos).expand(1, 4*power, 1).withMinY(pos.getY()+1);
+
+        for (PlayerEntity playerEntity:world.getPlayers()) {
+            if (!box.contains(playerEntity.getX(), playerEntity.getY(), playerEntity.getZ())) continue;
+            playerList.add(playerEntity);
+        }
+
+        for (PlayerEntity player : playerList) {
             if (player.getVelocity().getY() < 0.5f) {
-                List<ItemStack> equipped = new ArrayList<>();
+                List<ItemStack> equipped = Lists.newArrayList();
                 player.getArmorItems().forEach(equipped::add);
-                System.out.println(equipped);
                 if (!equipped.get(1).isOf(ModItems.GRAVITY_BELT)) {
                     player.addVelocity(0, 0.15, 0);
                 }
             }
         }
-
     }
 
     public static void serverTick(@NotNull World world, BlockPos pos, BlockState state, GravityInverterBlockEntity blockEntity) {
-        Box box = new Box(pos).expand(2, 32, 2).withMinY(pos.getY());
+        if (!world.isReceivingRedstonePower(pos)) return;
+        int power = world.getReceivedRedstonePower(pos)+1;
+
+        Box box = new Box(pos).expand(1, 4*power, 1).withMinY(pos.getY()+1);
         List<Entity> entityList = world.getOtherEntities(null, box);
         for (Entity entity: entityList) {
             if (entity.getVelocity().getY() < 0.5f && entity instanceof ItemEntity) {
