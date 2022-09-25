@@ -1,27 +1,16 @@
 package net.elindis.ruinsofarcana.item.equipment;
 
-import net.elindis.ruinsofarcana.effect.ModEffects;
 import net.elindis.ruinsofarcana.sound.ModSounds;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MovementType;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.RangedWeaponItem;
 import net.minecraft.item.Vanishable;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.UseAction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-
-import java.util.function.Predicate;
 
 public class WandOfCycloneItem extends WandItem implements Vanishable {
     private final int expCost = 1;

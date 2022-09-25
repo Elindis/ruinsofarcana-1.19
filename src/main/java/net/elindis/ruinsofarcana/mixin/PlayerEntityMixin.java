@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin {
 
-
     // This is so enemies will drop cooked meat when attacked by the sun sword.
     @Inject(at = @At("HEAD"), method = "attack")
     private void sunSwordFire(Entity target, CallbackInfo ci) {

@@ -25,6 +25,9 @@ public class ModSounds {
     public static final Identifier WHIRLWIND_ID = new Identifier("ruinsofarcana:whirlwind");
     public static SoundEvent WHIRLWIND = new SoundEvent(WHIRLWIND_ID);
 
+    public static final Identifier SNOWSTORM_ID = new Identifier("ruinsofarcana:snowstorm");
+    public static SoundEvent SNOWSTORM = new SoundEvent(SNOWSTORM_ID);
+
     public static final Identifier SINGULARITY_ID = new Identifier("ruinsofarcana:singularity");
     public static SoundEvent SINGULARITY = new SoundEvent(SINGULARITY_ID);
 
@@ -35,6 +38,7 @@ public class ModSounds {
         Registry.register(Registry.SOUND_EVENT, ModSounds.RESEARCH_PROGRESS_ID, RESEARCH_PROGRESS);
         Registry.register(Registry.SOUND_EVENT, ModSounds.CYCLONE_ID, CYCLONE);
         Registry.register(Registry.SOUND_EVENT, ModSounds.WHIRLWIND_ID, WHIRLWIND);
+        Registry.register(Registry.SOUND_EVENT, ModSounds.SNOWSTORM_ID, SNOWSTORM);
         Registry.register(Registry.SOUND_EVENT, ModSounds.SINGULARITY_ID, SINGULARITY);
     }
 

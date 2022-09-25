@@ -16,6 +16,7 @@ public class ModEffects {
     public static StatusEffect NIGHTVISION;
     public static StatusEffect REPEL;
     public static StatusEffect FIRESTORM;
+    public static StatusEffect SNOWSTORM;
     public static StatusEffect CONFUSION;
 
     public static StatusEffect registerStatusEffectShielding(String name) {
@@ -45,6 +46,10 @@ public class ModEffects {
         return Registry.register(Registry.STATUS_EFFECT, new Identifier(RuinsOfArcana.MOD_ID, name),
                 new FirestormEffect(StatusEffectCategory.HARMFUL, 00000000));
     }
+    public static StatusEffect registerStatusEffectSnowstorm(String name) {
+        return Registry.register(Registry.STATUS_EFFECT, new Identifier(RuinsOfArcana.MOD_ID, name),
+                new SnowstormEffect(StatusEffectCategory.HARMFUL, 00000000));
+    }
 
     public static StatusEffect registerStatusEffectSpeed(String name) {
         return Registry.register(Registry.STATUS_EFFECT, new Identifier(RuinsOfArcana.MOD_ID, name),
@@ -65,6 +70,7 @@ public class ModEffects {
         NIGHTVISION = registerStatusEffectNightvision("nightvision");
         REPEL = registerStatusEffectRepel("repel");
         FIRESTORM = registerStatusEffectFirestorm("firestorm");
+        SNOWSTORM = registerStatusEffectSnowstorm("snowstorm");
     }
 
 }

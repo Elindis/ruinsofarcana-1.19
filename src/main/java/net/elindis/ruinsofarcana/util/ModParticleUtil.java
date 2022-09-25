@@ -2,21 +2,16 @@ package net.elindis.ruinsofarcana.util;
 
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
 public class ModParticleUtil {
@@ -73,6 +68,19 @@ public class ModParticleUtil {
         }
     }
 
+    public static void doSnowstormParticles(LivingEntity entity, ParticleType particleType, int intensity) {
+        for (int i = 0; i < intensity; i++) {
+            double x = entity.getPos().getX() + (Random.create().nextFloat()*4)-2f;
+            double y = entity.getPos().getY() + 0.5f + Random.create().nextFloat()*4;
+            double z = entity.getPos().getZ() + (Random.create().nextFloat()*4)-2f;
+            double deltaX = (entity.getWorld().random.nextDouble());
+            double deltaY = (entity.getWorld().random.nextDouble());
+            double deltaZ = (entity.getWorld().random.nextDouble());
+            PlayerLookup.tracking(entity).forEach(player -> ((ServerWorld) entity.getWorld())
+                    .spawnParticles(player, (ParticleEffect) particleType, true, x, y, z, 1, deltaX, deltaY, deltaZ, 0.1));
+        }
+    }
+
     public static void doProjectileParticles(PersistentProjectileEntity entity, ParticleType particleType, int intensity, float speed, double movementFactor) {
         for (int i = 0; i < intensity; i++) {
             double x = entity.getPos().getX();
@@ -114,7 +122,7 @@ public class ModParticleUtil {
 
 
             double deltaX = (world.random.nextDouble()/8);
-            double deltaY = (world.random.nextDouble()/4);
+            double deltaY = (world.random.nextDouble()/4)*0.01;
             double deltaZ = (world.random.nextDouble()/8);
             if (world instanceof ServerWorld) {
                 PlayerLookup.tracking(entity).forEach(player -> ((ServerWorld) entity.getWorld())

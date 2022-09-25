@@ -38,6 +38,8 @@ public class ModConfiguredFeatures {
                             MYRTLE_CHECKED));
 
 
+
+
     public static void registerConfiguredFeatures() {
         System.out.println("Registering ModConfiguredFeatures for " + RuinsOfArcana.MOD_ID);
     }

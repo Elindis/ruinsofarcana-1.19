@@ -3,7 +3,6 @@ package net.elindis.ruinsofarcana;
 import net.elindis.ruinsofarcana.block.ModBlocks;
 import net.elindis.ruinsofarcana.block.entity.ModBlockEntities;
 import net.elindis.ruinsofarcana.block.entity.renderer.PedestalBlockEntityRenderer;
-import net.elindis.ruinsofarcana.block.entity.renderer.SingularityEntityRenderer;
 import net.elindis.ruinsofarcana.block.entity.renderer.TransmutationTableBlockEntityRenderer;
 import net.elindis.ruinsofarcana.entity.EntitySpawnPacket;
 import net.elindis.ruinsofarcana.entity.ModEntities;
@@ -67,7 +66,7 @@ public class RuinsOfArcanaClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticles.JET_PARTICLE, JetParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.TORNADO_PARTICLE, TornadoParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.FIRE_PARTICLE, FireParticle.Factory::new);
-//        ParticleFactoryRegistry.getInstance().register(ModParticles.FIRE_TORNADO_PARTICLE, FireTornadoParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.SNOW_TORNADO_PARTICLE, SnowTornadoParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.CORE_PARTICLE, CoreParticle.Factory::new);
         ModPackets.registerS2CPackets();
 

@@ -1,19 +1,13 @@
 package net.elindis.ruinsofarcana.item.equipment;
 
 import net.elindis.ruinsofarcana.entity.FireballEntity;
-import net.elindis.ruinsofarcana.entity.FrostBoltEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BowItem;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public class WandOfFireballItem extends WandItem {

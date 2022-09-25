@@ -1,25 +1,14 @@
 package net.elindis.ruinsofarcana.effect;
 
-import net.elindis.ruinsofarcana.mixin.PersistentProjectileEntityAccessor;
-import net.elindis.ruinsofarcana.networking.ModPackets;
-import net.elindis.ruinsofarcana.particle.ModParticles;
 import net.elindis.ruinsofarcana.util.ModParticleUtil;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Box;
@@ -61,6 +50,7 @@ public class FirestormEffect extends StatusEffect {
             List<Entity> entityList = pLivingEntity.world.getOtherEntities(pLivingEntity, new Box(pLivingEntity.getBlockPos()).expand(2));
             for (Entity entity: entityList) {
                 if (entity instanceof LivingEntity livingEntity) {
+                    livingEntity.setOnFireFor(3);
                     livingEntity.damage(DamageSource.ON_FIRE, 3);
                 }
             }
@@ -71,7 +61,7 @@ public class FirestormEffect extends StatusEffect {
                 pLivingEntity.world.playSound(null, pLivingEntity.getBlockPos(), SoundEvents.BLOCK_FIRE_AMBIENT,
                         SoundCategory.NEUTRAL, 2f, 0.8f+Random.create().nextFloat()/3);
             }
-            ModParticleUtil.doFirestormParticles(pLivingEntity, ParticleTypes.FLAME, 9);
+            ModParticleUtil.doFirestormParticles(pLivingEntity, ParticleTypes.FLAME, 6);
             ModParticleUtil.doFirestormParticles(pLivingEntity, ParticleTypes.LAVA, 5);
 
             super.applyUpdateEffect(pLivingEntity, pAmplifier);

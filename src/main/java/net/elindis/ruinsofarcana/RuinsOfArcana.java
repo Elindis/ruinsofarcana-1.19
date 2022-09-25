@@ -15,6 +15,7 @@ import net.elindis.ruinsofarcana.sound.ModSounds;
 import net.elindis.ruinsofarcana.util.ModDispenserBehaviors;
 import net.elindis.ruinsofarcana.util.ModLootTableModifiers;
 import net.elindis.ruinsofarcana.util.ModRegistries;
+import net.elindis.ruinsofarcana.world.dimension.ModDimensions;
 import net.elindis.ruinsofarcana.world.feature.ModConfiguredFeatures;
 import net.elindis.ruinsofarcana.world.feature.structure.ModStructures;
 import net.fabricmc.api.ModInitializer;
@@ -60,6 +61,7 @@ public class RuinsOfArcana implements ModInitializer {
 		ModEntities.register();
 		ModParticles.registerParticles();
 		ModPackets.registerC2SPackets();
+		ModDimensions.register();
 
 		ModDispenserBehaviors.registerDispenserBehaviours();
 

@@ -35,6 +35,12 @@
       "ruinsofarcana:whirlwind"
     ]
   },
+  "snowstorm": {
+    "subtitle": "ruinsofarcana.snowstorm",
+    "sounds": [
+      "ruinsofarcana:whirlwindshort"
+    ]
+  },
   "singularity": {
     "subtitle": "ruinsofarcana.singularity",
     "sounds": [

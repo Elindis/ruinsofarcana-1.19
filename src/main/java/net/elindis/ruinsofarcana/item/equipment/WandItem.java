@@ -2,6 +2,7 @@ package net.elindis.ruinsofarcana.item.equipment;
 
 import net.elindis.ruinsofarcana.entity.FrostBoltEntity;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -77,10 +78,6 @@ public abstract class WandItem extends RangedWeaponItem implements Vanishable {
     @Override
     public int getRange() {
         return 15;
-    }
-    @NotNull
-    public HitResult.Type raycastType() {
-        return HitResult.Type.BLOCK;
     }
 
     private void doUsageParticles(World world, LivingEntity user) {
@@ -159,8 +156,8 @@ public abstract class WandItem extends RangedWeaponItem implements Vanishable {
                         playSuccessSound(world, playerEntity, f);
                     }
                     if (isRaycaster()) {
-                        if (user.raycast(getRange(),MinecraftClient.getInstance().getTickDelta(),true)
-                                .getType().equals(raycastType())) {
+                        var raycastType = user.raycast(getRange(),MinecraftClient.getInstance().getTickDelta(),true).getType();
+                        if (!raycastType.equals(HitResult.Type.MISS)) {
 
                             // Server-side effects.
                             if (!world.isClient) {

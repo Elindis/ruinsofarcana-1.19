@@ -5,37 +5,34 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.DefaultParticleType;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 
-public class FireTornadoParticle extends SpriteBillboardParticle {
+public class SnowTornadoParticle extends SpriteBillboardParticle {
 	private final double initialX;
 	private final double initialY;
 	private final double initialZ;
 	private final int randomOf4;
 	private final float size;
 
-	protected FireTornadoParticle(ClientWorld level, double xPos, double yPos, double zPos,
+	protected SnowTornadoParticle(ClientWorld level, double xPos, double yPos, double zPos,
 								  SpriteProvider spriteSet, double dx, double dy, double dz) {
 		super(level, xPos, yPos, zPos, dx, dy, dz);
 
 		this.velocityMultiplier = 0.6F;
 		this.x = xPos;
-		this.y = yPos+1.5f+Random.create().nextFloat()/2;
+		this.y = yPos;
 		this.z = zPos;
 		this.initialX = xPos;
-		this.initialY = yPos+1.5f+Random.create().nextFloat()/2;
+		this.initialY = yPos;
 		this.initialZ = zPos;
 		this.velocityX = dx;
 		this.velocityY = dy;
 		this.velocityZ = dz;
-		this.scale *= 3.4F;
+		this.scale *= 2F;
 		this.maxAge = 20;
 		this.randomOf4 = Random.create().nextBetween(0, 3);
-		this.size = 6f;
+		this.size = 3f;
 
 		this.red = 1f;
 		this.green = 1f;
@@ -46,14 +43,10 @@ public class FireTornadoParticle extends SpriteBillboardParticle {
 	public void tick() {
 		super.tick();
 //		fadeIn();
-		if (Random.create().nextBetween(0,10) == 1) {
-			this.world.addParticle(ParticleTypes.LAVA, this.x, this.y, this.z, Random.create().nextFloat()/10,
-					Random.create().nextFloat()/10, Random.create().nextFloat()/10);
-			this.world.playSound(this.x, this.y, this.z, SoundEvents.BLOCK_FIRE_AMBIENT,
-					SoundCategory.NEUTRAL, 0.8f, 0.8f+Random.create().nextFloat()/3, true);
-			this.world.playSound(this.x, this.y, this.z, SoundEvents.BLOCK_CAMPFIRE_CRACKLE,
-					SoundCategory.NEUTRAL, 0.8f, 0.8f+Random.create().nextFloat()/3, true);
-		}
+//		if (Random.create().nextBetween(0,10) == 1) {
+//			this.world.addParticle(ParticleTypes.LAVA, this.x, this.y, this.z, Random.create().nextFloat()/10,
+//					Random.create().nextFloat()/10, Random.create().nextFloat()/10);
+//		}
 
 //		this.world.addParticle(ParticleTypes.FLAME, this.x, this.y, this.z, Random.create().nextFloat()/10,
 //				Random.create().nextFloat()/10, Random.create().nextFloat()/10);
@@ -75,11 +68,11 @@ public class FireTornadoParticle extends SpriteBillboardParticle {
 			this.x = initialX + MathHelper.sin(-time/2)*size;
 			this.z = initialZ + MathHelper.cos(-time/2)*size;
 		}
-		if (randomOf4 % 2 == 0) {
-			this.y = initialY + (age/(float)maxAge)/20;
-		} else {
-			this.y = initialY + -(age/(float)maxAge)/20;
-		}
+//		if (randomOf4 % 2 == 0) {
+//			this.y = initialY + (age/(float)maxAge)/20;
+//		} else {
+//			this.y = initialY + -(age/(float)maxAge)/20;
+//		}
 
 	}
 	@Override
@@ -116,7 +109,7 @@ public class FireTornadoParticle extends SpriteBillboardParticle {
 		@Override
 		public Particle createParticle(DefaultParticleType particleType, ClientWorld level, double x, double y, double z,
 									   double dx, double dy, double dz) {
-			FireTornadoParticle tornadoParticle = new FireTornadoParticle(level, x, y, z, this.sprites, dx, dy, dz);
+			SnowTornadoParticle tornadoParticle = new SnowTornadoParticle(level, x, y, z, this.sprites, dx, dy, dz);
 			tornadoParticle.setSprite(this.sprites);
 			return tornadoParticle;
 		}

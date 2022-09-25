@@ -45,7 +45,6 @@ public class RepelEffect extends StatusEffect {
             doParticles(pLivingEntity);
         }
 
-
         if (!pLivingEntity.world.isClient()) {
 
             List<Entity> projectileList = pLivingEntity.world.getOtherEntities(pLivingEntity, pLivingEntity.getBoundingBox().expand(1.5));

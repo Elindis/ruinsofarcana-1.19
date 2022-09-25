@@ -68,8 +68,8 @@ public class ModItems {
     public static final Item WAND_OF_FIRESTORM = registerItem(
             "wand_of_firestorm", new WandOfFirestormItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(1)));
 
-    public static final Item WAND_OF_DISINTEGRATION = registerItem(
-            "wand_of_disintegration", new WandOfDisintegrationItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(1)));
+    public static final Item WAND_OF_SNOWSTORM = registerItem(
+            "wand_of_snowstorm", new WandOfSnowstormItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(1)));
 
     public static final Item WAND_OF_CYCLONE = registerItem(
             "wand_of_cyclone", new WandOfCycloneItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(1)));

@@ -75,13 +75,13 @@ public class SmokeBombEntity extends ThrownItemEntity {
             Vec3d collisionPos = hitResult.getPos();
             BlockPos blockPos = new BlockPos(collisionPos);
 
-            ModParticleUtil.doSmokeBombParticles(this.world, blockPos, this, ParticleTypes.LARGE_SMOKE, 150, -0.01f);
+            ModParticleUtil.doSmokeBombParticles(this.world, blockPos, this, ParticleTypes.LARGE_SMOKE, 150, -0.001f);
 
             Box box = Box.from(collisionPos).expand(3);
             List<Entity> entityList = this.world.getOtherEntities(this, box);
             for (Entity entity: entityList) {
                 if (entity instanceof LivingEntity) {
-                    ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 200, 0));
+                    ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 160, 0));
                 }
             }
 
