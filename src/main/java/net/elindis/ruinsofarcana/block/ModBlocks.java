@@ -16,6 +16,11 @@ import net.minecraft.util.registry.Registry;
 
 
 public class ModBlocks {
+
+    // Decorative blocks
+    public static final Block FROZEN_LOG = registerBlock("frozen_log",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).requiresTool().strength(4.0f)), ModItemGroup.RUINSOFARCANA);
+
     // Myrtle blocks
     public static final Block MYRTLE_LOG = registerBlock("myrtle_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).requiresTool().strength(4.0f)), ModItemGroup.RUINSOFARCANA);

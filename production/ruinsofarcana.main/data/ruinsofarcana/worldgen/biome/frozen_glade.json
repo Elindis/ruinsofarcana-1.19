@@ -1,15 +1,14 @@
-// TODO: all of it. make trees out of ice.
 {
   "temperature": 2,
   "downfall": 0,
   "precipitation": "none",
   "effects": {
-    "sky_color": 15576916,
-    "fog_color": 14980421,
-    "water_color": 14407771,
-    "water_fog_color": 4277025,
-    "grass_color": 9470285,
-    "foliage_color": 10387789,
+    "sky_color": 7973576,
+    "fog_color": 6518181,
+    "water_color": 10202822,
+    "water_fog_color": 2242114,
+    "grass_color": 4221506,
+    "foliage_color": 5731172,
     "mood_sound": {
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000,
@@ -61,16 +60,11 @@
   },
   "features": [
     [],
-    [
-      "minecraft:lake_lava_underground",
-      "minecraft:lake_lava_surface"
-
-    ],
+    [],
     [],
     [],
     [
       "minecraft:ore_gravel",
-      "minecraft:ore_dirt",
       "minecraft:ore_granite_upper",
       "minecraft:ore_granite_lower",
       "minecraft:ore_diorite_upper",
@@ -96,26 +90,17 @@
       "minecraft:ore_gold_extra",
       "minecraft:disk_sand",
       "minecraft:disk_gravel",
-      "ruinsofarcana:petrified_forest_lava"
+      "ruinsofarcana:ice_rock",
+      "ruinsofarcana:frozen_glade_floor",
+      "ruinsofarcana:glade_frozen_ponds"
     ],
     [],
-    [
-      "minecraft:spring_lava",
-      "minecraft:spring_water",
-      "ruinsofarcana:bone_pile"
-    ],
+    [],
     [
       "minecraft:glow_lichen",
-      "minecraft:patch_dead_bush_badlands",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:fossil_upper",
-      "ruinsofarcana:dead_tube_coral",
-      "ruinsofarcana:dead_brain_coral",
-      "ruinsofarcana:petrified_forest_trees",
-      "ruinsofarcana:petrified_forest_bushes",
-      "ruinsofarcana:petrified_forest_floor"
-
+      "ruinsofarcana:frozen_forest",
+      "ruinsofarcana:frozen_glade_bushes",
+      "ruinsofarcana:glade_snow_layers"
     ],
     [
       "minecraft:freeze_top_layer"

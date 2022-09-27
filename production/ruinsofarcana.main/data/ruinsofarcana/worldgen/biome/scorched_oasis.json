@@ -92,27 +92,19 @@
       "minecraft:ore_lapis_buried",
       "minecraft:ore_copper",
       "minecraft:ore_gold_extra",
-      "minecraft:disk_sand",
-      "minecraft:disk_gravel",
-      "ruinsofarcana:scorched_oasis_rocks"
+      "ruinsofarcana:tuff_rock"
     ],
     [],
     [
-      "minecraft:spring_lava",
-      "minecraft:spring_water"
+      "minecraft:spring_water",
+      "ruinsofarcana:scorched_oasis_lakes"
     ],
     [
       "minecraft:glow_lichen",
       "minecraft:patch_dead_bush_badlands",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:fossil_upper",
-      "ruinsofarcana:dead_tube_coral",
-      "ruinsofarcana:dead_brain_coral",
       "ruinsofarcana:bone_pile",
-      "ruinsofarcana:lava_lakes",
-      "ruinsofarcana:dead_tree"
-
+      "ruinsofarcana:dead_tree",
+      "ruinsofarcana:dead_tree_2"
     ],
     [
       "minecraft:freeze_top_layer"

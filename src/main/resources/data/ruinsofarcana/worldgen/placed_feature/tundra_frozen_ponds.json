@@ -1,0 +1,43 @@
+{
+  "feature": {
+    "type": "minecraft:delta_feature",
+    "config": {
+      "contents": {
+        "Name": "minecraft:water",
+        "Properties": {
+          "level": "0"
+        }
+      },
+      "rim": {
+        "Name": "minecraft:ice"
+      },
+      "size": {
+        "type": "minecraft:uniform",
+        "value": {
+          "min_inclusive": 3,
+          "max_inclusive": 4
+        }
+      },
+      "rim_size": {
+        "type": "minecraft:uniform",
+        "value": {
+          "min_inclusive": 1,
+          "max_inclusive": 2
+        }
+      }
+    }
+  },
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 3
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "OCEAN_FLOOR_WG"
+    }
+  ]
+}

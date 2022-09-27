@@ -94,8 +94,7 @@
       "minecraft:ore_lapis_buried",
       "minecraft:ore_copper",
       "minecraft:ore_gold_extra",
-      "minecraft:disk_sand",
-      "minecraft:disk_gravel"
+      "minecraft:disk_sand"
     ],
     [],
     [
@@ -104,12 +103,7 @@
     [
       "ruinsofarcana:blasted_steppe_shrubs",
       "ruinsofarcana:blasted_steppe_grass_plants",
-      "minecraft:glow_lichen",
-      "minecraft:patch_dead_bush",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "ruinsofarcana:dead_tube_coral",
-      "ruinsofarcana:dead_brain_coral"
+      "minecraft:glow_lichen"
     ],
     [
       "minecraft:freeze_top_layer"

@@ -73,7 +73,7 @@ public abstract class LivingEntityMixin {
     @Inject(at = @At("HEAD"), method = "baseTick")
     private void dimensionAirControl(CallbackInfo ci) {
         LivingEntity thisEntity = ((LivingEntity)(Object)this);
-
+        if (thisEntity.canBreatheInWater()) return;
         if (thisEntity.getWorld().getRegistryKey().equals(ModDimensions.SANCTUARY)) {
             int respiration = 0;
 
@@ -95,6 +95,7 @@ public abstract class LivingEntityMixin {
     @Inject(at = @At("HEAD"), method = "getNextAirOnLand", cancellable = true)
     private void dimensionAirControl(int air, CallbackInfoReturnable<Integer> cir) {
         LivingEntity thisEntity = ((LivingEntity)(Object)this);
+        if (thisEntity.canBreatheInWater()) return;
         if (thisEntity instanceof PlayerEntity playerEntity) {
             if (playerEntity.getAbilities().creativeMode) playerEntity.setAir(playerEntity.getMaxAir());
         }

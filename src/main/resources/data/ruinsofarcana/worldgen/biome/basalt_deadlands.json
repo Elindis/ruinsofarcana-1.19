@@ -85,6 +85,7 @@
       "minecraft:small_basalt_columns",
       "minecraft:basalt_pillar",
       "minecraft:basalt_blobs"
+
     ],
     [],
     [
@@ -93,11 +94,8 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "ruinsofarcana:dead_tube_coral",
-      "ruinsofarcana:dead_brain_coral",
-      "ruinsofarcana:basalt_lava"
+      "ruinsofarcana:basalt_lava",
+      "ruinsofarcana:obsidian_rock"
 
     ],
     [

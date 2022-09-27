@@ -1000,7 +1000,8 @@
                               "if_true": {
                                 "type": "minecraft:biome",
                                 "biome_is": [
-                                  "minecraft:frozen_peaks"
+                                  "minecraft:frozen_peaks",
+                                  "ruinsofarcana:glacial_waste"
                                 ]
                               },
                               "then_run": {
@@ -1071,7 +1072,8 @@
                               "if_true": {
                                 "type": "minecraft:biome",
                                 "biome_is": [
-                                  "minecraft:snowy_slopes"
+                                  "minecraft:snowy_slopes",
+                                  "ruinsofarcana:frozen_glade"
                                 ]
                               },
                               "then_run": {
@@ -1258,6 +1260,42 @@
                                         "type": "minecraft:block",
                                         "result_state": {
                                           "Name": "minecraft:stone"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:biome",
+                                    "biome_is": [
+                                      "ruinsofarcana:decaying_tundra"
+                                    ]
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:sequence",
+                                    "sequence": [
+                                      {
+                                        "type": "minecraft:condition",
+                                        "if_true": {
+                                          "type": "minecraft:stone_depth",
+                                          "offset": 0,
+                                          "surface_type": "ceiling",
+                                          "add_surface_depth": false,
+                                          "secondary_depth_range": 0
+                                        },
+                                        "then_run": {
+                                          "type": "minecraft:block",
+                                          "result_state": {
+                                            "Name": "minecraft:dirt"
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "minecraft:block",
+                                        "result_state": {
+                                          "Name": "minecraft:podzol"
                                         }
                                       }
                                     ]
@@ -1498,6 +1536,78 @@
                                         "type": "minecraft:block",
                                         "result_state": {
                                           "Name": "minecraft:coarse_dirt"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:biome",
+                                    "biome_is": [
+                                      "ruinsofarcana:glacial_waste"
+                                    ]
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:sequence",
+                                    "sequence": [
+                                      {
+                                        "type": "minecraft:condition",
+                                        "if_true": {
+                                          "type": "minecraft:stone_depth",
+                                          "offset": 0,
+                                          "surface_type": "ceiling",
+                                          "add_surface_depth": false,
+                                          "secondary_depth_range": 0
+                                        },
+                                        "then_run": {
+                                          "type": "minecraft:block",
+                                          "result_state": {
+                                            "Name": "minecraft:packed_ice"
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "minecraft:block",
+                                        "result_state": {
+                                          "Name": "minecraft:ice"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:biome",
+                                    "biome_is": [
+                                      "ruinsofarcana:frozen_glade"
+                                    ]
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:sequence",
+                                    "sequence": [
+                                      {
+                                        "type": "minecraft:condition",
+                                        "if_true": {
+                                          "type": "minecraft:stone_depth",
+                                          "offset": 0,
+                                          "surface_type": "ceiling",
+                                          "add_surface_depth": false,
+                                          "secondary_depth_range": 0
+                                        },
+                                        "then_run": {
+                                          "type": "minecraft:block",
+                                          "result_state": {
+                                            "Name": "minecraft:coarse_dirt"
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "minecraft:block",
+                                        "result_state": {
+                                          "Name": "minecraft:snow_block"
                                         }
                                       }
                                     ]
@@ -2358,6 +2468,42 @@
                                   "if_true": {
                                     "type": "minecraft:biome",
                                     "biome_is": [
+                                      "ruinsofarcana:decaying_tundra"
+                                    ]
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:sequence",
+                                    "sequence": [
+                                      {
+                                        "type": "minecraft:condition",
+                                        "if_true": {
+                                          "type": "minecraft:stone_depth",
+                                          "offset": 0,
+                                          "surface_type": "ceiling",
+                                          "add_surface_depth": false,
+                                          "secondary_depth_range": 0
+                                        },
+                                        "then_run": {
+                                          "type": "minecraft:block",
+                                          "result_state": {
+                                            "Name": "minecraft:dirt"
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "minecraft:block",
+                                        "result_state": {
+                                          "Name": "minecraft:coarse_dirt"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:biome",
+                                    "biome_is": [
                                       "ruinsofarcana:rotten_bog"
                                     ]
                                   },
@@ -2384,6 +2530,78 @@
                                         "type": "minecraft:block",
                                         "result_state": {
                                           "Name": "minecraft:mud"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:biome",
+                                    "biome_is": [
+                                      "ruinsofarcana:glacial_waste"
+                                    ]
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:sequence",
+                                    "sequence": [
+                                      {
+                                        "type": "minecraft:condition",
+                                        "if_true": {
+                                          "type": "minecraft:stone_depth",
+                                          "offset": 0,
+                                          "surface_type": "ceiling",
+                                          "add_surface_depth": false,
+                                          "secondary_depth_range": 0
+                                        },
+                                        "then_run": {
+                                          "type": "minecraft:block",
+                                          "result_state": {
+                                            "Name": "minecraft:packed_ice"
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "minecraft:block",
+                                        "result_state": {
+                                          "Name": "minecraft:packed_ice"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:biome",
+                                    "biome_is": [
+                                      "ruinsofarcana:frozen_glade"
+                                    ]
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:sequence",
+                                    "sequence": [
+                                      {
+                                        "type": "minecraft:condition",
+                                        "if_true": {
+                                          "type": "minecraft:stone_depth",
+                                          "offset": 0,
+                                          "surface_type": "ceiling",
+                                          "add_surface_depth": false,
+                                          "secondary_depth_range": 0
+                                        },
+                                        "then_run": {
+                                          "type": "minecraft:block",
+                                          "result_state": {
+                                            "Name": "minecraft:coarse_dirt"
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "minecraft:block",
+                                        "result_state": {
+                                          "Name": "minecraft:coarse_dirt"
                                         }
                                       }
                                     ]
@@ -2639,6 +2857,31 @@
                         "if_true": {
                           "type": "minecraft:biome",
                           "biome_is": [
+                            "ruinsofarcana:decaying_tundra"
+                          ]
+                        },
+                        "then_run": {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:stone_depth",
+                            "offset": 0,
+                            "surface_type": "floor",
+                            "add_surface_depth": true,
+                            "secondary_depth_range": 30
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "minecraft:stone"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "minecraft:condition",
+                        "if_true": {
+                          "type": "minecraft:biome",
+                          "biome_is": [
                             "ruinsofarcana:blasted_steppe"
                           ]
                         },
@@ -2689,31 +2932,6 @@
                         "if_true": {
                           "type": "minecraft:biome",
                           "biome_is": [
-                            "ruinsofarcana:scorched_oasis"
-                          ]
-                        },
-                        "then_run": {
-                          "type": "minecraft:condition",
-                          "if_true": {
-                            "type": "minecraft:stone_depth",
-                            "offset": 0,
-                            "surface_type": "floor",
-                            "add_surface_depth": true,
-                            "secondary_depth_range": 15
-                          },
-                          "then_run": {
-                            "type": "minecraft:block",
-                            "result_state": {
-                              "Name": "minecraft:terracotta"
-                            }
-                          }
-                        }
-                      },
-                      {
-                        "type": "minecraft:condition",
-                        "if_true": {
-                          "type": "minecraft:biome",
-                          "biome_is": [
                             "ruinsofarcana:petrified_forest",
                             "ruinsofarcana:rotten_bog"
                           ]
@@ -2740,8 +2958,107 @@
                         "if_true": {
                           "type": "minecraft:biome",
                           "biome_is": [
-                            "ruinsofarcana:dead_forest",
+                            "ruinsofarcana:frozen_glade"
+                          ]
+                        },
+                        "then_run": {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:stone_depth",
+                            "offset": 0,
+                            "surface_type": "floor",
+                            "add_surface_depth": true,
+                            "secondary_depth_range": 30
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "minecraft:blue_ice"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "minecraft:condition",
+                        "if_true": {
+                          "type": "minecraft:biome",
+                          "biome_is": [
+                            "ruinsofarcana:frozen_glade"
+                          ]
+                        },
+                        "then_run": {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:stone_depth",
+                            "offset": 0,
+                            "surface_type": "floor",
+                            "add_surface_depth": true,
+                            "secondary_depth_range": 30
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "minecraft:stone"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "minecraft:condition",
+                        "if_true": {
+                          "type": "minecraft:biome",
+                          "biome_is": [
                             "ruinsofarcana:scorched_oasis"
+                          ]
+                        },
+                        "then_run": {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:stone_depth",
+                            "offset": 0,
+                            "surface_type": "floor",
+                            "add_surface_depth": true,
+                            "secondary_depth_range": 7
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "minecraft:red_sandstone"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "minecraft:condition",
+                        "if_true": {
+                          "type": "minecraft:biome",
+                          "biome_is": [
+                            "ruinsofarcana:scorched_oasis"
+                          ]
+                        },
+                        "then_run": {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:stone_depth",
+                            "offset": 0,
+                            "surface_type": "floor",
+                            "add_surface_depth": false,
+                            "secondary_depth_range": 30
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "minecraft:granite"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "minecraft:condition",
+                        "if_true": {
+                          "type": "minecraft:biome",
+                          "biome_is": [
+                            "ruinsofarcana:dead_forest"
                           ]
                         },
                         "then_run": {
@@ -2892,11 +3209,10 @@
       "type": "minecraft:multi_noise",
       "biomes": [
         {
-          // GLACIAL WASTE
-          "biome": "minecraft:taiga",
+          "biome": "ruinsofarcana:glacial_waste",
           "parameters": {
-            "temperature": 0.6,
-            "humidity": -0.4,
+            "temperature": 0.8,
+            "humidity": -0.5,
             "continentalness": 0,
             "erosion": 0,
             "weirdness": 0,
@@ -2905,8 +3221,7 @@
           }
         },
         {
-          // FROZEN GLADE
-          "biome": "minecraft:jungle",
+          "biome": "ruinsofarcana:frozen_glade",
           "parameters": {
             "temperature": 0.5,
             "humidity": -0.2,
@@ -2918,10 +3233,9 @@
           }
         },
         {
-          // SNOWY TUNDRA
-          "biome": "minecraft:forest",
+          "biome": "ruinsofarcana:decaying_tundra",
           "parameters": {
-            "temperature": 0.3,
+            "temperature": 0.4,
             "humidity": -0.1,
             "continentalness": 0,
             "erosion": 0,
@@ -2931,10 +3245,9 @@
           }
         },
         {
-          // ROTTEN BOG
           "biome": "ruinsofarcana:rotten_bog",
           "parameters": {
-            "temperature": 0.2,
+            "temperature": 0.1,
             "humidity": -0.1,
             "continentalness": 0,
             "erosion": 0,
@@ -2944,10 +3257,9 @@
           }
         },
         {
-          // DEAD FOREST
           "biome": "ruinsofarcana:dead_forest",
           "parameters": {
-            "temperature": 0,
+            "temperature": -0.05,
             "humidity": -0.05,
             "continentalness": 0,
             "erosion": 0,
@@ -2957,11 +3269,10 @@
           }
         },
         {
-          // BLASTED STEPPE
           "biome": "ruinsofarcana:blasted_steppe",
           "parameters": {
-            "temperature": -0.2,
-            "humidity": 0,
+            "temperature": -0.3,
+            "humidity": 0.05,
             "continentalness": 0,
             "erosion": 0,
             "weirdness": 0,
@@ -2972,7 +3283,7 @@
         {
           "biome": "ruinsofarcana:scorched_oasis",
           "parameters": {
-            "temperature": -0.3,
+            "temperature": -0.5,
             "humidity": 0.1,
             "continentalness": 0,
             "erosion": 0,
@@ -2984,7 +3295,7 @@
         {
           "biome": "ruinsofarcana:petrified_forest",
           "parameters": {
-            "temperature": -0.5,
+            "temperature": -0.6,
             "humidity": 0.15,
             "continentalness": 0,
             "erosion": 0,
@@ -2996,7 +3307,7 @@
         {
           "biome": "ruinsofarcana:basalt_deadlands",
           "parameters": {
-            "temperature": -0.6,
+            "temperature": -0.8,
             "humidity": 0.25,
             "continentalness": 0,
             "erosion": 0,

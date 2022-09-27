@@ -98,6 +98,7 @@
       "ruinsofarcana:fallen_log_n",
       "ruinsofarcana:fallen_log_e",
       "ruinsofarcana:dead_forest_grass",
+      "ruinsofarcana:dead_forest_rocks",
       "ruinsofarcana:dead_forest_ponds"
 
     ],
@@ -108,11 +109,6 @@
     [
       "minecraft:glow_lichen",
       "minecraft:patch_dead_bush_badlands",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:forest_rock",
-      "ruinsofarcana:dead_tube_coral",
-      "ruinsofarcana:dead_brain_coral",
       "ruinsofarcana:bone_pile",
       "ruinsofarcana:replace_coarse_dirt",
       "ruinsofarcana:dead_forest_shrubs",

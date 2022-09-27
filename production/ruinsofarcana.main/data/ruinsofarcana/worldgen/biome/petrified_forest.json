@@ -1,4 +1,3 @@
-// TODO: add another type of tree
 {
   "temperature": 2,
   "downfall": 0,
@@ -70,7 +69,6 @@
     [],
     [
       "minecraft:ore_gravel",
-      "minecraft:ore_dirt",
       "minecraft:ore_granite_upper",
       "minecraft:ore_granite_lower",
       "minecraft:ore_diorite_upper",
@@ -97,7 +95,8 @@
       "minecraft:disk_sand",
       "minecraft:disk_gravel",
       "ruinsofarcana:bone_pile",
-      "ruinsofarcana:petrified_forest_lava"
+      "ruinsofarcana:petrified_forest_lava",
+      "ruinsofarcana:obsidian_rock"
     ],
     [],
     [
@@ -106,11 +105,6 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:fossil_upper",
-      "ruinsofarcana:dead_tube_coral",
-      "ruinsofarcana:dead_brain_coral",
       "ruinsofarcana:petrified_forest_trees",
       "ruinsofarcana:petrified_forest_bushes",
       "ruinsofarcana:petrified_forest_floor"
