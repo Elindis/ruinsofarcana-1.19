@@ -1,0 +1,124 @@
+{
+  "temperature": 2,
+  "downfall": 0,
+  "precipitation": "none",
+  "effects": {
+    "sky_color": 15645779,
+    "fog_color": 14980421,
+    "water_color": 11580271,
+    "water_fog_color": 4277025,
+    "grass_color": 8490065,
+    "foliage_color": 10001233,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    }
+  },
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [],
+    "misc": [],
+    "monster": [
+      {
+        "type": "minecraft:zombie",
+        "weight": 95,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "minecraft:skeleton",
+        "weight": 100,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "minecraft:creeper",
+        "weight": 100,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "minecraft:enderman",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 4
+      }
+    ],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [],
+    [
+      "minecraft:lake_lava_underground"
+    ],
+    [],
+    [],
+    [
+      "minecraft:ore_gravel",
+      "minecraft:ore_dirt",
+      "minecraft:ore_granite_upper",
+      "minecraft:ore_granite_lower",
+      "minecraft:ore_diorite_upper",
+      "minecraft:ore_diorite_lower",
+      "minecraft:ore_andesite_upper",
+      "minecraft:ore_andesite_lower",
+      "minecraft:ore_tuff",
+      "minecraft:ore_coal_upper",
+      "minecraft:ore_coal_lower",
+      "minecraft:ore_iron_upper",
+      "minecraft:ore_iron_middle",
+      "minecraft:ore_iron_small",
+      "minecraft:ore_gold",
+      "minecraft:ore_gold_lower",
+      "minecraft:ore_redstone",
+      "minecraft:ore_redstone_lower",
+      "minecraft:ore_diamond",
+      "minecraft:ore_diamond_large",
+      "minecraft:ore_diamond_buried",
+      "minecraft:ore_lapis",
+      "minecraft:ore_lapis_buried",
+      "minecraft:ore_copper",
+      "minecraft:ore_gold_extra",
+      "minecraft:disk_sand",
+      "minecraft:disk_gravel",
+      "ruinsofarcana:fallen_log_n",
+      "ruinsofarcana:fallen_log_e",
+      "ruinsofarcana:dead_forest_grass",
+      "ruinsofarcana:rotten_bog_floor",
+      "ruinsofarcana:rotten_bog_mud",
+      "ruinsofarcana:rotten_bog_ponds"
+
+    ],
+    [],
+    [
+      "minecraft:spring_water"
+    ],
+    [
+      "minecraft:glow_lichen",
+      "ruinsofarcana:dead_tube_coral",
+      "ruinsofarcana:dead_brain_coral",
+      "ruinsofarcana:rotten_bog_red_mushroom_patch",
+      "ruinsofarcana:rotten_bog_brown_mushroom_patch",
+      "ruinsofarcana:bone_pile",
+      "ruinsofarcana:dead_tree_forest",
+      "ruinsofarcana:rotten_bog_oak_trees",
+      "ruinsofarcana:rotten_bog_giant_mushrooms",
+      "ruinsofarcana:rotten_bog_grass_plants"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

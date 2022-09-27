@@ -35,7 +35,7 @@ public class ModBlocks {
 
     // Blocks that do cool things
     public static final Block ANCIENT_INSCRIBED_STONE = registerBlock("ancient_inscribed_stone",
-            new Block(FabricBlockSettings.of(Material.METAL).strength(4f).requiresTool().luminance(3).sounds(BlockSoundGroup.METAL)),
+            new Block(FabricBlockSettings.of(Material.METAL).ticksRandomly().strength(4f).requiresTool().luminance(3).sounds(BlockSoundGroup.METAL)),
             ModItemGroup.RUINSOFARCANA);
 
     public static final Block ENCHANTED_WAYSTONE = registerBlock("enchanted_waystone",
@@ -56,6 +56,9 @@ public class ModBlocks {
     // Blocks with entities
     public static final Block PEDESTAL = registerBlock("pedestal",
             new PedestalBlock(FabricBlockSettings.of(Material.STONE).nonOpaque()), ModItemGroup.RUINSOFARCANA);
+
+    public static final Block AIR_PURIFIER = registerBlock("air_purifier",
+            new AirPurifierBlock(FabricBlockSettings.of(Material.STONE).nonOpaque()), ModItemGroup.RUINSOFARCANA);
 
     public static final Block TRANSMUTATION_TABLE = registerBlock("transmutation_table",
             new TransmutationTableBlock(FabricBlockSettings.of(Material.STONE).nonOpaque()), ModItemGroup.RUINSOFARCANA);

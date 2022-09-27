@@ -2,10 +2,10 @@ package net.elindis.ruinsofarcana.mixin;
 
 import net.elindis.ruinsofarcana.item.ModItems;
 import net.elindis.ruinsofarcana.world.dimension.ModDimensions;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,10 +16,8 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -28,13 +26,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
 
-    @Shadow public abstract boolean removeStatusEffect(StatusEffect type);
-
     // Used for the Circlet of Rebirth to act like a totem.
     @Inject(at = @At("HEAD"), method = "tryUseTotem", cancellable = true)
     private void useCirclet(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity thisEntity = ((LivingEntity)(Object)this);
+        if (!(thisEntity instanceof PlayerEntity)) return;
         ItemStack headSlot = thisEntity.getEquippedStack(EquipmentSlot.HEAD);
+
         if (headSlot.isOf(ModItems.CIRCLET_OF_REBIRTH)) {
 
             headSlot.damage(35, thisEntity.getRandom(), (ServerPlayerEntity) thisEntity);
@@ -75,23 +73,21 @@ public abstract class LivingEntityMixin {
     @Inject(at = @At("HEAD"), method = "baseTick")
     private void dimensionAirControl(CallbackInfo ci) {
         LivingEntity thisEntity = ((LivingEntity)(Object)this);
-        if (thisEntity.hasStatusEffect(StatusEffects.WATER_BREATHING) || thisEntity.hasStatusEffect(StatusEffects.CONDUIT_POWER)
-        || thisEntity.isInvulnerable()) return;
-        if (thisEntity instanceof PlayerEntity playerEntity) {
-            if (playerEntity.getAbilities().creativeMode) return;
-        }
+
         if (thisEntity.getWorld().getRegistryKey().equals(ModDimensions.SANCTUARY)) {
-            thisEntity.setAir(thisEntity.getAir()-1);
-            if (thisEntity.getAir() <= -20) {
+            int respiration = 0;
+
+            if (thisEntity instanceof PlayerEntity playerEntity) {
+                if (playerEntity.getAbilities().creativeMode) return;
+                respiration = EnchantmentHelper.getRespiration(thisEntity);
+            }
+
+            if (thisEntity.getRandom().nextBetween(0,respiration) == 0) {
+                thisEntity.setAir(thisEntity.getAir()-1);
+            }
+
+            if (thisEntity.getAir() == -20) {
                 thisEntity.setAir(0);
-//                Vec3d vec3d = thisEntity.getVelocity();
-//                for (int i = 0; i < 8; ++i) {
-//                    double f = thisEntity.getRandom().nextDouble() - thisEntity.getRandom().nextDouble();
-//                    double g = thisEntity.getRandom().nextDouble() - thisEntity.getRandom().nextDouble();
-//                    double h = thisEntity.getRandom().nextDouble() - thisEntity.getRandom().nextDouble();
-//                    thisEntity.world.addParticle(ParticleTypes.BUBBLE, thisEntity.getX() + f, thisEntity.getY() + g,
-//                            thisEntity.getZ() + h, vec3d.x, vec3d.y, vec3d.z);
-//                }
                 thisEntity.damage(DamageSource.DROWN, 2.0f);
             }
         }
@@ -99,9 +95,6 @@ public abstract class LivingEntityMixin {
     @Inject(at = @At("HEAD"), method = "getNextAirOnLand", cancellable = true)
     private void dimensionAirControl(int air, CallbackInfoReturnable<Integer> cir) {
         LivingEntity thisEntity = ((LivingEntity)(Object)this);
-        if (thisEntity.hasStatusEffect(StatusEffects.WATER_BREATHING) || thisEntity.hasStatusEffect(StatusEffects.CONDUIT_POWER)) {
-            return;
-        }
         if (thisEntity instanceof PlayerEntity playerEntity) {
             if (playerEntity.getAbilities().creativeMode) playerEntity.setAir(playerEntity.getMaxAir());
         }

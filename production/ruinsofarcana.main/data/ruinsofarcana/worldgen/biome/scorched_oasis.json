@@ -93,7 +93,8 @@
       "minecraft:ore_copper",
       "minecraft:ore_gold_extra",
       "minecraft:disk_sand",
-      "minecraft:disk_gravel"
+      "minecraft:disk_gravel",
+      "ruinsofarcana:scorched_oasis_rocks"
     ],
     [],
     [
@@ -109,6 +110,7 @@
       "ruinsofarcana:dead_tube_coral",
       "ruinsofarcana:dead_brain_coral",
       "ruinsofarcana:bone_pile",
+      "ruinsofarcana:lava_lakes",
       "ruinsofarcana:dead_tree"
 
     ],

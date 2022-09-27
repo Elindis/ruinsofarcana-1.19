@@ -67,6 +67,9 @@
     [],
     [],
     [
+      "ruinsofarcana:blasted_steppe_floor",
+      "ruinsofarcana:blasted_steppe_bushes",
+      "ruinsofarcana:blasted_steppe_grass",
       "minecraft:ore_gravel",
       "minecraft:ore_granite_upper",
       "minecraft:ore_granite_lower",
@@ -99,13 +102,14 @@
       "minecraft:spring_lava"
     ],
     [
+      "ruinsofarcana:blasted_steppe_shrubs",
+      "ruinsofarcana:blasted_steppe_grass_plants",
       "minecraft:glow_lichen",
       "minecraft:patch_dead_bush",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "ruinsofarcana:dead_tube_coral",
-      "ruinsofarcana:dead_brain_coral",
-      "ruinsofarcana:desert_boulder"
+      "ruinsofarcana:dead_brain_coral"
     ],
     [
       "minecraft:freeze_top_layer"

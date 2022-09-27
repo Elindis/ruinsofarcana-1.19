@@ -14,6 +14,7 @@ public class ModBlockEntities {
     public static BlockEntityType<ModHopperBlockEntity> AURIC_PIPE;
     public static BlockEntityType<SingularityBlockEntity> SINGULARITY;
     public static BlockEntityType<GravityInverterBlockEntity> GRAVITY_INVERTER;
+    public static BlockEntityType<AirPurifierBlockEntity> AIR_PURIFIER;
 
     public static void registerAllBlockEntities() {
 
@@ -46,5 +47,10 @@ public class ModBlockEntities {
                 new Identifier(RuinsOfArcana.MOD_ID, "gravity_inverter"),
                 FabricBlockEntityTypeBuilder.create(GravityInverterBlockEntity::new,
                         ModBlocks.GRAVITY_INVERTER).build(null));
+
+        AIR_PURIFIER = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                new Identifier(RuinsOfArcana.MOD_ID, "air_purifier"),
+                FabricBlockEntityTypeBuilder.create(AirPurifierBlockEntity::new,
+                        ModBlocks.AIR_PURIFIER).build(null));
     }
 }

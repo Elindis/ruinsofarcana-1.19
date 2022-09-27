@@ -1,5 +1,17 @@
 {
-  "feature": "ruinsofarcana:dead_tree",
+  "feature": {
+    "type": "minecraft:random_boolean_selector",
+    "config": {
+      "feature_false": {
+        "feature": "ruinsofarcana:dead_tree",
+        "placement": []
+      },
+      "feature_true": {
+        "feature": "ruinsofarcana:dead_tree_2",
+        "placement": []
+      }
+    }
+  },
   "placement": [
     {
       "type": "minecraft:count",

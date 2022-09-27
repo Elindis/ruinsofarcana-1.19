@@ -94,25 +94,31 @@
       "minecraft:ore_copper",
       "minecraft:ore_gold_extra",
       "minecraft:disk_sand",
-      "minecraft:disk_gravel"
+      "minecraft:disk_gravel",
+      "ruinsofarcana:fallen_log_n",
+      "ruinsofarcana:fallen_log_e",
+      "ruinsofarcana:dead_forest_grass",
+      "ruinsofarcana:dead_forest_ponds"
+
     ],
     [],
     [
-      "minecraft:spring_lava",
-      "minecraft:spring_water"
+      "minecraft:spring_lava"
     ],
     [
       "minecraft:glow_lichen",
       "minecraft:patch_dead_bush_badlands",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
-      "minecraft:fossil_upper",
+      "minecraft:forest_rock",
       "ruinsofarcana:dead_tube_coral",
       "ruinsofarcana:dead_brain_coral",
       "ruinsofarcana:bone_pile",
       "ruinsofarcana:replace_coarse_dirt",
-      "ruinsofarcana:dead_tree_forest"
-
+      "ruinsofarcana:dead_forest_shrubs",
+      "ruinsofarcana:dead_tree_forest",
+      "ruinsofarcana:dead_tree_forest_2",
+      "ruinsofarcana:dead_forest_grass_plants"
     ],
     [
       "minecraft:freeze_top_layer"
