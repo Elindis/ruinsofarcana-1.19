@@ -1,7 +1,6 @@
 package net.elindis.ruinsofarcana.entity;
 
 import net.elindis.ruinsofarcana.block.ModBlocks;
-import net.elindis.ruinsofarcana.effect.ModEffects;
 import net.elindis.ruinsofarcana.enchantment.ModEnchantments;
 import net.elindis.ruinsofarcana.item.ModItems;
 import net.elindis.ruinsofarcana.util.ModParticleUtil;

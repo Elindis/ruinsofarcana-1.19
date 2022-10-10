@@ -49,7 +49,7 @@ public class ResearchParchmentBlock_3 extends Block {
         if (world.isClient) return ActionResult.SUCCESS;
 
         // Check for the scribe's pen and a research material
-        if (player.getMainHandStack().isOf(ModItems.AURIC_INGOT) && player.getOffHandStack().isOf(ModItems.SCRIBES_PEN)) {
+        if (player.getMainHandStack().isOf(ModItems.AURIC_INGOT) && player.getOffHandStack().isOf(ModItems.ARCANISTS_STAFF)) {
 
             // Debug
             world.getServer().sendMessage(Text.literal("Used research parchment block (left-handed)"));
@@ -66,7 +66,7 @@ public class ResearchParchmentBlock_3 extends Block {
         }
 
         // Check for the scribe's pen and a research material
-        if (player.getMainHandStack().isOf(ModItems.SCRIBES_PEN) && player.getOffHandStack().isOf(ModItems.AURIC_INGOT)) {
+        if (player.getMainHandStack().isOf(ModItems.ARCANISTS_STAFF) && player.getOffHandStack().isOf(ModItems.AURIC_INGOT)) {
 
             // Debug
             world.getServer().sendMessage(Text.literal("Used research parchment block (right-handed)"));

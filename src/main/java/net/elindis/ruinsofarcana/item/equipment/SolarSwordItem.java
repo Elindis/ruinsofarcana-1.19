@@ -80,8 +80,8 @@ public class SolarSwordItem extends ToolItem implements Vanishable {
 
     public void inventoryTick(ItemStack stack, World world, Entity user, int slot, boolean selected) {
         if (user instanceof PlayerEntity) {
-            if (((PlayerEntity) user).getMainHandStack().isOf(this.asItem()) ||
-            ((PlayerEntity) user).getOffHandStack().isOf(this.asItem())) {
+            // changed from getmainhand || getoffhand
+            if (((PlayerEntity) user).isHolding(this.asItem())) {
 
                 boolean bl = ((PlayerEntity) user).hasStatusEffect(StatusEffects.FIRE_RESISTANCE);
                 if (bl) {

@@ -3,7 +3,7 @@
   // If two or more structures in this list can spawn in a biome at a spot, a random one based on weight is chosen to spawn
   "structures": [
     {
-      "structure": "ruinsofarcana:ancient_ruins",
+      "structure": "ruinsofarcana:oasis_pillar",
       "weight": 1
     }
   ],
@@ -12,14 +12,14 @@
     "type": "minecraft:random_spread",
 
     // Make sure this is unique and does not match any other structure set's salt
-    "salt": 121068,
+    "salt": 1219868,
 
     // The average distance apart in chunks for spawn attempts
-    "spacing": 6,
+    "spacing": 7,
 
     // Minimum distance apart in chunks for spawn attempts
     // MUST ALWAYS BE SMALLER THAN spacing ABOVE
-    "separation": 2,
+    "separation": 1,
 
     // Prevent spawning near Ocean Monuments
     "exclusion_zone": {

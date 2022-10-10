@@ -3,6 +3,8 @@ package net.elindis.ruinsofarcana.item;
 import net.elindis.ruinsofarcana.RuinsOfArcana;
 import net.elindis.ruinsofarcana.block.ModBlocks;
 import net.elindis.ruinsofarcana.item.equipment.*;
+import net.elindis.ruinsofarcana.item.inscription.InfernoInscriptionItem;
+import net.elindis.ruinsofarcana.item.inscription.InscriptionItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.AliasedBlockItem;
@@ -80,8 +82,9 @@ public class ModItems {
     public static final Item LIGHT_BOW = registerItem(
             "light_bow", new LightBowItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(750)));
 
-    public static final Item SCRIBES_PEN = registerItem(
-            "scribes_pen", new ScribesPenItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(15)));
+
+    public static final Item ARCANISTS_STAFF = registerItem(
+            "arcanists_staff", new ArcanistsStaffItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(15)));
 
     // Armor
     public static final Item TRUESIGHT_GOGGLES = registerItem(
@@ -110,6 +113,13 @@ public class ModItems {
             "ancient_note_sealed", new AncientResearchNoteGenericItem(new FabricItemSettings().maxCount(1).group(ModItemGroup.RUINSOFARCANA)));
     public static final Item ANCIENT_NOTE_1 = registerItem(
             "ancient_note_1", new AncientNoteItem_1(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
+
+    // Inscriptions
+
+    public static final Item ANCIENT_INSCRIPTION = registerItem(
+            "empty_inscription", new InscriptionItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
+    public static final Item INFERNO_INSCRIPTION = registerItem(
+            "inferno_inscription", new InfernoInscriptionItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
 
     // Food items
     public static final Item RAW_RICE = registerItem(

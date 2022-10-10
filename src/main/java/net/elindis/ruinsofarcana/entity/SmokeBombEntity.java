@@ -71,7 +71,6 @@ public class SmokeBombEntity extends ThrownItemEntity {
         super.onCollision(hitResult);
 
         if (!this.world.isClient) {
-
             Vec3d collisionPos = hitResult.getPos();
             BlockPos blockPos = new BlockPos(collisionPos);
 

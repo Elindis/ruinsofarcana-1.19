@@ -1,6 +1,5 @@
 package net.elindis.ruinsofarcana.item.equipment;
 
-import net.elindis.ruinsofarcana.entity.FrostBoltEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -35,10 +34,11 @@ public abstract class WandItem extends RangedWeaponItem implements Vanishable {
 
     protected void doSpellEffect(World world, LivingEntity user, PlayerEntity playerEntity, float f) {
         // Example
-        FrostBoltEntity frostBoltEntity = new FrostBoltEntity(world, user);
-        frostBoltEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(),
-                0.0F, f * 2.5F, 0.5F);
-        world.spawnEntity(frostBoltEntity);
+//        FrostBoltEntity frostBoltEntity = new FrostBoltEntity(world, user);
+//        frostBoltEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(),
+//                0.0F, f * 2.5F, 0.5F);
+//        world.spawnEntity(frostBoltEntity);
+        System.out.println("Spell failed for very weird reasons");
     }
 
     protected void playFailureSound(World world, PlayerEntity playerEntity) {
@@ -78,7 +78,7 @@ public abstract class WandItem extends RangedWeaponItem implements Vanishable {
         return 15;
     }
 
-    private void doUsageParticles(World world, LivingEntity user) {
+    public void doUsageParticles(World world, LivingEntity user, ItemStack stack) {
         int random2 = world.getRandom().nextInt(9);
         if (random2 > 6) {
             float random = (user.getRandom().nextFloat()/10)-0.05f;
@@ -124,7 +124,8 @@ public abstract class WandItem extends RangedWeaponItem implements Vanishable {
 
     @Override
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
-        doUsageParticles(world, user);
+        if (!world.isClient) return;
+        doUsageParticles(world, user, stack);
     }
 
     @Override
@@ -154,7 +155,12 @@ public abstract class WandItem extends RangedWeaponItem implements Vanishable {
                         playSuccessSound(world, playerEntity, f);
                     }
                     if (isRaycaster()) {
-                        var raycastType = user.raycast(getRange(),MinecraftClient.getInstance().getTickDelta(),true).getType();
+                        float tickDelta = 1;
+                        if (world.isClient) {
+                            tickDelta = MinecraftClient.getInstance().getTickDelta();
+                            return;
+                        }
+                        var raycastType = user.raycast(getRange(), tickDelta,true).getType();
                         if (!raycastType.equals(HitResult.Type.MISS)) {
 
                             // Server-side effects.

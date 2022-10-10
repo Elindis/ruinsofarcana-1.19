@@ -66,7 +66,4 @@ public class RuinsOfArcana implements ModInitializer {
 		ModDispenserBehaviors.registerDispenserBehaviours();
 
 	}
-
-
-
 }

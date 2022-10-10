@@ -86,7 +86,7 @@ public class ResearchParchmentBlock extends Block {
             this.hasTheory = true;
         }
         // Check for the scribe's pen
-        if (player.getStackInHand(hand).isOf(ModItems.SCRIBES_PEN)) {
+        if (player.getStackInHand(hand).isOf(ModItems.ARCANISTS_STAFF)) {
 
             // Don't do anything on client other than play the animation
             if (world.isClient) return ActionResult.SUCCESS;

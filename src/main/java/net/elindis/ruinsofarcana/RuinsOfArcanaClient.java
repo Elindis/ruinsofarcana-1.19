@@ -8,6 +8,7 @@ import net.elindis.ruinsofarcana.entity.EntitySpawnPacket;
 import net.elindis.ruinsofarcana.entity.ModEntities;
 import net.elindis.ruinsofarcana.entity.renderer.FrostBoltEntityRenderer;
 import net.elindis.ruinsofarcana.entity.renderer.LightArrowEntityRenderer;
+import net.elindis.ruinsofarcana.event.KeyInputHandler;
 import net.elindis.ruinsofarcana.networking.ModPackets;
 import net.elindis.ruinsofarcana.particle.*;
 import net.elindis.ruinsofarcana.screen.ManufactoryScreen;
@@ -69,6 +70,7 @@ public class RuinsOfArcanaClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticles.SNOW_TORNADO_PARTICLE, SnowTornadoParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.CORE_PARTICLE, CoreParticle.Factory::new);
         ModPackets.registerS2CPackets();
+        KeyInputHandler.register();
 
 
     }

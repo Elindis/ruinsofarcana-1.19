@@ -2,7 +2,6 @@ package net.elindis.ruinsofarcana.item.equipment;
 
 import net.elindis.ruinsofarcana.effect.ModEffects;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -43,9 +42,9 @@ public class WandOfSnowstormItem extends WandItem {
 
     @Override
     protected void doSpellEffect(World world, LivingEntity user, PlayerEntity playerEntity, float f) {
-        if (world.isClient) return;
+        float tickDelta = 1;
 
-        HitResult hitResult = user.raycast(getRange(), MinecraftClient.getInstance().getTickDelta(), true);
+        HitResult hitResult = user.raycast(getRange(), tickDelta, true);
 //        world.createExplosion(null,hitResult.getPos().x,hitResult.getPos().y,hitResult.getPos().z,1f, Explosion.DestructionType.NONE);
         ArmorStandEntity snowstormEntity = new ArmorStandEntity(world, hitResult.getPos().x, hitResult.getPos().y, hitResult.getPos().z);
 

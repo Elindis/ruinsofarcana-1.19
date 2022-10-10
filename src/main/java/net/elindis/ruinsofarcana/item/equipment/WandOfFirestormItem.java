@@ -2,8 +2,6 @@ package net.elindis.ruinsofarcana.item.equipment;
 
 import net.elindis.ruinsofarcana.effect.ModEffects;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -12,7 +10,6 @@ import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
@@ -45,9 +42,9 @@ public class WandOfFirestormItem extends WandItem {
 
     @Override
     protected void doSpellEffect(World world, LivingEntity user, PlayerEntity playerEntity, float f) {
-        if (world.isClient) return;
+        float tickDelta = 1;
 
-        HitResult hitResult = user.raycast(getRange(), MinecraftClient.getInstance().getTickDelta(), true);
+        HitResult hitResult = user.raycast(getRange(), tickDelta, true);
 
 //        world.createExplosion(null,hitResult.getPos().x,hitResult.getPos().y,hitResult.getPos().z,1f, Explosion.DestructionType.NONE);
         ArmorStandEntity firestormEntity = new ArmorStandEntity(world, hitResult.getPos().x, hitResult.getPos().y, hitResult.getPos().z);
