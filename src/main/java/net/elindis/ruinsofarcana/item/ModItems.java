@@ -119,6 +119,8 @@ public class ModItems {
             "empty_inscription", new InscriptionItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
     public static final Item INFERNO_INSCRIPTION = registerItem(
             "inferno_inscription", new InfernoInscriptionItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
+    public static final Item FREEZE_INSCRIPTION = registerItem(
+            "freeze_inscription", new FreezeInscriptionItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
     public static final Item RAISE_ZOMBIE_INSCRIPTION = registerItem(
             "raise_zombie_inscription", new RaiseZombieInscriptionItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
     public static final Item DOMINATE_UNDEAD_INSCRIPTION = registerItem(

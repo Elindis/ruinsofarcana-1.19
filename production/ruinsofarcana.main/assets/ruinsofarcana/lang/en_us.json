@@ -7,6 +7,7 @@
   "item.ruinsofarcana.charcoal_rubbing": "Charcoal Rubbing",
   "item.ruinsofarcana.empty_inscription": "Inscription: Empty",
   "item.ruinsofarcana.inferno_inscription": "Inscription: Inferno",
+  "item.ruinsofarcana.freeze_inscription": "Inscription: Freeze",
   "item.ruinsofarcana.raise_zombie_inscription": "Inscription: Raise Zombie",
   "item.ruinsofarcana.dominate_undead_inscription": "Inscription: Dominate Undead",
   "item.ruinsofarcana.heal_undead_inscription": "Inscription: Heal Undead",
@@ -43,6 +44,7 @@
   "block.ruinsofarcana.stripped_myrtle_log": "Stripped Myrtle Log",
   "block.ruinsofarcana.stripped_myrtle_wood": "Stripped Myrtle Wood",
   "block.ruinsofarcana.myrtle_planks": "Myrtle Planks",
+  "block.ruinsofarcana.thin_ice": "Thin Ice",
 
   "block.ruinsofarcana.research_parchment": "Research Parchment",
   "block.ruinsofarcana.research_parchment_1": "Research Parchment",

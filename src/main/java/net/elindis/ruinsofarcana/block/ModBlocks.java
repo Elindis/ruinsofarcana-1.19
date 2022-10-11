@@ -12,7 +12,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.BlockView;
 
 
 public class ModBlocks {
@@ -20,6 +22,13 @@ public class ModBlocks {
     // Decorative blocks
     public static final Block FROZEN_LOG = registerBlock("frozen_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).requiresTool().strength(4.0f)), ModItemGroup.RUINSOFARCANA);
+
+    public static final Block THIN_ICE = registerBlock("thin_ice",
+            new ThinIceBlock(FabricBlockSettings.copy(Blocks.ICE).suffocates(ModBlocks::never)
+                    .solidBlock(ModBlocks::never).blockVision(ModBlocks::never).nonOpaque()), ModItemGroup.RUINSOFARCANA);
+    private static boolean never(BlockState state, BlockView world, BlockPos pos) {
+        return false;
+    }
 
     // Myrtle blocks
     public static final Block MYRTLE_LOG = registerBlock("myrtle_log",

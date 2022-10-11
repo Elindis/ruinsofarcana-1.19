@@ -26,6 +26,7 @@ public class SpellList {
 //            "Fireball", new InfernoSpell()
             "Inferno", new InfernoSpell(),
 //            "Frost Bolt", new InfernoSpell(),
+            "Freeze", new FreezeSpell(),
 //            "Blizzard", new InfernoSpell(),
 //            "Cyclone", new InfernoSpell(),
 //            "Whirlwind", new InfernoSpell(),
