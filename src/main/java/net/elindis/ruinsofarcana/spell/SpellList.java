@@ -1,8 +1,5 @@
-package net.elindis.ruinsofarcana.util;
+package net.elindis.ruinsofarcana.spell;
 
-
-import net.elindis.ruinsofarcana.spell.InfernoSpell;
-import net.elindis.ruinsofarcana.spell.Spell;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtList;
 
@@ -27,11 +24,15 @@ public class SpellList {
     public static Map<String, Spell> spellMap = Map.of(
             "Empty", new Spell(),
 //            "Fireball", new InfernoSpell()
-            "Inferno", new InfernoSpell()
+            "Inferno", new InfernoSpell(),
 //            "Frost Bolt", new InfernoSpell(),
 //            "Blizzard", new InfernoSpell(),
 //            "Cyclone", new InfernoSpell(),
-//            "Whirlwind", new InfernoSpell()
+//            "Whirlwind", new InfernoSpell(),
+            "Raise Zombie", new RaiseZombieSpell(),
+            "Heal Undead", new HealUndeadSpell(),
+            "Dominate Undead", new DominateUndeadSpell()
+
     );
 
 }

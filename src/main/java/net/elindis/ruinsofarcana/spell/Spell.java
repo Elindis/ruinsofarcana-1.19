@@ -49,9 +49,7 @@ public class Spell {
 		}
 	}
 
-	public void spellEffect(LivingEntity user) {
-		System.out.println("Casted EMPTY");
-	}
+	public void spellEffect(LivingEntity user) {}
 
 	protected void playFailureSound(World world, PlayerEntity playerEntity) {
 		// Example

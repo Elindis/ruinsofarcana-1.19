@@ -3,8 +3,7 @@ package net.elindis.ruinsofarcana.item;
 import net.elindis.ruinsofarcana.RuinsOfArcana;
 import net.elindis.ruinsofarcana.block.ModBlocks;
 import net.elindis.ruinsofarcana.item.equipment.*;
-import net.elindis.ruinsofarcana.item.inscription.InfernoInscriptionItem;
-import net.elindis.ruinsofarcana.item.inscription.InscriptionItem;
+import net.elindis.ruinsofarcana.item.inscription.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.AliasedBlockItem;
@@ -84,7 +83,7 @@ public class ModItems {
 
 
     public static final Item ARCANISTS_STAFF = registerItem(
-            "arcanists_staff", new ArcanistsStaffItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(15)));
+            "arcanists_staff", new ArcanistsStaffItem(new FabricItemSettings().group(ModItemGroup.RUINSOFARCANA).maxCount(1).maxDamage(15).rarity(Rarity.UNCOMMON)));
 
     // Armor
     public static final Item TRUESIGHT_GOGGLES = registerItem(
@@ -120,6 +119,12 @@ public class ModItems {
             "empty_inscription", new InscriptionItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
     public static final Item INFERNO_INSCRIPTION = registerItem(
             "inferno_inscription", new InfernoInscriptionItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
+    public static final Item RAISE_ZOMBIE_INSCRIPTION = registerItem(
+            "raise_zombie_inscription", new RaiseZombieInscriptionItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
+    public static final Item DOMINATE_UNDEAD_INSCRIPTION = registerItem(
+            "dominate_undead_inscription", new DominateUndeadInscriptionItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
+    public static final Item HEAL_UNDEAD_INSCRIPTION = registerItem(
+            "heal_undead_inscription", new HealUndeadInscriptionItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(ModItemGroup.RUINSOFARCANA)));
 
     // Food items
     public static final Item RAW_RICE = registerItem(

@@ -9,6 +9,7 @@ import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.player.PlayerEntity;
 
@@ -25,6 +26,10 @@ public class ConfusionEffect extends StatusEffect {
         super.onApplied(entity, attributes, amplifier);
     }
 
+    // Effects:
+    // Amplifier 0: Chaos. Mobs attack other mobs indiscriminately for the duration.
+    // Amplifier 1: Temporary loyalty. Mobs attack non-confused mobs for the duration.
+    // Amplifier 2: Domination. Mobs attack non-confused mobs permanently.
     @Override
     public void applyUpdateEffect(LivingEntity pLivingEntity, int pAmplifier) {
 
@@ -35,12 +40,11 @@ public class ConfusionEffect extends StatusEffect {
         List<Entity> entityList = pLivingEntity.world.getOtherEntities(pLivingEntity, pLivingEntity.getBoundingBox().expand(10));
         List<LivingEntity> mobList = new ArrayList<>();
         for (Entity entity: entityList) {
-            if (entity instanceof LivingEntity && entity instanceof Monster && !(entity instanceof PlayerEntity)) {
+            if (entity instanceof LivingEntity && !(entity instanceof PlayerEntity)) {
 
-                // If the amplifier is > 0, the mob won't attack other confused mobs, but the mob has to be undead.
-                // This is to facilitate the creation of undead armies.
-                if (pAmplifier > 0 && ((LivingEntity) entity).isUndead()) {
-                    if (!((LivingEntity) entity).hasStatusEffect(ModEffects.CONFUSION)) {
+                // If the amplifier is > 0, the mob won't attack allied mobs, and it will only attack other monsters.
+                if (pAmplifier > 0) {
+                    if (!((LivingEntity) entity).hasStatusEffect(ModEffects.CONFUSION) && entity instanceof Monster) {
                         mobList.add((LivingEntity) entity);
                     }
                 } else {
@@ -51,7 +55,8 @@ public class ConfusionEffect extends StatusEffect {
         }
 
         LivingEntity closestTarget =  pLivingEntity.world.getClosestEntity(mobList, TargetPredicate.DEFAULT, pLivingEntity, pLivingEntity.getX(), pLivingEntity.getY(), pLivingEntity.getZ());
-        pLivingEntity.setAttacker(closestTarget);
+        ((MobEntity) pLivingEntity).setTarget(closestTarget);
+
     }
 
 
@@ -70,8 +75,8 @@ public class ConfusionEffect extends StatusEffect {
     @Override
     public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
 
-        // If the amplifier is > 0, then non-boss undead mobs are PERMANENTLY DOMINATED.
-        if (amplifier > 0 && !(entity instanceof PlayerEntity) && !isBossMonster(entity) && entity.isUndead()) {
+        // If the amplifier is 2 (or more), then non-boss undead mobs are PERMANENTLY DOMINATED.
+        if (amplifier > 1 && !(entity instanceof PlayerEntity) && !isBossMonster(entity) && entity.isUndead()) {
             entity.addStatusEffect(new StatusEffectInstance(ModEffects.CONFUSION, 65791, 1,false,
                     true, false));
         }

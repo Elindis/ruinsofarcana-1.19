@@ -55,6 +55,17 @@ public class ModParticleUtil {
         }
     }
 
+    public static void doHealUndeadParticles(LivingEntity entity, ParticleType particleType, int intensity) {
+        for (int i = 0; i < intensity; i++) {
+            double x = entity.getPos().getX() + 0.0f;
+            double y = entity.getPos().getY() + 0.8f;
+            double z = entity.getPos().getZ() + 0.0f;
+            double deltaY = (entity.getWorld().random.nextDouble());
+            PlayerLookup.tracking(entity).forEach(player -> ((ServerWorld) entity.getWorld())
+                    .spawnParticles(player, (ParticleEffect) particleType, true, x, y, z, 1, 0, deltaY, 0, 0.04));
+        }
+    }
+
     public static void doFirestormParticles(LivingEntity entity, ParticleType particleType, int intensity) {
         for (int i = 0; i < intensity; i++) {
             double x = entity.getPos().getX() + (Random.create().nextFloat()*4)-2f;

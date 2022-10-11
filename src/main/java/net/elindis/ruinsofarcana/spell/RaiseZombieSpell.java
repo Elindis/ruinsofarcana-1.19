@@ -1,24 +1,25 @@
 package net.elindis.ruinsofarcana.spell;
 
 import net.elindis.ruinsofarcana.effect.ModEffects;
-import net.minecraft.block.Blocks;
+import net.elindis.ruinsofarcana.util.ModParticleUtil;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.random.Random;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class InfernoSpell extends Spell {
+public class RaiseZombieSpell extends Spell {
 
-	public static String getName() { return "Inferno"; }
+	public static String getName() { return "Raise Zombie"; }
 
 	@Override
 	public int getExpCost() {
@@ -27,7 +28,7 @@ public class InfernoSpell extends Spell {
 
 	@Override
 	public ParticleEffect getParticleType() {
-		return ParticleTypes.LAVA;
+		return ParticleTypes.SMOKE;
 	}
 
 	@Override
@@ -37,38 +38,34 @@ public class InfernoSpell extends Spell {
 
 	@Override
 	public float getReadyPercentage() {
-		return 0.9f;
+		return 0.75f;
 	}
 
 	@Override
 	public int getRange() {
-		return 32;
+		return 6;
 	}
 
 	@Override
 	public void spellEffect(LivingEntity user) {
+
 		World world = user.getWorld();
+		BlockHitResult hitResult = (BlockHitResult) user.raycast(getRange(), 1f, true);
+		ZombieEntity zombieEntity = new ZombieEntity(EntityType.ZOMBIE, world);
 
-		HitResult hitResult = user.raycast(getRange(), 1f, true);
+		// This allows the zombie to be under our control for THREE MINUTES.
+		zombieEntity.addStatusEffect(new StatusEffectInstance(ModEffects.CONFUSION, 3600, 1, false, true, false));
 
-		ArmorStandEntity firestormEntity = new ArmorStandEntity(world, hitResult.getPos().x, hitResult.getPos().y, hitResult.getPos().z);
+		BlockPos raycastPos = new BlockPos(hitResult.getPos());
+		BlockState raycastBlock = world.getBlockState(raycastPos);
 
-		firestormEntity.setInvisible(true);
-		firestormEntity.setInvulnerable(true);
-		firestormEntity.setNoGravity(true);
-		firestormEntity.setBoundingBox(new Box(0,0,0,0,0,0));
-		firestormEntity.addStatusEffect(new StatusEffectInstance(ModEffects.FIRESTORM,
-				600, 0, false, false, false));
+		// raycastPos.offset allows the zombie to avoid being spawned inside of walls most of the time.
+		Vec3d zombiePos = Vec3d.ofCenter(raycastBlock.getCollisionShape(world, raycastPos).isEmpty() ? raycastPos : raycastPos.offset(hitResult.getSide()));
 
-		BlockPos.iterateOutwards(firestormEntity.getBlockPos(), 2, 1, 2).forEach(blockPos1 -> {
-			if (Random.create().nextBetween(0,2) == 0) {
-				if (world.getBlockState(blockPos1.up()).isOf(Blocks.AIR) || world.getBlockState(blockPos1.up()).isOf(Blocks.SNOW)) {
-					world.setBlockState(blockPos1.up(), Blocks.FIRE.getDefaultState());
-				}
-			}
-		});
-
-		world.spawnEntity(firestormEntity);
+		zombieEntity.setPosition(zombiePos);
+		world.spawnEntity(zombieEntity);
+		ModParticleUtil.doLivingEntityParticles(zombieEntity, ParticleTypes.LARGE_SMOKE, 25);
+		ModParticleUtil.doLivingEntityParticles(zombieEntity, ParticleTypes.PORTAL, 20);
 	}
 
 	@Override
@@ -82,10 +79,10 @@ public class InfernoSpell extends Spell {
 	protected void playSuccessSound(World world, PlayerEntity playerEntity, float f) {
 		// Example
 		world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
-				SoundEvents.BLOCK_NOTE_BLOCK_CHIME, SoundCategory.PLAYERS, 0.8F, 1F /
+				SoundEvents.ENTITY_EVOKER_PREPARE_ATTACK, SoundCategory.PLAYERS, 0.8F, 1F /
 						(world.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
 		world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
-				SoundEvents.ENTITY_GHAST_SHOOT, SoundCategory.PLAYERS, 0.8F, 1F /
+				SoundEvents.ENTITY_ILLUSIONER_CAST_SPELL, SoundCategory.PLAYERS, 0.8F, 1F /
 						(world.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
 	}
 

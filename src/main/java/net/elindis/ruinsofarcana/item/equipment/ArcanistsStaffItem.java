@@ -1,7 +1,7 @@
 package net.elindis.ruinsofarcana.item.equipment;
 
 import net.elindis.ruinsofarcana.spell.Spell;
-import net.elindis.ruinsofarcana.util.SpellList;
+import net.elindis.ruinsofarcana.spell.SpellList;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
@@ -45,22 +45,21 @@ public class ArcanistsStaffItem extends WandItem {
 			if (((double)f > currentSpell.getReadyPercentage())) {
 
 				// The conditions for the spell to be castable. On spell success:
-					if (!isRaycaster()) {
+				if (!isRaycaster()) {
+					// Server-side effects.
+					if (!world.isClient) {
+						currentSpell.doSpellEffect(world, user, f);
+					}
+				}
+				if (isRaycaster()) {
+					float tickDelta = 1;
+
+					HitResult.Type raycastType = user.raycast(getRange(), tickDelta,true).getType();
+					if (!raycastType.equals(HitResult.Type.MISS)) {
 						// Server-side effects.
-						if (!world.isClient) {
-							currentSpell.doSpellEffect(world, user, f);
-						}
+						currentSpell.doSpellEffect(world, user, f);
 					}
-					if (isRaycaster()) {
-						float tickDelta = 1;
-
-						var raycastType = user.raycast(getRange(), tickDelta,true).getType();
-						if (!raycastType.equals(HitResult.Type.MISS)) {
-
-							// Server-side effects.
-							currentSpell.doSpellEffect(world, user, f);
-						}
-					}
+				}
 			}
 		}
 	}
@@ -130,12 +129,6 @@ public class ArcanistsStaffItem extends WandItem {
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
 		super.use(world, user, hand);
-		if (!world.isClient) {
-			ItemStack stack = user.getStackInHand(hand);
-			user.sendMessage(Text.of(SpellList.spellMap.toString()));
-			assert stack.getNbt() != null;
-			user.sendMessage(Text.of(stack.getNbt().toString()));
-		}
 		return TypedActionResult.consume(user.getStackInHand(hand));
 	}
 	@Override

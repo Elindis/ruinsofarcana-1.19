@@ -51,7 +51,7 @@ public class InscriptionItem extends Item {
 			// Should inscriptions be single-use? Hm.
 			int selectedSpell = user.getOffHandStack().getNbt().getInt("spell_selected");
 			if (!nbtList.getString(selectedSpell).equals(getInscriptionName())) {
-				user.sendMessage(Text.of("Changed "+nbtList.getString(selectedSpell)+" to: "+getInscriptionName()), true);
+				user.sendMessage(Text.of("Changed '"+nbtList.getString(selectedSpell)+"' to '"+getInscriptionName()+"'"), true);
 				nbtList.set(selectedSpell, NbtString.of(getInscriptionName()));
 //				user.getStackInHand(hand).decrement(1);
 			}
@@ -66,6 +66,7 @@ public class InscriptionItem extends Item {
 	}
 	@Override
 	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-		tooltip.add(Text.literal("Spell: "+getInscriptionName()).formatted(Formatting.AQUA));
+		tooltip.add(Text.literal("Use this inscription while holding your").formatted(Formatting.GRAY));
+		tooltip.add(Text.literal("staff to enchant it with a new spell.").formatted(Formatting.GRAY));
 	}
 }

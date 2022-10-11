@@ -26,7 +26,7 @@ public class ModEffects {
 
     public static StatusEffect registerStatusEffectConfusion(String name) {
         return Registry.register(Registry.STATUS_EFFECT, new Identifier(RuinsOfArcana.MOD_ID, name),
-                new ConfusionEffect(StatusEffectCategory.HARMFUL, 00000000));
+                new ConfusionEffect(StatusEffectCategory.HARMFUL, 4277574));
     }
     public static StatusEffect registerStatusEffectRepel(String name) {
         return Registry.register(Registry.STATUS_EFFECT, new Identifier(RuinsOfArcana.MOD_ID, name),
